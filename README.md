@@ -1,5 +1,5 @@
 # Introduction
-This repository contains various artifacts, such as source code, experimental results, and other materials, that supplement our work on **Automatic Generation of Interview Questions for Human Experts to Acquire Database Keys with Perfect Precision and Recall**.\
+This repository contains various artifacts, such as source code and other materials, that supplement our work on **Automatic Generation of Interview Questions for Human Experts to Acquire Database Keys with Perfect Precision and Recall**.\
 &nbsp;&nbsp;&nbsp;&nbsp; In the following sections, we describe how our experiments can be reproduced. 
 # Preliminaries: Getting ready for experiments
 >1. Software requirements
