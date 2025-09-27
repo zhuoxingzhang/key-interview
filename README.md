@@ -18,7 +18,7 @@ Visit the [website](https://7fe96651.r31.cpolar.top/) to interview for keys onli
 # How to run code from the command line
 1. Clone the project and navigate to the project directory:
    ```bash
-   cd your_project_directory
+   cd <your_project_directory>/src/exp
    ```
 2. Run separate code from the command line for experiments:
    
