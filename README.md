@@ -10,7 +10,7 @@ This repository contains various artifacts, such as source code, experimental re
 Visit the [website](https://7fe96651.r31.cpolar.top/) to interview for keys online. (If the link is not accessible, please report it by opening an issue.)
 # Deploy the demo on your PC
 ```bash
-   download the jar file in <kbd>Artifact/keyinterviewtool-0.0.1-SNAPSHOT.jar</kbd>
+   download the jar file in Artifact/keyinterviewtool-0.0.1-SNAPSHOT.jar
    cd to the directory of the jar file
    java -jar keyinterviewtool-0.0.1-SNAPSHOT.jar
    visit http://localhost:8080 to start the interview on your PC!
