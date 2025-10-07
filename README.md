@@ -7,7 +7,7 @@ This repository contains various artifacts, such as source code and other materi
 >2. FDs for datasets
 >> See directory <kbd>Artifact/FD/</kbd>.
 # Online demo
-Visit the [website](http://179316d5.r31.cpolar.top/) to interview for keys online! If the link is not accessible, please report an issue.
+Visit the [website](http://4e0152ef.r15.vip.cpolar.cn/) to interview for keys online! If the link is not accessible, please report an issue.
 # Deploy the demo on your PC
 ```bash
    download the jar file in Artifact/keyinterviewtool-0.0.1-SNAPSHOT.jar
