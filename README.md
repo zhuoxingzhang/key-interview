@@ -20,24 +20,22 @@ Visit the [website](http://6f970713.r15.vip.cpolar.cn/) to interview for keys on
    ```bash
    cd <your_project_directory>/src/exp
    ```
-2. Run separate code from the command line for experiments:
+2. Run separate code from the command line for experiments (after setting up parameters in main function):
    
    2.1 Experiments for RQ1
    ```bash
-   java SyntheticExp4KeyDist.java
+   java SyntheticLevelwiseKeyDist.java
+   java SyntheticRandomKeyDist.java
+   java SyntheticProbAnswering.java
    ```
-   2.2 Experiments for RQ2 and RQ3
+   2.2 Experiments for RQ2
    ```bash
-   java SyntheticExp.java
+   java SyntheticSp.java
    ```
-   2.3 Experiments for RQ4
+   2.3 Experiments for RQ3 - RQ6
    ```bash
-   java SyntheticExp4SpKey.java
-   ```
-   2.3 Experiments for RQ5
-   ```bash
-   java RealWorldExpLHS.java
-   java RealWorldExpHockey.java
+   java RWDataSets.java
+   java RWDesignedKeys.java
    ```
    
 
