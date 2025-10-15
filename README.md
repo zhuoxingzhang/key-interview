@@ -1,9 +1,8 @@
 # Introduction
 This repository contains various artifacts, such as source code and other materials, that supplement our work on **Automatic Generation of Interview Questions for Human Experts to Acquire Database Keys with Perfect Precision and Recall**.\
 &nbsp;&nbsp;&nbsp;&nbsp; In the following sections, we describe how our experiments can be reproduced. 
-# Preliminaries: Getting ready for experiments
->1. Software requirements
->>  Java with version 17; Java Springboot
+# Software requirements
+>  Java with version 17; Java Springboot
 # Online demo
 Visit the [website](http://2ee864d6.r15.vip.cpolar.cn/) to interview for keys online! If the link is not accessible, please report an issue.
 # Deploy the demo on your PC
