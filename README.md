@@ -4,8 +4,6 @@ This repository contains various artifacts, such as source code and other materi
 # Preliminaries: Getting ready for experiments
 >1. Software requirements
 >>  Java with version 17; Java Springboot
->2. FDs for datasets
->> See directory <kbd>Artifact/FD/</kbd>.
 # Online demo
 Visit the [website](http://2ee864d6.r15.vip.cpolar.cn/) to interview for keys online! If the link is not accessible, please report an issue.
 # Deploy the demo on your PC
