@@ -35,7 +35,7 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    ```
    2.3 Experiments for RQ4
 
-   &nbsp;&nbsp;&nbsp;&nbsp;This folder (**Artifact/comparison_to_mining**) contains the results of our interview process, which defines the ground truth, and the results from state-of-the-art key mining algorithms, &nbsp;&nbsp;&nbsp;&nbsp;together with their comparison in terms of precision, recall and F1 values compared to the ground truth.
+   This folder (**Artifact/comparison_to_mining**) contains the results of our interview process, which defines the ground truth, and the results from state-of-the-art key mining algorithms, together with their comparison in terms of precision, recall and F1 values compared to the ground truth.
    
    2.3.1 **mining-D0(exact)/**
    Contains the results from DataViadotto profiling for exact possible and certain keys (D0).
