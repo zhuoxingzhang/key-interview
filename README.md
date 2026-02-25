@@ -33,25 +33,25 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    java RWDataSets.java
    java RWDesignedKeys.java
    ```
-   2.4 Experiments for RQ4
+   2.3 Experiments for RQ4
 
    This folder (**Artifact/comparison_to_mining**) contains the results of our interview process, which defines
    the ground truth, and the results from state-of-the-art key mining
    algorithms, together with their comparison in terms of precision, recall
    and F1 values compared to the ground truth.
    
-   2.4.1 **mining-D0(exact)/**
+   2.3.1 **mining-D0(exact)/**
    Contains the results from DataViadotto profiling for exact possible and
    certain keys (D0).
    
-   2.4.2 **mining-DN/**
+   2.3.2 **mining-DN/**
    Contains the results from DataViadotto profiling for approximate
    possible and certain keys at dirtiness level DN (for N=1, 5, 10).
    
-   2.4.3 **ground_truth(interview_results)/**
+   2.3.3 **ground_truth(interview_results)/**
    Contains the ground truth, that is, the results of the interview process.
 
-   2.4.4 
+   2.3.4 
    ```bash
    interview_ground_truth.py
    ```
@@ -65,63 +65,6 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    Script for comparing the PRIMARY KEYs defined on the database schema
    against the ground truth, used as an additional baseline comparison.
 
-
-   # How to run code from the command line
-
-   ## 1. Clone the project and navigate to the project directory:
-   
-   ```bash
-   cd <your_project_directory>/src/exp
-   ```
-   
-   ## 2. Run separate code from the command line for experiments (after setting up parameters in main function):
-   
-   ### 2.1 Experiments for RQ1
-   
-   ```bash
-   java SyntheticLevelwiseKeyDist.java
-   java SyntheticRandomKeyDist.java
-   java SyntheticProbAnswering.java
-   ```
-   
-   ### 2.2 Experiments for RQ2
-   
-   ```bash
-   java RWDataSets.java
-   java RWDesignedKeys.java
-   ```
-   
-   ### 2.4 Experiments for RQ4
-   
-   This folder (**Artifact/comparison_to_mining**) contains the results of our interview process, which defines the ground truth, and the results from state-of-the-art key mining algorithms, together with their comparison in terms of precision, recall and F1 values compared to the ground truth.
-   
-   #### 2.4.1 **mining-D0(exact)/**
-   
-   Contains the results from DataViadotto profiling for exact possible and certain keys (D0).
-   
-   #### 2.4.2 **mining-DN/**
-   
-   Contains the results from DataViadotto profiling for approximate possible and certain keys at dirtiness level DN (for N=1, 5, 10).
-   
-   #### 2.4.3 **ground_truth(interview_results)/**
-   
-   Contains the ground truth, that is, the results of the interview process.
-   
-   #### 2.4.4
-   
-   ```bash
-   python interview_ground_truth.py
-   ```
-   
-   Script for comparing the key mining results against the ground truth in terms of precision, recall and F1 scores.
-   
-   #### 2.4.5
-   
-   ```bash
-   python interview_primary_keys.py
-   ```
-   
-   Script for comparing the PRIMARY KEYs defined on the database schema against the ground truth, used as an additional baseline comparison.
    
    
    
