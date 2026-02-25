@@ -35,31 +35,30 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    ```
    2.4 Experiments for RQ4
 
-   This folder (Artifact/comparison_to_mining) contains the results of our interview process, which defines
+   This folder (**Artifact/comparison_to_mining**) contains the results of our interview process, which defines
    the ground truth, and the results from state-of-the-art key mining
    algorithms, together with their comparison in terms of precision, recall
    and F1 values compared to the ground truth.
    
-   mining-D0(exact)/
-   
+   2.4.1 **mining-D0(exact)/**
    Contains the results from DataViadotto profiling for exact possible and
    certain keys (D0).
    
-   mining-DN/
-   
+   2.4.2 **mining-DN/**
    Contains the results from DataViadotto profiling for approximate
    possible and certain keys at dirtiness level DN (for N=1, 5, 10).
    
-   ground_truth(interview_results)/
-   
+   2.4.3 **ground_truth(interview_results)/**
    Contains the ground truth, that is, the results of the interview process.
 
+   2.4.4 
    ```bash
    interview_ground_truth.py
    ```
    Script for comparing the key mining results against the ground truth in
    terms of precision, recall and F1 scores.
 
+   2.4.5
    ```bash
    interview_primary_keys.py
    ```
