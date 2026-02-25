@@ -41,21 +41,28 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    and F1 values compared to the ground truth.
    
    mining-D0(exact)/
+   
    Contains the results from DataViadotto profiling for exact possible and
    certain keys (D0).
    
    mining-DN/
+   
    Contains the results from DataViadotto profiling for approximate
    possible and certain keys at dirtiness level DN (for N=1, 5, 10).
    
    ground_truth(interview_results)/
-   Contains the ground truth, that is, the results of the interview process.
    
+   Contains the ground truth, that is, the results of the interview process.
+
+   ```bash
    interview_ground_truth.py
+   ```
    Script for comparing the key mining results against the ground truth in
    terms of precision, recall and F1 scores.
-   
+
+   ```bash
    interview_primary_keys.py
+   ```
    Script for comparing the PRIMARY KEYs defined on the database schema
    against the ground truth, used as an additional baseline comparison.
    
