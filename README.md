@@ -18,26 +18,19 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    4. visit http://localhost:8080 to start the interview on your PC!
    
 
-   # How to run code from the command line
-
-1. Clone the project and navigate to the project directory:
-   ```bash
-   cd <your_project_directory>/src/exp
-   ```
-
-2. Run separate code from the command line for experiments (after setting up parameters in main function):
+   # How to reproduce the experiments
 
    1. Experiments for RQ1
       ```bash
-      java SyntheticLevelwiseKeyDist.java
-      java SyntheticRandomKeyDist.java
-      java SyntheticProbAnswering.java
+      src/exp/SyntheticLevelwiseKeyDist.java
+      src/exp/SyntheticRandomKeyDist.java
+      src/exp/SyntheticProbAnswering.java
       ```
 
    2. Experiments for RQ2
       ```bash
-      java RWDataSets.java
-      java RWDesignedKeys.java
+      src/exp/RWDataSets.java
+      src/exp/RWDesignedKeys.java
       ```
 
    3. Experiments for RQ4
