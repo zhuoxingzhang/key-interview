@@ -30,13 +30,36 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    ```
    2.2 Experiments for RQ2
    ```bash
-   java SyntheticSp.java
-   ```
-   2.3 Experiments for RQ3 - RQ6
-   ```bash
    java RWDataSets.java
    java RWDesignedKeys.java
    ```
+   2.4 Experiments for RQ4
+
+   This folder (Artifact/comparison_to_mining) contains the results of our interview process, which defines
+   the ground truth, and the results from state-of-the-art key mining
+   algorithms, together with their comparison in terms of precision, recall
+   and F1 values compared to the ground truth.
+   
+   mining-D0(exact)/
+   Contains the results from DataViadotto profiling for exact possible and
+   certain keys (D0).
+   
+   mining-DN/
+   Contains the results from DataViadotto profiling for approximate
+   possible and certain keys at dirtiness level DN (for N=1, 5, 10).
+   
+   ground_truth(interview_results)/
+   Contains the ground truth, that is, the results of the interview process.
+   
+   interview_ground_truth.py
+   Script for comparing the key mining results against the ground truth in
+   terms of precision, recall and F1 scores.
+   
+   interview_primary_keys.py
+   Script for comparing the PRIMARY KEYs defined on the database schema
+   against the ground truth, used as an additional baseline comparison.
+   
+   
    
 
    
