@@ -18,6 +18,8 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    java -jar keyinterviewtool-0.0.1-SNAPSHOT.jar
    ```
 
+   3. `java -jar keyinterviewtool-0.0.1-SNAPSHOT.jar`
+
    4. visit http://localhost:8080 to start the interview on your PC!
    
 # How to run code from the command line
@@ -51,12 +53,12 @@ Visit the [website](https://sapphire-qualify-million-leads.trycloudflare.com/) t
    2.3.3 **ground_truth(interview_results)/**
    Contains the ground truth, that is, the results of the interview process.
 
-   2.3.4 Script for comparing the key mining results against the ground truth in terms of precision, recall and F1 scores.
+   2.3.4 **interview_ground_truth.py** Script for comparing the key mining results against the ground truth in terms of precision, recall and F1 scores.
    ```bash
    interview_ground_truth.py
    ```
 
-   2.4.5 Script for comparing the PRIMARY KEYs defined on the database schema against the ground truth, used as an additional baseline comparison.
+   2.4.5 **interview_primary_keys.py** Script for comparing the PRIMARY KEYs defined on the database schema against the ground truth, used as an additional baseline comparison.
     ```bash
    interview_primary_keys.py
    ```
