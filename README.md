@@ -7,7 +7,7 @@ This repository contains various artifacts, such as source code and other materi
 > 2. Datasets with minimal keys
 >> see Artifact/Dataset.zip
 # Online demo
-Visit the [website](https://marvel-mumbai-process-bundle.trycloudflare.com/) to interview for keys online! If the link is not accessible, please report an issue.
+Visit the [website](https://cooler-streets-drawing-airline.trycloudflare.com/) to interview for keys online! If the link is not accessible, please report an issue.
 # Deploy the demo on your PC
    1. download the jar file in Artifact/keyinterviewtool-0.0.1-SNAPSHOT.jar
    
