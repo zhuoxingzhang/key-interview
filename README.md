@@ -14,8 +14,6 @@ In the following sections, we describe how our experiments can be reproduced.
 >> A high-performance server running Red Hat Enterprise Linux 8.10, equipped with two NVIDIA A100 GPUs (80 GB VRAM each), a 256-core CPU, and 1 TB of system memory. The two LLMs used are:
 >> - **DS**: DeepSeek-R1-Distill-Llama-70B
 >> - **Qwen**: Qwen3-30B-A3B-Thinking-2507
-> 4. Datasets
->> See `Artifact/Dataset.zip` for datasets with minimal keys (Hockey database and scalability datasets).
 
 # Online Demo
 
@@ -38,8 +36,8 @@ Visit the [website](https://rpm-everywhere-magical-ready.trycloudflare.com/) to 
 Evaluate how each traversal strategy (TD, TB, BD, BB) performs under different distributions of minimal keys using synthetic schemas.
 
 ```bash
-src/exp/SyntheticLevelwiseKeyDist.java
-src/exp/SyntheticRandomKeyDist.java
+<!-- src/exp/SyntheticLevelwiseKeyDist.java -->
+<!-- src/exp/SyntheticRandomKeyDist.java -->
 src/exp/SyntheticProbAnswering.java
 ```
 
@@ -79,8 +77,7 @@ Evaluate the quality and efficiency of LLM-based interviews on Hockey database t
 Results are reported in terms of exact and relaxed F1, Recall, and Precision under all four traversal strategies (TD, TB, BD, BB), as well as aggregation and frequency-based minimization (Mk).
 
 ```bash
-src/exp/LLMDirectInterview.py      # Direct LLM interviews (Table III in paper)
-src/exp/LLMPrimeAttrFiltering.py   # Prime-attribute filtering (Table IV in paper)
+LLM Oracle Python Script/Interview_with_LLM_Oracle.py      # Direct LLM interviews (Table III in paper), Prime-attribute filtering (Table IV in paper)
 ```
 
 The folder `Artifact/llm_hockey` contains the raw LLM interview outputs and evaluation scripts for this experiment.
@@ -107,7 +104,7 @@ Table V reports, for each dataset and model (DS / Qwen), the number of generated
 | ncvoter  | 19    | 2                            |
 
 ```bash
-src/exp/LLMScalability.py    # Scalability experiments (Table V in paper)
+LLM Oracle Python Script/Interview_with_LLM_Oracle_No_GT.py    # Scalability experiments (Table V in paper)
 ```
 
 The folder `Artifact/llm_scalability` contains the raw LLM interview outputs (question counts and runtimes) for all datasets, all |P| = 1, …, 5 budgets, and all four traversal strategies, across both models.
