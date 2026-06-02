@@ -77,12 +77,12 @@ The folder `Artifact/llm_hockey` contains the LLM interview outputs for this exp
 
 Evaluate how well prime-attribute filtering allows LLM-based interviews to scale to larger real-world datasets where the original interview process would be prohibitively expensive and no ground truth is available.
 
-Table V reports, for each dataset and model (DS / Qwen), the number of generated interview questions (#Q) and runtime (minutes) for **all predicted prime-attribute budgets |P| = 1, …, 5** under each of the four traversal strategies (TD, TB, BD, BB). Since no ground truth is available for these tables, precision and recall are not reported. The **orange-highlighted row** in each model block marks the value of |P| actually predicted by the LLM — i.e., the operating point used in practice. The LLM-predicted |P| values are summarised below (DS and Qwen agree for all datasets; routes predicted |P| = 6 exceeds the reported budget and is therefore highlighted at |P| = 5):
+Table V reports, for each dataset and model (DS / Qwen), the number of generated interview questions (#Q) and runtime (minutes) for **all predicted prime-attribute budgets |P| = 1, …, 5** under each of the four traversal strategies (TD, TB, BD, BB). Since no ground truth is available for these tables, precision and recall are not reported. The **orange-highlighted row** in each model block marks the value of |P| actually predicted by the LLM — i.e., the operating point used in practice. The LLM-predicted |P| values are summarised below (DS and Qwen agree for all datasets):
 
 | Dataset  | \|T\| | Predicted \|P\| (DS & Qwen) |
 |----------|-------|------------------------------|
 | abalone  | 9     | 1                            |
-| routes   | 9     | 6 (highlighted at \|P\|=5)   |
+| routes   | 9     | 5
 | breast   | 11    | 1                            |
 | bridges  | 13    | 1                            |
 | echo     | 13    | 1                            |
