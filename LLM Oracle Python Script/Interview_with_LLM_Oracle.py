@@ -1345,7 +1345,6 @@ def compute_topk_freq_minimal_keys(keys_frequency_dict):
         current_keys |= freq_groups[freq]
         minimal_keys = Interview.refineToMinimalKeys(current_keys)
 
-        # 转成 frozenset 用于去重
         model_signature = frozenset(minimal_keys)
 
         if model_signature not in seen_models:
