@@ -41,14 +41,7 @@ src/exp/SyntheticProbAnswering.java
 
 ## RQ2 — Comparison to Key Mining (Hockey Database)
 
-Quantify how much key interviews improve precision and recall over state-of-the-art key mining (DataViadotto) and the original schema definition, using the ground truth established from key interviews on all 22 tables of the Hockey database.
-
-```bash
-src/exp/RWDataSets.java
-src/exp/RWDesignedKeys.java
-```
-
-The folder `Artifact/comparison_to_mining` contains the full results of this comparison:
+Quantify how much key interviews improve precision and recall over state-of-the-art key mining (DataViadotto) and the original schema definition, using the ground truth established from key interviews on all 22 tables of the Hockey database. The folder `Artifact/comparison_to_mining` contains the full results of this comparison:
 
 1. **`mining-D0(exact)/`**  
    DataViadotto profiling results for exact possible and certain keys (dirtiness D0).
