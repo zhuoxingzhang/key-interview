@@ -36,8 +36,6 @@ Visit the [website](https://rpm-everywhere-magical-ready.trycloudflare.com/) to 
 Evaluate how each traversal strategy (TD, TB, BD, BB) performs under different distributions of minimal keys using synthetic schemas.
 
 ```bash
-<!-- src/exp/SyntheticLevelwiseKeyDist.java -->
-<!-- src/exp/SyntheticRandomKeyDist.java -->
 src/exp/SyntheticProbAnswering.java
 ```
 
