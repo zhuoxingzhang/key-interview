@@ -1,0 +1,175 @@
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['voter_id']
+Reduced schema after prime pruning: ['voter_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.6477
+Mined minimal keys: {Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.6477
+Mined minimal keys: {Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.3007
+Mined minimal keys: {Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.3041
+Mined minimal keys: {Key(['voter_id'])}
+==========================
+
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['voter_id', 'voter_reg_num']
+Reduced schema after prime pruning: ['voter_id', 'voter_reg_num']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 5.2692
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 4.2894
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 3.7596
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 3.7784
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['county_id', 'voter_id', 'voter_reg_num']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 5, 6.4723
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 7, 11.0445
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 3.8491
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 3.8378
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['voter_id', 'res_state', 'county_id', 'voter_reg_num']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num', 'res_state']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 10.3195
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 13, 27.4873
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 5, 5.3881
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 6, 6.7794
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['voter_id', 'voter_reg_num', 'county_id', 'res_zip_code', 'mail_zip_code']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num', 'res_zip_code', 'mail_zip_code']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 7, 10.4475
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 25, 41.6870
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 10, 16.2660
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 10, 11.6201
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+

@@ -1,0 +1,175 @@
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['rings']
+Reduced schema after prime pruning: ['rings']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.5185
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.5205
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.9258
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.9295
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['sex', 'rings']
+Reduced schema after prime pruning: ['sex', 'rings']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 3.5579
+Mined minimal keys: {Key(['rings', 'sex'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 3.5614
+Mined minimal keys: {Key(['rings', 'sex'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 5.2822
+Mined minimal keys: {Key(['rings', 'sex'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 5.2863
+Mined minimal keys: {Key(['rings', 'sex'])}
+==========================
+
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['length', 'diameter', 'height']
+Reduced schema after prime pruning: ['length', 'diameter', 'height']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 4.9823
+Mined minimal keys: {Key(['diameter', 'height', 'length'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 4.9910
+Mined minimal keys: {Key(['diameter', 'height', 'length'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 5.9460
+Mined minimal keys: {Key(['diameter', 'height', 'length'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 8, 7.6105
+Mined minimal keys: {Key(['diameter', 'height', 'length'])}
+==========================
+
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['length', 'diameter', 'height', 'whole_weight']
+Reduced schema after prime pruning: ['length', 'diameter', 'height', 'whole_weight']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 5, 8.5071
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'whole_weight'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 8.4377
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'whole_weight'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 8, 9.8355
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'whole_weight'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 16, 16.3456
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'whole_weight'])}
+==========================
+
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['length', 'diameter', 'height', 'whole_weight', 'shucked_weight']
+Reduced schema after prime pruning: ['length', 'diameter', 'height', 'whole_weight', 'shucked_weight']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 7.3508
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'shucked_weight', 'whole_weight'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 6, 7.3566
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'shucked_weight', 'whole_weight'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 10, 10.8452
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'shucked_weight', 'whole_weight'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 32, 38.9026
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'shucked_weight', 'whole_weight'])}
+==========================
+

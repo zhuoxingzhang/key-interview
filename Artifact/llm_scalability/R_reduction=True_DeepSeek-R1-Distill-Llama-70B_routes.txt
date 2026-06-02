@@ -1,0 +1,175 @@
+####################
+Schema Name: routes | Schema: ['airline', 'airline_id', 'source_airport', 'source_airport_id', 'destination_airport', 'destination_airport_id', 'codeshare', 'stops', 'equipment'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['airline_id', 'source_airport_id', 'destination_airport_id']
+Reduced schema after prime pruning: ['airline_id', 'source_airport_id', 'destination_airport_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 2.3956
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 2.3956
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 3.9101
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 8, 5.5126
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+####################
+Schema Name: routes | Schema: ['airline', 'airline_id', 'source_airport', 'source_airport_id', 'destination_airport', 'destination_airport_id', 'codeshare', 'stops', 'equipment'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['source_airport_id', 'destination_airport_id']
+Reduced schema after prime pruning: ['source_airport_id', 'destination_airport_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.1590
+Mined minimal keys: {Key(['destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.1591
+Mined minimal keys: {Key(['destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.9373
+Mined minimal keys: {Key(['destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 2.9376
+Mined minimal keys: {Key(['destination_airport_id', 'source_airport_id'])}
+==========================
+
+####################
+Schema Name: routes | Schema: ['airline', 'airline_id', 'source_airport', 'source_airport_id', 'destination_airport', 'destination_airport_id', 'codeshare', 'stops', 'equipment'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['airline_id', 'source_airport_id', 'destination_airport_id']
+Reduced schema after prime pruning: ['airline_id', 'source_airport_id', 'destination_airport_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 2.3959
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 2.3955
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 3.9103
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 8, 5.5124
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+####################
+Schema Name: routes | Schema: ['airline', 'airline_id', 'source_airport', 'source_airport_id', 'destination_airport', 'destination_airport_id', 'codeshare', 'stops', 'equipment'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['airline_id', 'source_airport_id', 'destination_airport_id', 'equipment']
+Reduced schema after prime pruning: ['airline_id', 'source_airport_id', 'destination_airport_id', 'equipment']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 8, 7.5386
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 4.5137
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 8, 6.9482
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 15, 13.9165
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+####################
+Schema Name: routes | Schema: ['airline', 'airline_id', 'source_airport', 'source_airport_id', 'destination_airport', 'destination_airport_id', 'codeshare', 'stops', 'equipment'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['airline_id', 'source_airport_id', 'destination_airport_id', 'airline', 'source_airport']
+Reduced schema after prime pruning: ['airline', 'airline_id', 'source_airport', 'source_airport_id', 'destination_airport_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 19, 26.1720
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id']), Key(['airline', 'destination_airport_id', 'source_airport']), Key(['airline', 'airline_id', 'source_airport', 'source_airport_id']), Key(['airline', 'destination_airport_id', 'source_airport_id']), Key(['airline_id', 'destination_airport_id', 'source_airport'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 16, 22.0223
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id']), Key(['airline', 'destination_airport_id', 'source_airport']), Key(['airline', 'airline_id', 'source_airport', 'source_airport_id']), Key(['airline', 'destination_airport_id', 'source_airport_id']), Key(['airline_id', 'destination_airport_id', 'source_airport'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 18, 24.1427
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id']), Key(['airline', 'destination_airport_id', 'source_airport']), Key(['airline', 'airline_id', 'source_airport', 'source_airport_id']), Key(['airline', 'destination_airport_id', 'source_airport_id']), Key(['airline_id', 'destination_airport_id', 'source_airport'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 27, 34.4146
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id']), Key(['airline', 'destination_airport_id', 'source_airport']), Key(['airline', 'airline_id', 'source_airport', 'source_airport_id']), Key(['airline', 'destination_airport_id', 'source_airport_id']), Key(['airline_id', 'destination_airport_id', 'source_airport'])}
+==========================
+

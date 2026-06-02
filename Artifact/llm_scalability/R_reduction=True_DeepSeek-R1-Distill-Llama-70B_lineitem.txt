@@ -1,0 +1,175 @@
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber']
+Reduced schema after prime pruning: ['l_orderkey', 'l_linenumber']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.1035
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.1042
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.9520
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 2.7704
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber']
+Reduced schema after prime pruning: ['l_orderkey', 'l_linenumber']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.1039
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.1040
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.9517
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 2.7711
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_linenumber']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 5.4817
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 3.5271
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 6.3094
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 7, 6.9418
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey', 'l_suppkey']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 11, 11.6079
+Mined minimal keys: {Key(['l_orderkey', 'l_partkey']), Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 6, 6.1231
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 9, 10.5601
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 12, 12.9062
+Mined minimal keys: {Key(['l_orderkey', 'l_partkey']), Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey', 'l_suppkey', 'l_shipmode']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_shipmode']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 20, 22.0126
+Mined minimal keys: {Key(['l_orderkey', 'l_partkey']), Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 10, 12.2732
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 14, 16.7785
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 22, 22.6892
+Mined minimal keys: {Key(['l_orderkey', 'l_partkey']), Key(['l_linenumber', 'l_orderkey'])}
+==========================
+

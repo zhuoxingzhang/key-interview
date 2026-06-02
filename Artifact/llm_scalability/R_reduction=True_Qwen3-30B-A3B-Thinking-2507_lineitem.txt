@@ -1,0 +1,175 @@
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['l_orderkey']
+Reduced schema after prime pruning: ['l_orderkey']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 1.0125
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 1.0125
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 2.3034
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 2.3191
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber']
+Reduced schema after prime pruning: ['l_orderkey', 'l_linenumber']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 3.9437
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 3.9364
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 4.8279
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 4.8222
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_linenumber']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 5, 6.8007
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 5.3747
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 8.4516
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 7, 9.6513
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey', 'l_suppkey']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 10, 14.6331
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 6, 9.5096
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 9, 12.5543
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 13, 16.7367
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Schema: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_quantity', 'l_extendedprice', 'l_discount', 'l_tax', 'l_returnflag', 'l_linestatus', 'l_shipdate', 'l_commitdate', 'l_receiptdate', 'l_shipinstruct', 'l_shipmode', 'l_comment'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey', 'l_suppkey', 'l_shipmode']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_shipmode']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 8.8997
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 10, 14.7767
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 7, 8.0082
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 25, 34.7988
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+

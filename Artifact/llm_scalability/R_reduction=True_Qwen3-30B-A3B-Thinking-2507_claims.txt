@@ -1,0 +1,175 @@
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['claim_id']
+Reduced schema after prime pruning: ['claim_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.9611
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.9616
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.8595
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.8592
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['claim_id', 'member_id']
+Reduced schema after prime pruning: ['claim_id', 'member_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 4.2354
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 4.2316
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 2.8444
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 2.8548
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['claim_id', 'member_id', 'procedure_code']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'procedure_code']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 5.1288
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 7.5083
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.7284
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 5, 3.3408
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['claim_id', 'member_id', 'service_date', 'procedure_code']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'procedure_code', 'service_date']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 9.6342
+Mined minimal keys: {Key(['claim_id', 'member_id']), Key(['claim_id', 'service_date'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 8, 12.4098
+Mined minimal keys: {Key(['claim_id', 'member_id']), Key(['claim_id', 'service_date'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 5, 4.0320
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 9, 6.8986
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['claim_id', 'member_id', 'provider_id', 'service_date', 'procedure_code']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'provider_id', 'procedure_code', 'service_date']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 18, 19.3700
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 17, 23.3227
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 14, 17.0900
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 17, 15.9070
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+

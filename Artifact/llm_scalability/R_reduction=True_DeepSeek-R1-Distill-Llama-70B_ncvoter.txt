@@ -1,0 +1,175 @@
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['voter_id', 'voter_reg_num']
+Reduced schema after prime pruning: ['voter_id', 'voter_reg_num']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 3.0528
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.3085
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 2.1699
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 2.1705
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['voter_id', 'voter_reg_num']
+Reduced schema after prime pruning: ['voter_id', 'voter_reg_num']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 3.0528
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.3065
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 2.1705
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 2.1706
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['voter_id', 'voter_reg_num', 'county_id']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 5, 3.4730
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 7, 5.0496
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.6668
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 2.6672
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['voter_id', 'voter_reg_num', 'county_id', 'res_street_address']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num', 'res_street_address']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 8, 6.3418
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num']), Key(['county_id', 'res_street_address'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 15, 12.0416
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num']), Key(['county_id', 'res_street_address'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 4.5847
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num']), Key(['county_id', 'res_street_address'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 6, 4.5840
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num']), Key(['county_id', 'res_street_address'])}
+==========================
+
+####################
+Schema Name: ncvoter | Schema: ['voter_id', 'county_id', 'county_desc', 'voter_reg_num', 'status_cd', 'voter_status_desc', 'reason_cd', 'voter_status_reason_desc', 'res_street_address', 'res_city', 'res_state', 'res_zip_code', 'mail_addr1', 'mail_city', 'mail_state', 'mail_zip_code', 'sex_code', 'race_code', 'ethnic_code'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['voter_id', 'voter_reg_num', 'county_id', 'res_street_address', 'mail_addr1']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num', 'res_street_address', 'mail_addr1']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 8, 6.3983
+Mined minimal keys: {Key(['voter_id']), Key(['mail_addr1', 'voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 14, 11.4394
+Mined minimal keys: {Key(['mail_addr1', 'voter_id']), Key(['mail_addr1', 'voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 10, 9.5902
+Mined minimal keys: {Key(['voter_id']), Key(['mail_addr1', 'voter_reg_num'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 10, 8.2897
+Mined minimal keys: {Key(['voter_id']), Key(['voter_reg_num'])}
+==========================
+

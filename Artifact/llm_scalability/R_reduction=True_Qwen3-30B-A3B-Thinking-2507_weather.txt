@@ -1,0 +1,175 @@
+####################
+Schema Name: weather | Schema: ['station_id', 'date', 'time', 'latitude', 'longitude', 'elevation', 'temperature', 'dew_point', 'humidity', 'pressure', 'wind_direction', 'wind_speed', 'visibility', 'precipitation', 'snow_depth', 'cloud_cover', 'weather_condition', 'quality_flag'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['station_id']
+Reduced schema after prime pruning: ['station_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.9132
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.9143
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.8744
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.8739
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: weather | Schema: ['station_id', 'date', 'time', 'latitude', 'longitude', 'elevation', 'temperature', 'dew_point', 'humidity', 'pressure', 'wind_direction', 'wind_speed', 'visibility', 'precipitation', 'snow_depth', 'cloud_cover', 'weather_condition', 'quality_flag'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['station_id', 'time']
+Reduced schema after prime pruning: ['station_id', 'time']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 2.7506
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 2.7435
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 5.9358
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 7.7119
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: weather | Schema: ['station_id', 'date', 'time', 'latitude', 'longitude', 'elevation', 'temperature', 'dew_point', 'humidity', 'pressure', 'wind_direction', 'wind_speed', 'visibility', 'precipitation', 'snow_depth', 'cloud_cover', 'weather_condition', 'quality_flag'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['station_id', 'date', 'time']
+Reduced schema after prime pruning: ['station_id', 'date', 'time']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 5.7414
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 5.7510
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 8.1116
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 8, 10.7875
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+####################
+Schema Name: weather | Schema: ['station_id', 'date', 'time', 'latitude', 'longitude', 'elevation', 'temperature', 'dew_point', 'humidity', 'pressure', 'wind_direction', 'wind_speed', 'visibility', 'precipitation', 'snow_depth', 'cloud_cover', 'weather_condition', 'quality_flag'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['station_id', 'date', 'time', 'latitude']
+Reduced schema after prime pruning: ['station_id', 'date', 'time', 'latitude']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 7.3813
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 6.2332
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 8, 9.5228
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 15, 18.6018
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+####################
+Schema Name: weather | Schema: ['station_id', 'date', 'time', 'latitude', 'longitude', 'elevation', 'temperature', 'dew_point', 'humidity', 'pressure', 'wind_direction', 'wind_speed', 'visibility', 'precipitation', 'snow_depth', 'cloud_cover', 'weather_condition', 'quality_flag'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['station_id', 'date', 'time', 'latitude', 'longitude']
+Reduced schema after prime pruning: ['station_id', 'date', 'time', 'latitude', 'longitude']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 15, 25.0881
+Mined minimal keys: {Key(['date', 'station_id', 'time']), Key(['date', 'latitude', 'longitude', 'time'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 9, 15.0746
+Mined minimal keys: {Key(['date', 'station_id', 'time']), Key(['date', 'latitude', 'longitude', 'time'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 13, 20.1041
+Mined minimal keys: {Key(['date', 'station_id', 'time']), Key(['date', 'latitude', 'longitude', 'time'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 29, 46.2721
+Mined minimal keys: {Key(['date', 'station_id', 'time']), Key(['date', 'latitude', 'longitude', 'time'])}
+==========================
+

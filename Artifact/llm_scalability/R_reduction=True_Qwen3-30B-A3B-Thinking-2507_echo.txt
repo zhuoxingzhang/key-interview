@@ -1,0 +1,175 @@
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['name']
+Reduced schema after prime pruning: ['name']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 1.0133
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 1.0195
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 2.3703
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 2.3649
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['name', 'group']
+Reduced schema after prime pruning: ['name', 'group']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 3.2358
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 3.2376
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 4.2242
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 4.2141
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['name', 'group', 'alive_at_1']
+Reduced schema after prime pruning: ['name', 'group', 'alive_at_1']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 6.0949
+Mined minimal keys: {Key(['alive_at_1', 'group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 6.0861
+Mined minimal keys: {Key(['alive_at_1', 'group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 8.0123
+Mined minimal keys: {Key(['alive_at_1', 'group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 8, 9.8868
+Mined minimal keys: {Key(['alive_at_1', 'group', 'name'])}
+==========================
+
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['name', 'group', 'alive_at_1', 'still_alive']
+Reduced schema after prime pruning: ['still_alive', 'name', 'group', 'alive_at_1']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 1.9052
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 1.8981
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 5, 8.8902
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 16, 26.0834
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['name', 'group', 'age_at_heart_attack', 'survival', 'alive_at_1']
+Reduced schema after prime pruning: ['survival', 'age_at_heart_attack', 'name', 'group', 'alive_at_1']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 11.0693
+Mined minimal keys: {Key(['age_at_heart_attack', 'group', 'name', 'survival'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 6, 11.0421
+Mined minimal keys: {Key(['age_at_heart_attack', 'group', 'name', 'survival'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 9, 15.8015
+Mined minimal keys: {Key(['age_at_heart_attack', 'group', 'name', 'survival'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 29, 50.7294
+Mined minimal keys: {Key(['age_at_heart_attack', 'alive_at_1', 'name']), Key(['age_at_heart_attack', 'group', 'name', 'survival'])}
+==========================
+

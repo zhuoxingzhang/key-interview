@@ -1,0 +1,175 @@
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['fnlwgt']
+Reduced schema after prime pruning: ['fnlwgt']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.8585
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.8582
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.4857
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.4858
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['fnlwgt', 'age']
+Reduced schema after prime pruning: ['age', 'fnlwgt']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.5511
+Mined minimal keys: {Key(['age', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.5505
+Mined minimal keys: {Key(['age', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.9887
+Mined minimal keys: {Key(['age', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 2.9889
+Mined minimal keys: {Key(['age', 'fnlwgt'])}
+==========================
+
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['fnlwgt', 'education_num', 'native_country']
+Reduced schema after prime pruning: ['fnlwgt', 'education_num', 'native_country']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 3.3078
+Mined minimal keys: {Key(['education_num', 'fnlwgt', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 3.3080
+Mined minimal keys: {Key(['education_num', 'fnlwgt', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 4.6713
+Mined minimal keys: {Key(['education_num', 'fnlwgt', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 8, 5.8574
+Mined minimal keys: {Key(['education_num', 'fnlwgt', 'native_country'])}
+==========================
+
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['fnlwgt', 'education_num', 'capital_gain', 'capital_loss']
+Reduced schema after prime pruning: ['fnlwgt', 'education_num', 'capital_gain', 'capital_loss']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 5, 4.2421
+Mined minimal keys: {Key(['capital_gain', 'capital_loss', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 4.2420
+Mined minimal keys: {Key(['capital_gain', 'capital_loss', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 7, 5.9307
+Mined minimal keys: {Key(['capital_loss', 'fnlwgt']), Key(['capital_gain', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 12, 10.2743
+Mined minimal keys: {Key(['capital_loss', 'fnlwgt']), Key(['capital_gain', 'fnlwgt'])}
+==========================
+
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['fnlwgt', 'education_num', 'capital_gain', 'capital_loss/native_country']
+Reduced schema after prime pruning: ['fnlwgt', 'education_num', 'capital_gain']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 3.3531
+Mined minimal keys: {Key(['capital_gain', 'education_num', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 3.3528
+Mined minimal keys: {Key(['capital_gain', 'education_num', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 3.1934
+Mined minimal keys: {Key(['fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 5, 4.0403
+Mined minimal keys: {Key(['fnlwgt'])}
+==========================
+

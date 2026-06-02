@@ -1,0 +1,175 @@
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['provider_number']
+Reduced schema after prime pruning: ['provider_number']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.5761
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.5762
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 2.2649
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 2.2635
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['provider_number', 'zip_code']
+Reduced schema after prime pruning: ['provider_number', 'zip_code']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 2.3928
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 1.6891
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.3911
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 1.8237
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['provider_number', 'address', 'zip_code']
+Reduced schema after prime pruning: ['provider_number', 'address', 'zip_code']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 7, 8.3910
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 6.2533
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 7, 8.6596
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 5, 6.0717
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['provider_number', 'address', 'city', 'zip_code']
+Reduced schema after prime pruning: ['provider_number', 'address', 'city', 'zip_code']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 12, 14.8023
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 9, 12.1215
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 12, 16.6989
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 9, 11.6486
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['provider_number', 'address', 'city', 'state', 'zip_code']
+Reduced schema after prime pruning: ['provider_number', 'address', 'city', 'state', 'zip_code']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 21, 36.2128
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 17, 27.4929
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 14, 22.8197
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 17, 25.8976
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+

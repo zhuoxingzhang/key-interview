@@ -1,0 +1,175 @@
+####################
+Schema Name: bridges | Schema: ['identif', 'river', 'location', 'erected', 'purpose', 'length', 'lanes', 'clear_g', 't_or_d', 'material', 'span', 'rel_l', 'type'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['identif']
+Reduced schema after prime pruning: ['identif']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.7836
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.7838
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.7234
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.7233
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+####################
+Schema Name: bridges | Schema: ['identif', 'river', 'location', 'erected', 'purpose', 'length', 'lanes', 'clear_g', 't_or_d', 'material', 'span', 'rel_l', 'type'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['identif', 'river']
+Reduced schema after prime pruning: ['identif', 'river']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.7615
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.7616
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 2.4553
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 2.4549
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+####################
+Schema Name: bridges | Schema: ['identif', 'river', 'location', 'erected', 'purpose', 'length', 'lanes', 'clear_g', 't_or_d', 'material', 'span', 'rel_l', 'type'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['identif', 'location', 'river']
+Reduced schema after prime pruning: ['identif', 'river', 'location']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 5.1654
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 4.4277
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 5.1299
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 5, 4.1388
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+####################
+Schema Name: bridges | Schema: ['identif', 'river', 'location', 'erected', 'purpose', 'length', 'lanes', 'clear_g', 't_or_d', 'material', 'span', 'rel_l', 'type'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['identif', 'location', 'river', 'type']
+Reduced schema after prime pruning: ['identif', 'river', 'location', 'type']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 10, 7.8382
+Mined minimal keys: {Key(['location', 'river']), Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 12, 9.1481
+Mined minimal keys: {Key(['location', 'river']), Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 10, 8.2110
+Mined minimal keys: {Key(['location', 'river']), Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 8, 6.3424
+Mined minimal keys: {Key(['location', 'river']), Key(['identif'])}
+==========================
+
+####################
+Schema Name: bridges | Schema: ['identif', 'river', 'location', 'erected', 'purpose', 'length', 'lanes', 'clear_g', 't_or_d', 'material', 'span', 'rel_l', 'type'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['identif', 'river', 'location', 'erected', 'type']
+Reduced schema after prime pruning: ['identif', 'river', 'location', 'erected', 'type']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 13, 9.5704
+Mined minimal keys: {Key(['location']), Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 17, 13.0692
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 4.5485
+Mined minimal keys: {Key(['location']), Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 10, 7.0377
+Mined minimal keys: {Key(['location']), Key(['identif'])}
+==========================
+

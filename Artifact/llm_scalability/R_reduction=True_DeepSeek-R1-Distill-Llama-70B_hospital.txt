@@ -1,0 +1,175 @@
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['provider_number']
+Reduced schema after prime pruning: ['provider_number']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.9257
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.9256
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.3739
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.3738
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['provider_number', 'hospital_name']
+Reduced schema after prime pruning: ['provider_number', 'hospital_name']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 3.2980
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.7840
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 3.2978
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 2.4719
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['provider_number', 'address', 'hospital_name']
+Reduced schema after prime pruning: ['provider_number', 'hospital_name', 'address']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 4.3733
+Mined minimal keys: {Key(['provider_number']), Key(['hospital_name'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 4.5656
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 5, 3.6691
+Mined minimal keys: {Key(['hospital_name']), Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 2.6569
+Mined minimal keys: {Key(['hospital_name']), Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['provider_number', 'phone_number', 'address', 'hospital_name']
+Reduced schema after prime pruning: ['provider_number', 'hospital_name', 'address', 'phone_number']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 8, 6.8188
+Mined minimal keys: {Key(['provider_number']), Key(['phone_number']), Key(['address'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 13, 11.6702
+Mined minimal keys: {Key(['provider_number']), Key(['address'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 10, 9.1344
+Mined minimal keys: {Key(['provider_number']), Key(['address'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 5, 4.0990
+Mined minimal keys: {Key(['provider_number']), Key(['phone_number']), Key(['address'])}
+==========================
+
+####################
+Schema Name: hospital | Schema: ['provider_number', 'hospital_name', 'address', 'city', 'state', 'zip_code', 'county_name', 'phone_number', 'hospital_type', 'hospital_ownership', 'emergency_service'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['provider_number', 'hospital_name', 'address', 'phone_number', 'zip_code']
+Reduced schema after prime pruning: ['provider_number', 'hospital_name', 'address', 'zip_code', 'phone_number']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 16, 15.7965
+Mined minimal keys: {Key(['hospital_name', 'zip_code']), Key(['address', 'hospital_name']), Key(['hospital_name', 'phone_number']), Key(['phone_number', 'zip_code']), Key(['provider_number']), Key(['address', 'phone_number']), Key(['address', 'zip_code'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 31, 29.0322
+Mined minimal keys: {Key(['hospital_name', 'zip_code']), Key(['address', 'hospital_name']), Key(['hospital_name', 'phone_number']), Key(['phone_number', 'zip_code']), Key(['provider_number']), Key(['address', 'phone_number']), Key(['address', 'zip_code'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 15, 14.5579
+Mined minimal keys: {Key(['hospital_name', 'zip_code']), Key(['address', 'hospital_name']), Key(['hospital_name', 'phone_number']), Key(['phone_number', 'zip_code']), Key(['provider_number']), Key(['address', 'phone_number']), Key(['address', 'zip_code'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 12, 12.1850
+Mined minimal keys: {Key(['hospital_name', 'zip_code']), Key(['address', 'hospital_name']), Key(['hospital_name', 'phone_number']), Key(['phone_number', 'zip_code']), Key(['provider_number']), Key(['address', 'phone_number']), Key(['address', 'zip_code'])}
+==========================
+

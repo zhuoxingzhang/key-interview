@@ -1,0 +1,175 @@
+####################
+Schema Name: breast | Schema: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion', 'single_epithelial_cell_size', 'bare_nuclei', 'bland_chromatin', 'normal_nucleoli', 'mitoses', 'class'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['sample_code_number']
+Reduced schema after prime pruning: ['sample_code_number']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 1.3535
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 1.3537
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 2.0957
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 2.0950
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+####################
+Schema Name: breast | Schema: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion', 'single_epithelial_cell_size', 'bare_nuclei', 'bland_chromatin', 'normal_nucleoli', 'mitoses', 'class'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['sample_code_number', 'class']
+Reduced schema after prime pruning: ['sample_code_number', 'class']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.5510
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.5509
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 2.2481
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 2.2452
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+####################
+Schema Name: breast | Schema: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion', 'single_epithelial_cell_size', 'bare_nuclei', 'bland_chromatin', 'normal_nucleoli', 'mitoses', 'class'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['sample_code_number', 'bare_nuclei', 'mitoses']
+Reduced schema after prime pruning: ['sample_code_number', 'bare_nuclei', 'mitoses']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 5.0989
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 4.4005
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 5.3724
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 5, 4.1233
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+####################
+Schema Name: breast | Schema: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion', 'single_epithelial_cell_size', 'bare_nuclei', 'bland_chromatin', 'normal_nucleoli', 'mitoses', 'class'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape']
+Reduced schema after prime pruning: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 12, 9.5160
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 9, 6.8249
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 8, 6.3576
+Mined minimal keys: {Key(['sample_code_number', 'uniformity_of_cell_shape'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 9, 7.1846
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+####################
+Schema Name: breast | Schema: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion', 'single_epithelial_cell_size', 'bare_nuclei', 'bland_chromatin', 'normal_nucleoli', 'mitoses', 'class'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion']
+Reduced schema after prime pruning: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 4.5175
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 17, 13.0057
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 4.5734
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 17, 13.9181
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+

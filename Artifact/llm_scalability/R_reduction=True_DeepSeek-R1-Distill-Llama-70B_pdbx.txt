@@ -1,0 +1,175 @@
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.3024
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.3025
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 3.3346
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 3.3322
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.3022
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.3022
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 3.3320
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 3.3320
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id', 'taxonomy_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'taxonomy_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 5.7525
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 3.8433
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 5.4532
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 7, 6.8644
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id', 'molecule_name', 'taxonomy_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'molecule_name', 'taxonomy_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 9, 10.3385
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 6, 6.1950
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 8, 7.9591
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 11, 11.5663
+Mined minimal keys: {Key(['molecule_name', 'taxonomy_id']), Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id', 'molecule_name', 'structure_title', 'taxonomy_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'molecule_name', 'taxonomy_id', 'structure_title']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 18, 21.4234
+Mined minimal keys: {Key(['molecule_name', 'pdb_id', 'taxonomy_id']), Key(['pdb_id', 'structure_title']), Key(['chain_id', 'pdb_id']), Key(['structure_title', 'taxonomy_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 13, 15.6621
+Mined minimal keys: {Key(['chain_id', 'molecule_name', 'structure_title', 'taxonomy_id']), Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 17, 19.8054
+Mined minimal keys: {Key(['chain_id', 'molecule_name', 'structure_title', 'taxonomy_id']), Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 22, 25.0631
+Mined minimal keys: {Key(['chain_id', 'molecule_name', 'structure_title', 'taxonomy_id']), Key(['molecule_name', 'pdb_id', 'taxonomy_id']), Key(['pdb_id', 'structure_title']), Key(['chain_id', 'pdb_id'])}
+==========================
+

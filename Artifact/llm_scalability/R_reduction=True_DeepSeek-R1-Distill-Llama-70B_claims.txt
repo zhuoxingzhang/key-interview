@@ -1,0 +1,175 @@
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['claim_id']
+Reduced schema after prime pruning: ['claim_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.7619
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.7619
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.2950
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.2949
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['claim_id', 'member_id']
+Reduced schema after prime pruning: ['claim_id', 'member_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 2.8357
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.2453
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.8369
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 1.9099
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['claim_id', 'member_id', 'provider_id']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'provider_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 7, 5.1582
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 3.5104
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 4.4555
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 5, 3.7750
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['claim_id', 'member_id', 'provider_id', 'service_date']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'provider_id', 'service_date']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 11, 9.1160
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 9, 8.1688
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 9, 8.1077
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 9, 7.2746
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Schema: ['claim_id', 'member_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'service_date', 'received_date', 'paid_date', 'claim_type', 'claim_status', 'billed_amount', 'allowed_amount', 'paid_amount'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['claim_id', 'member_id', 'provider_id', 'service_date', 'received_date']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'provider_id', 'service_date', 'received_date']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 10, 8.7845
+Mined minimal keys: {Key(['member_id', 'provider_id', 'received_date', 'service_date']), Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 21, 18.8274
+Mined minimal keys: {Key(['member_id', 'provider_id', 'received_date', 'service_date']), Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 9, 7.8457
+Mined minimal keys: {Key(['member_id', 'provider_id', 'received_date', 'service_date']), Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 17, 14.6607
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+

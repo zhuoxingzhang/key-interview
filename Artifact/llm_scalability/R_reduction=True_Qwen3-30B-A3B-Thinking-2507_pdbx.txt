@@ -1,0 +1,175 @@
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['pdb_id']
+Reduced schema after prime pruning: ['pdb_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 1.5423
+Mined minimal keys: {Key(['pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 1.5439
+Mined minimal keys: {Key(['pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 2.3735
+Mined minimal keys: {Key(['pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 2.3634
+Mined minimal keys: {Key(['pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 1.5683
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 1.5686
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 2.3548
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 2.3663
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id', 'sequence_length']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'sequence_length']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 4.8073
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 3.1733
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 4.4963
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 7, 5.3079
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id', 'molecule_name', 'taxonomy_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'molecule_name', 'taxonomy_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 10, 12.0450
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 6, 7.1403
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 9, 9.7328
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 13, 13.4988
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Schema: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id', 'experimental_method', 'resolution', 'deposition_date', 'release_date', 'sequence_length', 'structure_title', 'classification', 'keywords'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'molecule_name', 'organism', 'taxonomy_id']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 19, 25.5109
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 10, 14.2600
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 11, 15.6038
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 25, 30.5281
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+

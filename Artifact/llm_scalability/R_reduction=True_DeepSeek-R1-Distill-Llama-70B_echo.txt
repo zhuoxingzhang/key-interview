@@ -1,0 +1,175 @@
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['name']
+Reduced schema after prime pruning: ['name']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 1.0631
+Mined minimal keys: {Key(['name'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 1.0635
+Mined minimal keys: {Key(['name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.8380
+Mined minimal keys: {Key(['name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.8380
+Mined minimal keys: {Key(['name'])}
+==========================
+
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['name', 'group']
+Reduced schema after prime pruning: ['name', 'group']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.6911
+Mined minimal keys: {Key(['name'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.6909
+Mined minimal keys: {Key(['name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 2.0387
+Mined minimal keys: {Key(['name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 3, 2.0387
+Mined minimal keys: {Key(['name'])}
+==========================
+
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['name', 'group', 'mult']
+Reduced schema after prime pruning: ['mult', 'name', 'group']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 6.1039
+Mined minimal keys: {Key(['name']), Key(['group', 'mult'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 7, 7.3398
+Mined minimal keys: {Key(['name']), Key(['group', 'mult'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 5, 4.9896
+Mined minimal keys: {Key(['name']), Key(['group', 'mult'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 5, 4.9904
+Mined minimal keys: {Key(['name']), Key(['group', 'mult'])}
+==========================
+
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['name', 'group', 'mult', 'wall_motion_index']
+Reduced schema after prime pruning: ['wall_motion_index', 'mult', 'name', 'group']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 9, 11.4486
+Mined minimal keys: {Key(['group', 'wall_motion_index']), Key(['group', 'name']), Key(['name', 'wall_motion_index'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 8, 9.8367
+Mined minimal keys: {Key(['mult', 'name', 'wall_motion_index']), Key(['group', 'mult', 'name']), Key(['group', 'mult', 'wall_motion_index'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 9, 11.3160
+Mined minimal keys: {Key(['group', 'wall_motion_index']), Key(['group', 'name']), Key(['name', 'wall_motion_index'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 9, 10.0380
+Mined minimal keys: {Key(['name'])}
+==========================
+
+####################
+Schema Name: echo | Schema: ['survival', 'still_alive', 'age_at_heart_attack', 'pericardial_effusion', 'fractional_shortening', 'epss', 'lvdd', 'wall_motion_score', 'wall_motion_index', 'mult', 'name', 'group', 'alive_at_1'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['name', 'group', 'age_at_heart_attack', 'mult', 'wall_motion_index']
+Reduced schema after prime pruning: ['age_at_heart_attack', 'wall_motion_index', 'mult', 'name', 'group']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 9, 10.2034
+Mined minimal keys: {Key(['name']), Key(['age_at_heart_attack', 'group', 'wall_motion_index'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 13, 13.5491
+Mined minimal keys: {Key(['age_at_heart_attack', 'group', 'name']), Key(['group', 'name', 'wall_motion_index']), Key(['group', 'mult', 'name']), Key(['age_at_heart_attack', 'group', 'wall_motion_index'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 5.3163
+Mined minimal keys: {Key(['name'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 17, 18.3592
+Mined minimal keys: {Key(['name'])}
+==========================
+

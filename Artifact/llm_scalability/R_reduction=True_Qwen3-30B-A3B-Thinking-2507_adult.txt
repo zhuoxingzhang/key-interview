@@ -1,0 +1,175 @@
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 1
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['fnlwgt']
+Reduced schema after prime pruning: ['fnlwgt']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 1.4999
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 1.5081
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 2.8040
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 2.8159
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 2
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['age', 'hours_per_week']
+Reduced schema after prime pruning: ['age', 'hours_per_week']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 3, 2.7415
+Mined minimal keys: {Key(['age', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 3, 2.7472
+Mined minimal keys: {Key(['age', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 4, 3.2717
+Mined minimal keys: {Key(['age', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 3.2680
+Mined minimal keys: {Key(['age', 'hours_per_week'])}
+==========================
+
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 3
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['age', 'hours_per_week', 'native_country']
+Reduced schema after prime pruning: ['age', 'hours_per_week', 'native_country']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 4, 2.1313
+Mined minimal keys: {Key(['age', 'hours_per_week', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 4, 2.1364
+Mined minimal keys: {Key(['age', 'hours_per_week', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 3.1252
+Mined minimal keys: {Key(['age', 'hours_per_week', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 8, 4.3866
+Mined minimal keys: {Key(['age', 'hours_per_week', 'native_country'])}
+==========================
+
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 4
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['age', 'hours_per_week', 'capital_gain', 'capital_loss']
+Reduced schema after prime pruning: ['age', 'capital_gain', 'capital_loss', 'hours_per_week']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 5, 3.3450
+Mined minimal keys: {Key(['age', 'capital_gain', 'capital_loss', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 5, 3.3426
+Mined minimal keys: {Key(['age', 'capital_gain', 'capital_loss', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 8, 5.0864
+Mined minimal keys: {Key(['age', 'capital_gain', 'capital_loss', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 16, 10.3206
+Mined minimal keys: {Key(['age', 'capital_gain', 'capital_loss', 'hours_per_week'])}
+==========================
+
+####################
+Schema Name: adult | Schema: ['age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'native_country', 'income'] | Top-k Prime: 5
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 for interview...
+Predicted prime attrs: ['hours_per_week', 'age', 'native_country', 'education', 'occupation']
+Reduced schema after prime pruning: ['age', 'education', 'occupation', 'hours_per_week', 'native_country']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 6, 4.8072
+Mined minimal keys: {Key(['age', 'education', 'hours_per_week', 'native_country', 'occupation'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 6, 4.7729
+Mined minimal keys: {Key(['age', 'education', 'hours_per_week', 'native_country', 'occupation'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 10, 6.7404
+Mined minimal keys: {Key(['age', 'education', 'hours_per_week', 'native_country', 'occupation'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 32, 20.8810
+Mined minimal keys: {Key(['age', 'education', 'hours_per_week', 'native_country', 'occupation'])}
+==========================
+

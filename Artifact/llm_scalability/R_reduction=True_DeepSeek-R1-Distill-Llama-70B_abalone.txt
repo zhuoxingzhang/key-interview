@@ -1,0 +1,175 @@
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 1
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['rings']
+Reduced schema after prime pruning: ['rings']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.9148
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.9147
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 2, 1.4835
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 2, 1.4834
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 2
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['rings', 'length']
+Reduced schema after prime pruning: ['length', 'rings']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.7928
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.7931
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 3, 1.9708
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 4, 2.8503
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 3
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['rings', 'length', 'diameter']
+Reduced schema after prime pruning: ['length', 'diameter', 'rings']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 0.5741
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 0.5738
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 6, 3.8310
+Mined minimal keys: {Key(['diameter', 'length', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 7, 4.4805
+Mined minimal keys: {Key(['diameter', 'rings'])}
+==========================
+
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 4
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['length', 'diameter', 'height', 'rings']
+Reduced schema after prime pruning: ['length', 'diameter', 'height', 'rings']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 7, 7.8548
+Mined minimal keys: {Key(['height', 'length', 'rings']), Key(['diameter', 'height', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 6, 7.0596
+Mined minimal keys: {Key(['height', 'length', 'rings']), Key(['diameter', 'height', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 7, 8.7808
+Mined minimal keys: {Key(['height', 'length', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 15, 14.4074
+Mined minimal keys: {Key(['height', 'length', 'rings']), Key(['diameter', 'length', 'rings'])}
+==========================
+
+####################
+Schema Name: abalone | Schema: ['sex', 'length', 'diameter', 'height', 'whole_weight', 'shucked_weight', 'viscera_weight', 'shell_weight', 'rings'] | Top-k Prime: 5
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B for interview...
+Predicted prime attrs: ['rings', 'length', 'diameter', 'height', 'whole_weight']
+Reduced schema after prime pruning: ['length', 'diameter', 'height', 'whole_weight', 'rings']
+=============================
+
+
+======= Evaluation =======
+topdown dfs
+#Q, Time cost(min): 1, 1.5323
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+topdown bfs
+#Q, Time cost(min): 1, 1.5322
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+bottomup dfs
+#Q, Time cost(min): 8, 7.0559
+Mined minimal keys: {Key(['height', 'length', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+bottomup bfs
+#Q, Time cost(min): 24, 20.2198
+Mined minimal keys: {Key(['height', 'length', 'rings']), Key(['diameter', 'rings']), Key(['height', 'rings', 'whole_weight'])}
+==========================
+
