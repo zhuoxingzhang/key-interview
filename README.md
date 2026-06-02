@@ -63,7 +63,7 @@ Quantify how much key interviews improve precision and recall over state-of-the-
 Evaluate the quality and efficiency of LLM-based interviews on Hockey database tables where the ground truth is available. Two strategies are assessed:
 
 - **Direct LLM interviews**: LLMs answer questions generated directly over the original table schema.
-- **Prime-attribute filtering**: LLMs first predict the set of prime attributes (attributes that appear in some meaningful minimal key), and the interview is then restricted to that reduced schema (reducing the search space from $2^{|T|}$ to $2^{|P|}$).
+- **Prime filtering**: LLMs first predict the set of prime attributes (attributes that appear in some meaningful minimal key), and the interview is then restricted to that reduced schema (reducing the search space from $2^{|T|}$ to $2^{|P|}$).
 
 Results are reported in terms of exact and relaxed F1, Recall, and Precision under all four traversal strategies (TD, TB, BD, BB), as well as aggregation and frequency-based minimization (Mk).
 
@@ -73,9 +73,9 @@ LLM Oracle Python Script/Interview_with_LLM_Oracle.py      # Direct LLM intervie
 
 The folder `Artifact/llm_hockey` contains the LLM interview outputs for this experiment.
 
-## RQ4 — Scalability with Prime-Attribute Filtering (Real-World Datasets without Ground Truth)
+## RQ4 — Scalability with Prime Filtering (Real-World Datasets without Ground Truth)
 
-Evaluate how well prime-attribute filtering allows LLM-based interviews to scale to larger real-world datasets where the original interview process would be prohibitively expensive and no ground truth is available.
+Evaluate how well prime filtering allows LLM-based interviews to scale to larger real-world datasets where the original interview process would be prohibitively expensive and no ground truth is available.
 
 Table V reports, for each dataset and model (DS / Qwen), the number of generated interview questions (#Q) and runtime (minutes) for **all predicted prime-attribute budgets |P| = 1, …, 5** under each of the four traversal strategies (TD, TB, BD, BB). Since no ground truth is available for these tables, precision and recall are not reported. The **orange-highlighted row** in each model block marks the value of |P| actually predicted by the LLM — i.e., the operating point used in practice. The LLM-predicted |P| values are summarised below (DS and Qwen agree for all datasets):
 
