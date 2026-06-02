@@ -79,7 +79,7 @@ Evaluate how well prime-attribute filtering allows LLM-based interviews to scale
 
 Table V reports, for each dataset and model (DS / Qwen), the number of generated interview questions (#Q) and runtime (minutes) for **all predicted prime-attribute budgets |P| = 1, …, 5** under each of the four traversal strategies (TD, TB, BD, BB). Since no ground truth is available for these tables, precision and recall are not reported. The **orange-highlighted row** in each model block marks the value of |P| actually predicted by the LLM — i.e., the operating point used in practice. The LLM-predicted |P| values are summarised below (DS and Qwen agree for all datasets):
 
-| Dataset  | \|T\| | Predicted \|P\| (DS & Qwen) |
+| Dataset  | \|T\| | \|P\| (DS & Qwen) |
 |----------|-------|------------------------------|
 | abalone  | 9     | 1                            |
 | routes   | 9     | 5
