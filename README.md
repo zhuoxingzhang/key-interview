@@ -71,7 +71,7 @@ Results are reported in terms of exact and relaxed F1, Recall, and Precision und
 LLM Oracle Python Script/Interview_with_LLM_Oracle.py      # Direct LLM interviews (Table III in paper), Prime-attribute filtering (Table IV in paper)
 ```
 
-The folder `Artifact/llm_hockey` contains the raw LLM interview outputs and evaluation scripts for this experiment.
+The folder `Artifact/llm_hockey` contains the LLM interview outputs for this experiment.
 
 ## RQ4 — Scalability with Prime-Attribute Filtering (Real-World Datasets without Ground Truth)
 
