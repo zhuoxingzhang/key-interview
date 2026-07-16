@@ -17,7 +17,7 @@ In the following sections, we describe how our experiments can be reproduced.
 
 # Online Demo
 
-Visit the [website](https://ended-gore-rooms-inventory.trycloudflare.com/) to interview for keys online! If the link is not accessible, please report an issue.
+Visit the [website](https://shirt-newly-dave-discussed.trycloudflare.com/) to interview for keys online! If the link is not accessible, please report an issue.
 
 # Deploy the Demo on Your PC
 
