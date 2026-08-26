@@ -1,110 +1,115 @@
 package exp;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-
+import java.util.LinkedHashSet;
 import java.util.Random;
 
-import entity.FD;
 import entity.Key;
-import util.DBUtils;
 import util.Utils;
 
 public class Interview {
-	/**
-	 * check if the maximal set candidate w.r.t the target attribute and FD set Theta is a maximal set over schema R 
-	 * @param maximalSetCand
-	 * @param targetAttr
-	 * @param R
-	 * @param Theta
-	 * @return
-	 */
-	public static boolean mtest(Set<String> maximalSetCand, String targetAttr, List<String> R, List<FD> Theta){
-		FD X_A = new FD(new ArrayList<String>(maximalSetCand), new ArrayList<String>(Arrays.asList(targetAttr)));//FD: X -> A
-		if(Utils.isImplied(Theta, X_A)) {
-			return false;
-		}
-		List<String> otherAttrs = new ArrayList<>();
-		for(String a : R) {
-			if(!a.equals(targetAttr) && !maximalSetCand.contains(a)) {
-				otherAttrs.add(a);
-			}
-		}
-		for(String B : otherAttrs) {
-			List<String> lhs1 = new ArrayList<>(maximalSetCand);
-			lhs1.add(B);
-			FD fd1 = new FD(lhs1, new ArrayList<>(Arrays.asList(targetAttr)));//XB -> A
-			if(!Utils.isImplied(Theta, fd1)) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-//	public static boolean keyTest(Key candKey, List<String> R, List<FD> Theta){
-//		FD X_A = new FD(new ArrayList<String>(maximalSetCand), new ArrayList<String>(Arrays.asList(targetAttr)));//FD: X -> A
-//		if(Utils.isImplied(Theta, X_A)) {
-//			return false;
-//		}
-//		return true;
-//	}
-	
-	public static Set<Set<String>> deepCopy(Set<Set<String>> original) {
-        Set<Set<String>> copy = new HashSet<>();
-        for (Set<String> subset : original) {
-            Set<String> newSubset = new HashSet<>(subset);
-            copy.add(newSubset);
+    public static List<Key> computeMaximalAntiKeys(List<String> schema, List<Key> keys) {
+        Set<String> schemaSet = new HashSet<>(schema);
+
+        List<Set<String>> hyperEdges = new ArrayList<>();
+        for (Key k : keys) {
+            Collection<String> attrs = k.getAttributes();
+            hyperEdges.add(new HashSet<>(attrs));
         }
-        return copy;
+
+        // enumerate minimal hitting sets
+        Set<Set<String>> minimalHittingSets = new LinkedHashSet<>();
+        Set<String> initialCandidates = new HashSet<>(schemaSet);
+        mmcs(initialCandidates, hyperEdges, new HashSet<>(), minimalHittingSets);
+
+        // minimal hitting sets -> maximal anti-keys
+        List<Key> result = new ArrayList<>();
+        for (Set<String> hs : minimalHittingSets) {
+            Set<String> anti = new HashSet<>(schemaSet);
+            anti.removeAll(hs);
+            result.add(new Key(new ArrayList<>(anti)));
+        }
+        return result;
     }
-	
-	public static <T> Set<T> union(Set<T> set1, Set<T> set2) {
-        Set<T> unionSet = new HashSet<>(set1);
-        unionSet.addAll(set2);
-        return unionSet;
+
+    /**
+     * MMCS 递归：生成 minimal hitting sets
+     * candidates: 当前可以使用的属性（通常初始为 schema 全集）
+     * hyperEdges: 每个 edge 是一个 Set<String>（即一个 key）
+     * current: 当前构造的 hitting set
+     * output: collect minimal hitting sets
+     */
+    private static void mmcs(Set<String> candidates, List<Set<String>> hyperEdges,
+                             Set<String> current, Set<Set<String>> output) {
+        // 检查 current 是否已经击中所有超边
+        boolean allHit = true;
+        for (Set<String> edge : hyperEdges) {
+            if (Collections.disjoint(current, edge)) {
+                allHit = false;
+                break;
+            }
+        }
+
+        if (allHit) {
+            // 仅当 current 为 minimal hitting set 时加入
+            if (isMinimal(current, hyperEdges)) {
+                output.add(new HashSet<>(current));
+            }
+            return;
+        }
+
+        // 选择一个未被 current 击中的超边（启发式：选最小的）
+        Set<String> edgeToCover = null;
+        for (Set<String> edge : hyperEdges) {
+            if (Collections.disjoint(current, edge)) {
+                if (edgeToCover == null || edge.size() < edgeToCover.size()) {
+                    edgeToCover = edge;
+                }
+            }
+        }
+        if (edgeToCover == null) return;
+
+        // 对 edgeToCover 中的每个属性尝试扩展
+        // 避免 ConcurrentModification：对 edgeToCover 的快照进行迭代
+        for (String attr : new ArrayList<>(edgeToCover)) {
+            if (!candidates.contains(attr)) continue;
+
+            Set<String> newCurrent = new HashSet<>(current);
+            newCurrent.add(attr);
+
+            Set<String> newCandidates = new HashSet<>(candidates);
+            newCandidates.remove(attr);
+
+            mmcs(newCandidates, hyperEdges, newCurrent, output);
+        }
     }
-	
-	public static <T> Set<T> intersect(Collection<T> set1, Collection<T> set2) {
-        Set<T> intersection = new HashSet<>(set1);
-        intersection.retainAll(set2);
-        return intersection;
+
+    /**
+     * 判断 hitting set 是否 minimal（移除任一元素将不再是 hitting set）
+     */
+    private static boolean isMinimal(Set<String> S, List<Set<String>> hyperEdges) {
+        for (String a : S) {
+            Set<String> reduced = new HashSet<>(S);
+            reduced.remove(a);
+            if (isHittingSet(reduced, hyperEdges)) {
+                return false; // 有子集仍然是 hitting set -> 不是 minimal
+            }
+        }
+        return true;
     }
-	
-	/**
-	 * check if a set is subset of any set of sets
-	 * @param sets
-	 * @param oneSet
-	 * @return
-	 */
-	public static boolean isSubsetOfAnySets(Set<Set<String>> sets, Set<String> oneSet) {
-		boolean isSubset = false;
-		for(Set<String> set : sets) {
-			if(set.containsAll(oneSet)) {
-				isSubset = true;
-				break;
-			}
-		}
-		return isSubset;
-	}
-	
-	public static boolean isSupersetOfSomeSets(Set<Set<String>> sets, Set<String> oneSet) {
-		boolean isSuperset = false;
-		for(Set<String> set : sets) {
-			if(oneSet.containsAll(set)) {
-				isSuperset = true;
-				break;
-			}
-		}
-		return isSuperset;
-	}
+
+    private static boolean isHittingSet(Set<String> set, List<Set<String>> hyperEdges) {
+        for (Set<String> e : hyperEdges) {
+            if (Collections.disjoint(set, e)) return false;
+        }
+        return true;
+    }
 	
 	public static boolean isSuperkeyOfSomeKeys(Collection<Key> keys, Key oneKey) {
 		boolean isSuperkey = false;
@@ -115,48 +120,6 @@ public class Interview {
 			}
 		}
 		return isSuperkey;
-	}
-	
-	public static Map<String, Set<Set<String>>> computeMaximalSet(List<String> R, List<FD> Sigma) {
-		Map<String, Set<Set<String>>> maxSetMap = new HashMap<>();
-		for(String A : R) {
-			Set<String> s = new HashSet<>(R);
-			s.remove(A);//R - A
-			Set<Set<String>> cands = new HashSet<>();
-			cands.add(s);
-			maxSetMap.put(A, cands);
-		}
-		
-		List<FD> Theta = new ArrayList<>();// initialize theta
-		
-		for(FD X_A : Sigma) {
-			Theta.add(X_A);//Theta U X -> A
-			
-			Map<String, Set<Set<String>>> maxSetMapTemp = new HashMap<>();
-			for(String C : R) {
-				Set<Set<String>> maxC = maxSetMap.get(C);
-				Set<Set<String>> nextMaxC = deepCopy(maxC);
-				for(Set<String> W : maxC) {
-					if(!mtest(W, C, R, Theta)) {
-						nextMaxC.remove(W);//nmax(C) - {W}
-						for(String B : X_A.getLeftHand()) {//B \in X
-							for(Set<String> Z : maxSetMap.get(B)) {//Z \in max(B)
-								Set<String> WIntersectZ = intersect(W,Z);
-								if(mtest(WIntersectZ, C, R, Theta)) {
-									nextMaxC.add(WIntersectZ);
-								}
-							}
-						}
-					}
-				}
-				maxSetMapTemp.put(C, nextMaxC);
-			}
-			for(String C : R) {
-				maxSetMap.put(C, maxSetMapTemp.get(C));
-			}
-		}
-		
-		return maxSetMap;
 	}
 	
 	public static boolean isTwoKeySetsEqual(List<Key> keySet1, List<Key> keySet2) {
@@ -178,6 +141,48 @@ public class Interview {
 		}
 		return isSubset;
 	}
+	
+	public static Set<Key> refineToMinimalKeys(Collection<Key> keys1){
+    	Set<Key> minimalKeys = new HashSet<Key>();
+    	List<Key> keys = new ArrayList<>(keys1);
+    	keys.sort(Comparator.comparingInt(Key::size));//increasing order
+    	
+    	for (Key key : keys) {
+            boolean isMinimal = true;
+            for (Key existing : minimalKeys) {
+                if (key.contains(existing)) {
+                    isMinimal = false;
+                    break;
+                }
+            }
+            if (isMinimal) {
+                minimalKeys.add(key);
+            }
+        }
+
+        return minimalKeys;
+    }
+	
+	public static Set<Key> refineToMaximalNonKeys(Collection<Key> keys1){
+    	Set<Key> maximalNonKeys = new HashSet<Key>();
+    	List<Key> keys = new ArrayList<>(keys1);
+    	keys.sort(Comparator.comparingInt(Key::size).reversed());//decreasing order
+    	
+    	for (Key key : keys) {
+            boolean isMaximal = true;
+            for (Key existing : maximalNonKeys) {
+                if (existing.contains(key)) {
+                	isMaximal = false;
+                    break;
+                }
+            }
+            if (isMaximal) {
+            	maximalNonKeys.add(key);
+            }
+        }
+
+        return maximalNonKeys;
+    }
 	
 //	public static List<Key> computeCandKeySet4TopDownOld(String traversalDirection, List<Key> MinedKeys, List<Key> CandKeySet, Set<Key> NonKeySet, Set<Key> allNonKeySet, Set<Key> allMinedKeySet, List<Key> preDeterminedKeys) {
 //		CandKeySet.removeAll(NonKeySet);
@@ -256,17 +261,24 @@ public class Interview {
 		MinedKeySet.clear();
 		NonKeySet.clear();
 		
-		for(Key key : superKeys) {//refine
-			for(String e : key.getAttributes()) {//refine key
+		Set<Key> minKeys = Interview.refineToMinimalKeys(allMinedKeySet);
+		allMinedKeySet.clear();
+		allMinedKeySet.addAll(minKeys);
+		
+		Set<Key> maxNonKeys = Interview.refineToMaximalNonKeys(allNonKeySet);
+		allNonKeySet.clear();
+		allNonKeySet.addAll(maxNonKeys);
+		
+		for(Key key : superKeys) {
+			for(String e : key.getAttributes()) {
 				Set<String> newCandKey = new HashSet<>(key.getAttributes());
 				newCandKey.remove(e);
 				Key CK = new Key(newCandKey);
 				if(!isSubsetOfAnySupersets(allNonKeySet, CK) && !CandKeySet.contains(CK) && !isSuperkeyOfSomeKeys(allMinedKeySet, CK) 
-						&& !isSubsetOfAnySupersets(preDeterminedKeys, CK)){//need refine or interview
+						&& !isSubsetOfAnySupersets(preDeterminedKeys, CK)){//interview
 					CandKeySet.add(CK);
-				}else if(isSuperkeyOfSomeKeys(allMinedKeySet, CK)) {
+				}else if(isSuperkeyOfSomeKeys(allMinedKeySet, CK)) {//refine for next round
 					MinedKeySet.add(CK);
-//					allMinedKeySet.add(CK);
 				}
 			}
 		}
@@ -357,6 +369,14 @@ public class Interview {
 		MinedKeySet.clear();
 		NonKeySet.clear();
 		
+		Set<Key> minKeys = Interview.refineToMinimalKeys(allMinedKeySet);
+		allMinedKeySet.clear();
+		allMinedKeySet.addAll(minKeys);
+		
+		Set<Key> maxNonKeys = Interview.refineToMaximalNonKeys(allNonKeySet);
+		allNonKeySet.clear();
+		allNonKeySet.addAll(maxNonKeys);
+		
 		for(Key nonKey : subsetNonKeySet) {//extend
 			Set<String> diff = new HashSet<>(R);
 			diff.removeAll(nonKey.getAttributes());
@@ -365,11 +385,10 @@ public class Interview {
 				newCandSet.add(e);
 				Key CK = new Key(newCandSet);
 				if(!isSuperkeyOfSomeKeys(allMinedKeySet, CK) && !CandKeySet.contains(CK) && !isSubsetOfAnySupersets(allNonKeySet, CK) 
-						&& !isSubsetOfAnySupersets(preDeterminedKeys, CK)) {//need extend or interview
+						&& !isSubsetOfAnySupersets(preDeterminedKeys, CK)) {//interview
 					CandKeySet.add(CK);
-				}else if(isSubsetOfAnySupersets(allNonKeySet, CK) || isSubsetOfAnySupersets(preDeterminedKeys, CK)){
+				}else if(isSubsetOfAnySupersets(allNonKeySet, CK) || isSubsetOfAnySupersets(preDeterminedKeys, CK)){//extend for next round
 					NonKeySet.add(CK);
-//					allNonKeySet.add(CK);
 				}
 			}
 		}
@@ -427,32 +446,6 @@ public class Interview {
 		System.out.println(line);
 	}
 	
-	public static List<List<Integer>> genArmstrongRelation(List<String> R, List<FD> FDs){
-		Map<String, Set<Set<String>>> maxSetMap = computeMaximalSet(R, FDs);
-		List<List<Integer>> armstrongRel = new ArrayList<>();
-		List<Integer> firstRow = new ArrayList<>();
-		for(int i = 0;i < R.size();i ++) {
-			firstRow.add(0);
-		}
-		armstrongRel.add(firstRow);
-		for(Map.Entry<String, Set<Set<String>>> entry : maxSetMap.entrySet()) {
-			Set<Set<String>> maxSets = entry.getValue();
-			for(Set<String> maxSet : maxSets) {//keep same value with corresponding value of last row if the attribute in maximal set, keep different value otherwise
-				List<Integer> nextRow = new ArrayList<>();
-				for(int i = 0;i < R.size();i ++) {
-					String attr = R.get(i);
-					List<Integer> lastRow = armstrongRel.get(armstrongRel.size() - 1);
-					int lastValue = lastRow.get(i);
-					if(maxSet.contains(attr))
-						nextRow.add(lastValue);
-					else
-						nextRow.add(lastValue + 1);
-				}
-				armstrongRel.add(nextRow);
-			}
-		}
-		return armstrongRel;
-	}
 	
 	public static void printRelation(List<String> R, List<List<Integer>> relation) {
 		String col = "";
@@ -523,14 +516,13 @@ public class Interview {
                         Key CK = new Key(candK);
                         if(!allSets.contains(CK))
                             allSets.add(CK);
-                        if(!isSuperkeyOfSomeKeys(allMineKeys, CK)){//If not a superkey
-                        	if(!candKeys.contains(CK))
-                        		candKeys.add(CK);
-                        }else if(isSuperkeyOfSomeKeys(allMineKeys, CK))
-                        	minedKeysInTheRound.add(CK);
+                        if(!isSuperkeyOfSomeKeys(allMineKeys, CK) && !candKeys.contains(CK) && !isSubsetOfAnySupersets(allMineKeys, CK))//If not a superkey
+                            candKeys.add(CK);
+                        if(isSuperkeyOfSomeKeys(allMineKeys, CK))
+                            minedKeysInTheRound.add(CK);
                     }
                 }
-                if(candKeys.isEmpty())
+                if(candKeys.isEmpty() && allSets.get(0).size() != 0)
                     return genInitialCandidateKeysWithInputKeys(R, traversalStart, inputKeys, nonKeyInTheRound, minedKeysInTheRound, allMineKeys, allSets);
                 return candKeys;
             }else
@@ -548,14 +540,13 @@ public class Interview {
                         Key CK = new Key(candK);
                         if(!allSets.contains(CK))
                             allSets.add(CK);
-                        if(!isSubsetOfAnySupersets(allMineKeys, CK)){//If not a superkey
-                        	if(!candKeys.contains(CK))
-                        		candKeys.add(CK);
-                        }else if(isSubsetOfAnySupersets(allMineKeys, CK))
-                        	nonKeyInTheRound.add(CK);
+                        if(!isSubsetOfAnySupersets(allMineKeys, CK) && !candKeys.contains(CK) && !isSuperkeyOfSomeKeys(allMineKeys, CK))//If not a superkey
+                            candKeys.add(CK);
+                        if(isSubsetOfAnySupersets(allMineKeys, CK))
+                            nonKeyInTheRound.add(CK);
                     }
                 }
-                if(candKeys.isEmpty())
+                if(candKeys.isEmpty() && allSets.get(0).size() != R.size())
                     return genInitialCandidateKeysWithInputKeys(R, traversalStart, inputKeys, nonKeyInTheRound, minedKeysInTheRound, allMineKeys, allSets);
                 return candKeys;
             }else
@@ -886,5 +877,396 @@ public class Interview {
 		res.add(round);
 		return res;
 	}
-	
+
+	// ===================== Dualize and Advance (DA) strategy =====================
+	// Adapted from the Dualize and Advance algorithm (All_MSS/AMAK) of
+	// Gunopulos, Khardon, Mannila, Saluja, Toivonen, Sharma, TODS 28(2), 2003.
+	// The interview alternates between (i) dualization: computing the minimal
+	// transversals of the complements of all maximal anti-keys found so far,
+	// which are exactly the candidate minimal keys not excluded by any answer,
+	// and (ii) advancing: extending a candidate answered as anti-key greedily
+	// into a maximal anti-key. The interview ends when every candidate is
+	// confirmed as a key; the confirmed candidates then form all minimal keys.
+
+	/**
+	 * Oracle answering the Boolean interview question for a candidate column set:
+	 * true represents the answer "No" (the set is a key),
+	 * false represents the answer "Yes" (the set is an anti-key).
+	 */
+	private interface KeyOracle {
+		boolean isKey(Key candidate);
+	}
+
+	/**
+	 * Dualization step: the candidate minimal keys are exactly the minimal
+	 * transversals of the hypergraph whose edges are the complements of the
+	 * maximal anti-keys found so far.
+	 * With no anti-key found yet the empty set is the only candidate; once the
+	 * full schema is an anti-key, no candidate remains (no key holds at all).
+	 */
+	public static List<Key> computeCandKeySet4Dualize(List<String> R, Collection<Key> maxAntiKeys) {
+		List<Set<String>> hyperEdges = new ArrayList<>();
+		for (Key antiKey : maxAntiKeys) {
+			Set<String> complement = new HashSet<>(R);
+			complement.removeAll(antiKey.getAttributes());
+			hyperEdges.add(complement);
+		}
+		Set<Set<String>> minimalTransversals = new LinkedHashSet<>();
+		mmcs(new HashSet<>(R), hyperEdges, new HashSet<>(), minimalTransversals);
+		List<Key> candKeys = new ArrayList<>();
+		for (Set<String> transversal : minimalTransversals) {
+			candKeys.add(new Key(transversal));
+		}
+		candKeys.sort(Comparator.comparingInt(Key::size).thenComparing(k -> {
+			List<String> attrs = new ArrayList<>(k.getAttributes());
+			Collections.sort(attrs);
+			return String.join(",", attrs);
+		}));//increasing order, deterministic
+		return candKeys;
+	}
+
+	/**
+	 * Dual dualization step (top-down flavor): the candidate maximal anti-keys
+	 * are exactly the complements of the minimal transversals of the hypergraph
+	 * whose edges are the minimal keys found so far.
+	 * With no key found yet the full schema is the only candidate; once the
+	 * empty set is a key, no candidate remains (no anti-key exists).
+	 */
+	public static List<Key> computeCandKeySet4DualizeTopDown(List<String> R, Collection<Key> minKeys) {
+		List<Set<String>> hyperEdges = new ArrayList<>();
+		for (Key key : minKeys) {
+			hyperEdges.add(new HashSet<>(key.getAttributes()));
+		}
+		Set<Set<String>> minimalTransversals = new LinkedHashSet<>();
+		mmcs(new HashSet<>(R), hyperEdges, new HashSet<>(), minimalTransversals);
+		List<Key> candAntiKeys = new ArrayList<>();
+		for (Set<String> transversal : minimalTransversals) {
+			Set<String> complement = new HashSet<>(R);
+			complement.removeAll(transversal);
+			candAntiKeys.add(new Key(complement));
+		}
+		candAntiKeys.sort(Comparator.comparingInt(Key::size).reversed().thenComparing(k -> {
+			List<String> attrs = new ArrayList<>(((Key) k).getAttributes());
+			Collections.sort(attrs);
+			return String.join(",", attrs);
+		}));//decreasing order, deterministic
+		return candAntiKeys;
+	}
+
+	/**
+	 * check if a set is a proper subset of some given minimal key,
+	 * in which case it is an anti-key by minimality (no question needed)
+	 */
+	public static boolean isProperSubsetOfSomeKeys(Collection<Key> minimalKeys, Key oneSet) {
+		for(Key key : minimalKeys) {
+			if(key.contains(oneSet) && key.size() > oneSet.size()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * dispatch by strategy string: "topdown dfs", "topdown bfs", "bottomup dfs", "bottomup bfs",
+	 * or a member of the dualize family: "dualize" (= "dualize bottomup dfs"),
+	 * "dualize topdown dfs", "dualize topdown bfs", "dualize bottomup dfs", "dualize bottomup bfs"
+	 */
+	public static List<Object> interviewByStrategy(String strategy, List<String> R, boolean print, List<Key> givenMinimalKeys) {
+		if(strategy.startsWith("dualize")) {
+			String[] parts = strategy.split(" ");
+			if(parts.length >= 3)
+				return interviewDualize(parts[1], parts[2], R, print, givenMinimalKeys);
+			return interviewDualize(R, print, givenMinimalKeys);
+		}
+		return interview(strategy.split(" ")[0], strategy.split(" ")[1], R, print, givenMinimalKeys);
+	}
+
+	/**
+	 * dispatch by strategy string: "topdown dfs", "topdown bfs", "bottomup dfs", "bottomup bfs",
+	 * or a member of the dualize family: "dualize" (= "dualize bottomup dfs"),
+	 * "dualize topdown dfs", "dualize topdown bfs", "dualize bottomup dfs", "dualize bottomup bfs"
+	 */
+	public static List<Object> interviewByStrategy(String strategy, List<String> R, boolean print, List<Key> givenMinimalKeys, List<Key> preDeterminedKeys) {
+		if(strategy.startsWith("dualize")) {
+			String[] parts = strategy.split(" ");
+			if(parts.length >= 3)
+				return interviewDualize(parts[1], parts[2], R, print, givenMinimalKeys, preDeterminedKeys);
+			return interviewDualize(R, print, givenMinimalKeys, preDeterminedKeys);
+		}
+		return interview(strategy.split(" ")[0], strategy.split(" ")[1], R, print, givenMinimalKeys, preDeterminedKeys);
+	}
+
+	public static List<Object> interviewDualize(List<String> R, Double p, boolean print) {
+		return interviewDualize("bottomup", "dfs", R, p, print);
+	}
+
+	public static List<Object> interviewDualize(List<String> R, boolean print, List<Key> givenMinimalKeys) {
+		return interviewDualize("bottomup", "dfs", R, print, givenMinimalKeys);
+	}
+
+	/**
+	 *
+	 * @param R table schema
+	 * @param print
+	 * @param givenMinimalKeys all minimal keys
+	 * @param preDeterminedKeys preDetermined minimal keys which are subset of 'givenMinimalKeys'
+	 * @return
+	 */
+	public static List<Object> interviewDualize(List<String> R, boolean print, List<Key> givenMinimalKeys, List<Key> preDeterminedKeys) {
+		return interviewDualize("bottomup", "dfs", R, print, givenMinimalKeys, preDeterminedKeys);
+	}
+
+	public static List<Object> interviewDualize(String traversalStart, String traversalDirection, List<String> R, Double p, boolean print) {
+		Random rand = new Random();
+		return interviewDualize(traversalStart, traversalDirection, R, candKey -> rand.nextDouble(1.0) < p, print, new ArrayList<>());
+	}
+
+	public static List<Object> interviewDualize(String traversalStart, String traversalDirection, List<String> R, boolean print, List<Key> givenMinimalKeys) {
+		return interviewDualize(traversalStart, traversalDirection, R, candKey -> isSuperKey(candKey, givenMinimalKeys), print, new ArrayList<>());
+	}
+
+	public static List<Object> interviewDualize(String traversalStart, String traversalDirection, List<String> R, boolean print, List<Key> givenMinimalKeys, List<Key> preDeterminedKeys) {
+		return interviewDualize(traversalStart, traversalDirection, R, candKey -> isSuperKey(candKey, givenMinimalKeys), print, preDeterminedKeys);
+	}
+
+	private static List<Object> interviewDualize(String traversalStart, String traversalDirection, List<String> R, KeyOracle oracle, boolean print, List<Key> preDeterminedKeys) {
+		if(print)
+			System.out.println("Given schema: "+R.toString());
+
+		boolean topdown = traversalStart.equals("topdown");
+		if(!topdown && !traversalStart.equals("bottomup"))
+			new Exception("Not supported dualize strategy! (topdown/bottomup only)");
+		boolean bfs = traversalDirection.equals("bfs");
+
+		int[] counters = new int[2];//[0]: number of "No" answers (keys), [1]: all question number
+		Set<Key> allMinedKeys = new HashSet<>(preDeterminedKeys);//known keys ("No" answers and predetermined keys)
+		Set<Key> allNonKeys = new HashSet<>();//known anti-keys ("Yes" answers and implied anti-keys)
+		Set<Key> maxAntiKeys = new HashSet<>();//maximal anti-keys discovered so far
+		Set<Key> minKeysFound = new HashSet<>(preDeterminedKeys);//minimal keys discovered so far
+		int round = 0;
+
+		while(true) {
+			round ++;
+			List<Key> candKeySet = topdown ? computeCandKeySet4DualizeTopDown(R, minKeysFound)
+					: computeCandKeySet4Dualize(R, maxAntiKeys);//dualize
+
+			if(print) {
+				System.out.println("\n***************Round "+ round +"***************");
+				System.out.println("current candidate sets num: " + candKeySet.size());
+				System.out.println(topdown ? "current candidate maximal anti-keys (complements of minimal transversals):"
+						: "current candidate minimal keys (minimal transversals):");
+				for(Key candKey : candKeySet) {
+					System.out.println("candidate: "+candKey.toString());
+				}
+				System.out.println("-----------------------------\n");
+			}
+
+			List<Key> counterExamples = new ArrayList<>();
+			flag:
+			for(Key candKey : candKeySet) {
+				if(topdown) {
+					if(isSubsetOfAnySupersets(allNonKeys, candKey))//already confirmed as an anti-key
+						continue;
+					if(isProperSubsetOfSomeKeys(preDeterminedKeys, candKey)) {//maximal anti-key by minimality of an input key
+						maxAntiKeys.add(candKey);
+						allNonKeys.add(candKey);
+						continue;
+					}
+
+					if(print) {
+						System.out.println("Interviewing \""+candKey.toString()+"\" if it is a maximal anti-key...\nGiven the sample:");
+						Interview.printSampleRelation(R, candKey.getAttributes());
+						System.out.println("Is it possible whether there are two records that have values in "+candKey.toString()+" that are matching?");
+					}
+
+					counters[1] ++;//count all questions
+					if(oracle.isKey(candKey)) {//counterexample: a key not containing any known minimal key
+						allMinedKeys.add(candKey);
+						counters[0] ++;//count the No answer
+						counterExamples.add(candKey);
+
+						if(print)
+							System.out.println("Answer: No\n");
+
+						if(!bfs)
+							break flag;//shrink from the first counterexample
+					}else {//candKey is an anti-key, and it is maximal by dualization
+						allNonKeys.add(candKey);
+						maxAntiKeys.add(candKey);
+
+						if(print)
+							System.out.println("Answer: Yes\n");
+					}
+				}else {
+					if(isSuperkeyOfSomeKeys(allMinedKeys, candKey))//already confirmed as a key
+						continue;
+					if(isProperSubsetOfSomeKeys(preDeterminedKeys, candKey)) {//anti-key by minimality of an input key
+						allNonKeys.add(candKey);
+						counterExamples.add(candKey);
+						if(!bfs)
+							break flag;
+						continue;
+					}
+
+					if(print) {
+						System.out.println("Interviewing \""+candKey.toString()+"\" if it is a minimal key...\nGiven the sample:");
+						Interview.printSampleRelation(R, candKey.getAttributes());
+						System.out.println("Is it possible whether there are two records that have values in "+candKey.toString()+" that are matching?");
+					}
+
+					counters[1] ++;//count all questions
+					if(oracle.isKey(candKey)) {//candKey is a key, and it is minimal by dualization
+						allMinedKeys.add(candKey);
+						minKeysFound.add(candKey);
+						counters[0] ++;//count the No answer
+
+						if(print)
+							System.out.println("Answer: No\n");
+					}else {//counterexample: an anti-key not contained in any known maximal anti-key
+						allNonKeys.add(candKey);
+						counterExamples.add(candKey);
+
+						if(print)
+							System.out.println("Answer: Yes\n");
+
+						if(!bfs)
+							break flag;//advance from the first counterexample
+					}
+				}
+			}
+
+			if(counterExamples.isEmpty()) {//every candidate is confirmed
+				if(print)
+					System.out.println("\n\nInterview is finished because every candidate is confirmed!\n\n");
+				break;
+			}
+
+			for(Key counterExample : counterExamples) {
+				if(topdown) {
+					if(isSuperkeyOfSomeKeys(minKeysFound, counterExample))//covered by a minimal key found in this batch
+						continue;
+					Key minKey = shrinkToMinimalKey(counterExample, R, oracle, allMinedKeys, allNonKeys, preDeterminedKeys, counters, print);
+					minKeysFound.add(minKey);
+					allMinedKeys.add(minKey);
+
+					if(print) {
+						System.out.println("New minimal key: "+minKey.toString());
+						System.out.println("All minimal keys so far: ");
+						for(Key k : minKeysFound) {
+							System.out.println(k.toString());
+						}
+						System.out.println("+++++++++++++++++++++++++++++\n");
+					}
+				}else {
+					if(isSubsetOfAnySupersets(maxAntiKeys, counterExample))//covered by a maximal anti-key found in this batch
+						continue;
+					Key antiKey = advanceToMaximalAntiKey(counterExample, R, oracle, allMinedKeys, allNonKeys, preDeterminedKeys, counters, print);
+					maxAntiKeys.add(antiKey);
+					allNonKeys.add(antiKey);
+
+					if(print) {
+						System.out.println("New maximal anti-key: "+antiKey.toString());
+						System.out.println("All maximal anti-keys so far: ");
+						for(Key antiK : maxAntiKeys) {
+							System.out.println(antiK.toString());
+						}
+						System.out.println("+++++++++++++++++++++++++++++\n");
+					}
+				}
+			}
+		}
+
+		List<Object> res = new ArrayList<>();
+		res.add(allMinedKeys);
+		res.add(counters[0]);
+		res.add(counters[1]);
+		res.add(round);
+		return res;
+	}
+
+	/** advance an anti-key greedily to a maximal anti-key by adding one column at a time */
+	private static Key advanceToMaximalAntiKey(Key counterExample, List<String> R, KeyOracle oracle, Set<Key> allMinedKeys, Set<Key> allNonKeys, List<Key> preDeterminedKeys, int[] counters, boolean print) {
+		Set<String> antiKey = new HashSet<>(counterExample.getAttributes());
+		if(print)
+			System.out.println("Advancing anti-key "+counterExample.toString()+" to a maximal anti-key...");
+		for(String e : R) {
+			if(antiKey.contains(e))
+				continue;
+			Set<String> extended = new HashSet<>(antiKey);
+			extended.add(e);
+			Key EK = new Key(extended);
+			if(isSuperkeyOfSomeKeys(allMinedKeys, EK))//implied key: no question needed
+				continue;
+			if(isSubsetOfAnySupersets(allNonKeys, EK) || isProperSubsetOfSomeKeys(preDeterminedKeys, EK)) {//implied anti-key: no question needed
+				antiKey = extended;
+				allNonKeys.add(EK);
+				continue;
+			}
+
+			if(print) {
+				System.out.println("Interviewing \""+EK.toString()+"\" if it is an anti-key...\nGiven the sample:");
+				Interview.printSampleRelation(R, EK.getAttributes());
+				System.out.println("Is it possible whether there are two records that have values in "+EK.toString()+" that are matching?");
+			}
+
+			counters[1] ++;//count all questions
+			if(oracle.isKey(EK)) {
+				allMinedKeys.add(EK);
+				counters[0] ++;//count the No answer
+
+				if(print)
+					System.out.println("Answer: No\n");
+			}else {
+				antiKey = extended;
+				allNonKeys.add(EK);
+
+				if(print)
+					System.out.println("Answer: Yes\n");
+			}
+		}
+		return new Key(antiKey);
+	}
+
+	/** shrink a key greedily to a minimal key by removing one column at a time */
+	private static Key shrinkToMinimalKey(Key counterExample, List<String> R, KeyOracle oracle, Set<Key> allMinedKeys, Set<Key> allNonKeys, List<Key> preDeterminedKeys, int[] counters, boolean print) {
+		Set<String> key = new HashSet<>(counterExample.getAttributes());
+		if(print)
+			System.out.println("Shrinking key "+counterExample.toString()+" to a minimal key...");
+		for(String e : R) {
+			if(!key.contains(e))
+				continue;
+			Set<String> shrunken = new HashSet<>(key);
+			shrunken.remove(e);
+			Key SK = new Key(shrunken);
+			if(isSubsetOfAnySupersets(allNonKeys, SK) || isProperSubsetOfSomeKeys(preDeterminedKeys, SK))//implied anti-key: keep the column
+				continue;
+			if(isSuperkeyOfSomeKeys(allMinedKeys, SK)) {//implied key: remove the column without a question
+				key = shrunken;
+				continue;
+			}
+
+			if(print) {
+				System.out.println("Interviewing \""+SK.toString()+"\" if it is a key...\nGiven the sample:");
+				Interview.printSampleRelation(R, SK.getAttributes());
+				System.out.println("Is it possible whether there are two records that have values in "+SK.toString()+" that are matching?");
+			}
+
+			counters[1] ++;//count all questions
+			if(oracle.isKey(SK)) {
+				allMinedKeys.add(SK);
+				counters[0] ++;//count the No answer
+				key = shrunken;
+
+				if(print)
+					System.out.println("Answer: No\n");
+			}else {
+				allNonKeys.add(SK);
+
+				if(print)
+					System.out.println("Answer: Yes\n");
+			}
+		}
+		return new Key(key);
+	}
+
 }
