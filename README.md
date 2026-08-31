@@ -73,13 +73,14 @@ java exp.RWMinedFDKeys
 
 ## RQ3 — Comparison to Key Mining (Hockey Database)
 
-How much do we improve precision and recall for minimal keys mined from real-world data sets? The comparison is against the state-of-the-art key mining tool *DataViadotto* and against the primary keys declared on the schema, using the ground truth established by key interviews on all 22 tables of the Hockey database. The folder `Artifact/comparison_to_mining` contains:
+How much do we improve precision and recall for minimal keys mined from real-world data sets? The comparison is against the state-of-the-art key mining tool *DataViadotto* and against the primary keys declared on the schema, using the ground truth established by key interviews on all 22 tables of the Hockey database. The folder `Artifact/comparison_to_mining` holds the two comparison scripts:
 
-1. **`mining-D0(exact)/`** — mining results for exact possible and certain keys (dirtiness D0).
-2. **`mining-DN/`** — mining results for approximate keys at dirtiness level DN (N = 1, 5, 10).
-3. **`ground_truth(interview_results)/`** — the ground truth established from key interviews on all Hockey tables.
-4. **`interview_ground_truth.py`** — compares mining results against the ground truth (precision, recall, F1).
-5. **`interview_primary_keys.py`** — compares the declared primary keys against the ground truth (baseline).
+1. **`interview_ground_truth.py`** — compares mining results against the ground truth (precision, recall, F1).
+2. **`interview_primary_keys.py`** — compares the declared primary keys against the ground truth (baseline).
+
+The ground truth is carried inside both scripts as the gold standard each of them parses: the meaningful minimal keys that the key interviews established on the Hockey tables, with the support of each key.
+
+**The mining outputs themselves are not part of this repository.** They are produced by running *DataViadotto* over the Hockey database, once for exact possible and certain keys and once per dirtiness level, and each script reads them from the paths its `TASKS` list names — `mining-D0(exact)/` for the exact run and `mining-D1/`, `mining-D5/` and `mining-D10/` for the approximate ones. Until those files are placed there, this experiment is the one experiment of the paper that cannot be re-run from this repository alone; no other experiment depends on them.
 
 ## RQ4 — LLMs as Domain Experts: Quality and Efficiency (Hockey Database)
 
@@ -117,11 +118,11 @@ Participants took part voluntarily and gave informed consent. They were told in 
 
 # Where the Reported Numbers Come From
 
-Except for the human study of RQ6, whose per-participant records are withheld for the reason given above, every number in the paper is read out of a file in this repository, and every such file is written by a program in this repository.
+Every number in the paper is read out of a file written by a program, and both the file and the program are in this repository. Two experiments are the exception, and each says so in its own section: the human study of RQ6, whose per-participant records are withheld for the reason given above, and RQ3, whose mining outputs are produced by a third-party tool and are not included here.
 
 - The **Java drivers** in `src/exp/` run the interview and append one CSV row per run to `Artifact/results/`. A driver either takes the strategy as a command-line argument or iterates over the strategies itself, so in both cases the columns of a table come from one code path, run once per strategy.
 - The **LLM scripts** in `LLM Oracle Python Script/` load the model with `transformers` and obtain each answer from `model.generate`; decoding is greedy (`do_sample=False`), so a run is reproducible given the same model and schema. The scripts write one CSV row per table and strategy and, alongside it, the raw transcript of the run, which records the schema, the predicted prime attributes, and the questions, timings and scores of each strategy. The aggregates (`Agg.` and M*k*) are not accumulated during a run; `aggregate_da.py` recomputes them from the recorded per-strategy rows, so they can be checked against those rows.
-- The **comparison scripts** in `Artifact/comparison_to_mining/` compute precision, recall and F1 by set arithmetic over the mining output files and the interview ground truth shipped beside them.
+- The **comparison scripts** in `Artifact/comparison_to_mining/` compute precision, recall and F1 by set arithmetic over the mining output files and the interview ground truth, which each script carries as its gold standard. The mining outputs they read are the ones RQ3 names as not included.
 
 No script states a result as a literal. Anything that looks like a measurement in this repository is either a CSV written by a run, a raw transcript of a run, or an input to a run, such as the mined FDs and the interview ground truth.
 
@@ -134,7 +135,7 @@ No script states a result as a literal. Anything that looks like a measurement i
 | `LLM Oracle Python Script/` | the LLM-oracle interview scripts, mirroring the Java strategies |
 | `Artifact/results/` | the experiment result CSV files |
 | `Artifact/fd/` | FDs mined from the twelve real-world data sets, used as the answering oracle of RQ2 |
-| `Artifact/comparison_to_mining/` | the key mining results and the interview ground truth of RQ3 |
+| `Artifact/comparison_to_mining/` | the two comparison scripts of RQ3, each carrying the interview ground truth; the mining outputs they read are not included |
 | `Artifact/llm_hockey/`, `Artifact/llm_scalability/` | the LLM interview outputs of RQ4 and RQ5, the dualization-based family under `dualize/` |
 | `Artifact/Dataset.zip` | the data sets |
 | `Artifact/keyinterviewtool-0.0.1-SNAPSHOT.jar` | the interview tool, implementing all eight strategies |

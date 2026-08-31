@@ -216,7 +216,7 @@ TeamVsTeam & year, tmID, oppID & 1.00 & 1.00\\
     TASKS_CERTAIN_CLEAN = [
         ("certain-L0-D0", "mining-D0(exact)/certain-L0-D0.txt",
          "ground_truth(interview_results)/certain-L0-D0_labeled.txt"),
-        ("certain-L1-D0", "mining-D0(exact)/certain-L1-DO.txt",
+        ("certain-L1-D0", "mining-D0(exact)/certain-L1-D0.txt",
          "ground_truth(interview_results)/certain-L1-D0_labeled.txt"),
         ("certain-L5-D0", "mining-D0(exact)/certain-L5-D0.txt",
          "ground_truth(interview_results)/certain-L5-D0_labeled.txt"),
