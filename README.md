@@ -1,6 +1,6 @@
 # Introduction
 
-This repository contains the artifacts, source code and experimental materials that supplement our work on **Automatic Generation of Interview Questions for Domain Experts to Acquire Database Keys with Perfect Precision and Recall**.
+This repository contains the artifacts, source code and experimental materials that supplement our work on **Computational Support towards a Human-Centered Methodology that Acquires Database Keys with Perfect Precision and Recall**.
 
 The interview generates Boolean questions of the form "is this column set a key?" and prunes the search space from the answers received, so that a team of domain experts identifies the set of meaningful minimal keys of a schema with perfect precision and recall. The sections below describe how each experiment of the paper can be reproduced.
 
