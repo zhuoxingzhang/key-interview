@@ -49,15 +49,12 @@ Visit the [website](https://deleted-stats-gratis-land.trycloudflare.com/) to int
 How well do our algorithms perform under different distributions of minimal keys? Every question is answered `No` independently with probability *p*, for *p* = 0, 0.1, ..., 1 and schema sizes |T| = 11, 13, 15.
 
 ```bash
-src/exp/SyntheticProbAnswering.java
+# one strategy per run; underscores stand for the spaces in the strategy string
+java exp.SyntheticProbAnswering topdown_bfs out.csv 11 13 15
+java exp.SyntheticProbAnswering dualize_topdown_bfs out.csv 11 13 15
 ```
 
-Results are in `Artifact/results/syn_prob_answering_all_strategies.csv`, one row per strategy, schema size and *p*. The figure of the paper shows |T| = 11 and 15; the sweep itself covers |T| = 13 as well and the CSV retains it.
-
-```bash
-python plot/prob_answering_all_strategies.py                    # the figure of the paper
-python plot/prob_answering_all_strategies.py --sizes 11 13 15   # all three schema sizes
-```
+The driver accepts all eight strategy strings and appends one row per strategy, schema size and *p*. The recorded sweep is `Artifact/results/syn_prob_answering_all_strategies.csv`; it covers |T| = 11, 13 and 15, of which the figure of the paper shows the two extremes.
 
 ## RQ2 — Level-wise versus Dualization-based Traversal (Real-World Distributions)
 
@@ -92,41 +89,41 @@ How well do LLMs perform as domain experts in our interview process? Two setting
 - **Prime filtering**: the LLM first predicts the set of prime attributes, that is, the attributes that occur in some meaningful minimal key, and the interview is restricted to that reduced schema, which shrinks the search space from 2^|T| to 2^|P|.
 
 ```bash
-LLM Oracle Python Script/Interview_with_LLM_Oracle.py
+# --strategies takes any subset of LW-TD LW-TB LW-BD LW-BB DA-TD DA-TB DA-BD DA-BB
+python "LLM Oracle Python Script/Interview_with_LLM_Oracle.py" \
+    --model deepseek-ai/DeepSeek-R1-Distill-Llama-70B --mode prime \
+    --strategies DA-TD DA-TB DA-BD DA-BB --outdir results_da
 ```
 
-The folder `Artifact/llm_hockey` contains the LLM interview outputs for this experiment.
+The folder `Artifact/llm_hockey` contains the LLM interview outputs for this experiment. `Artifact/llm_hockey/dualize/` holds the runs of the dualization-based family: one CSV row per table and strategy, the aggregates derived from those rows by `aggregate_da.py`, the predicted prime attributes as JSON, and the raw model transcript of every run.
 
 ## RQ5 — Scalability with Prime Filtering (Real-World Data Sets without Ground Truth)
 
-How well does the restriction to prime attributes scale our interview process to real-world data sets? For each data set and model the experiment reports the number of generated questions and the runtime for **all prime-attribute budgets |P| = 1, ..., 5**. Since no ground truth is available for these tables, precision and recall are not reported. The budget that the LLM itself predicted is marked in the paper, and the two models agree on every data set:
-
-| Data set | \|T\| | \|P\| (DS and Qwen) |
-| -------- | ----- | ------------------- |
-| abalone  | 9     | 1                   |
-| routes   | 9     | 5                   |
-| breast   | 11    | 1                   |
-| bridges  | 13    | 1                   |
-| echo     | 13    | 1                   |
-| pdbx     | 13    | 2                   |
-| claims   | 13    | 1                   |
-| adult    | 15    | 1                   |
-| hospital | 15    | 1                   |
-| lineitem | 16    | 2                   |
-| weather  | 18    | 3                   |
-| ncvoter  | 19    | 2                   |
+How well does the restriction to prime attributes scale our interview process to real-world data sets? For each data set and model the experiment reports the number of generated questions and the runtime for **all prime-attribute budgets |P| = 1, ..., 5**, and every reported entry is the average over those five budgets. Since no ground truth is available for these tables, precision and recall are not reported.
 
 ```bash
-LLM Oracle Python Script/Interview_with_LLM_Oracle_No_GT.py
+python "LLM Oracle Python Script/Interview_with_LLM_Oracle_No_GT.py" \
+    --model deepseek-ai/DeepSeek-R1-Distill-Llama-70B \
+    --strategies DA-TD DA-TB DA-BD DA-BB --outdir results_da
 ```
 
-The folder `Artifact/llm_scalability` contains the raw LLM interview outputs for all data sets, all budgets and all strategies, across both models.
+The folder `Artifact/llm_scalability` contains the raw LLM interview outputs for all data sets, all budgets and all strategies, across both models. `Artifact/llm_scalability/dualize/` holds the runs of the dualization-based family, with one CSV row per data set, budget and strategy, the predicted prime attributes of every budget as JSON, and the raw model transcript of every run.
 
 ## RQ6 — Human Interviewees of Varying Expertise
 
 How much of the acquired quality comes from the expertise of a human interviewee, and how much from the interview itself? Ten participants at three levels of domain expertise answered nine Hockey tables under all eight strategies, using the online interview tool of this repository, together with a direct-naming ablation that replaces the traversal by the single open question "name the minimal keys of this table".
 
 Participants took part voluntarily and gave informed consent. They were told in advance what the tool records, that they could stop at any point and decline any individual question, and that their records would be reported only in aggregated and pseudonymised form. **In keeping with that undertaking, this repository publishes no per-participant records.** The aggregated results are the two human-study tables of the paper.
+
+# Where the Reported Numbers Come From
+
+Except for the human study of RQ6, whose per-participant records are withheld for the reason given above, every number in the paper is read out of a file in this repository, and every such file is written by a program in this repository.
+
+- The **Java drivers** in `src/exp/` run the interview and append one CSV row per run to `Artifact/results/`. A driver either takes the strategy as a command-line argument or iterates over the strategies itself, so in both cases the columns of a table come from one code path, run once per strategy.
+- The **LLM scripts** in `LLM Oracle Python Script/` load the model with `transformers` and obtain each answer from `model.generate`; decoding is greedy (`do_sample=False`), so a run is reproducible given the same model and schema. The scripts write one CSV row per table and strategy and, alongside it, the raw transcript of the run, which records the schema, the predicted prime attributes, and the questions, timings and scores of each strategy. The aggregates (`Agg.` and M*k*) are not accumulated during a run; `aggregate_da.py` recomputes them from the recorded per-strategy rows, so they can be checked against those rows.
+- The **comparison scripts** in `Artifact/comparison_to_mining/` compute precision, recall and F1 by set arithmetic over the mining output files and the interview ground truth shipped beside them.
+
+No script states a result as a literal. Anything that looks like a measurement in this repository is either a CSV written by a run, a raw transcript of a run, or an input to a run, such as the mined FDs and the interview ground truth.
 
 # Repository Layout
 
@@ -135,10 +132,9 @@ Participants took part voluntarily and gave informed consent. They were told in 
 | `src/entity/` | schema, key and FD data types |
 | `src/exp/` | the experiment drivers; `Interview.java` holds the interview loop and the candidate generation of both families |
 | `LLM Oracle Python Script/` | the LLM-oracle interview scripts, mirroring the Java strategies |
-| `plot/` | the scripts that draw the figures, reading the CSV files under `Artifact/results/` |
 | `Artifact/results/` | the experiment result CSV files |
 | `Artifact/fd/` | FDs mined from the twelve real-world data sets, used as the answering oracle of RQ2 |
 | `Artifact/comparison_to_mining/` | the key mining results and the interview ground truth of RQ3 |
-| `Artifact/llm_hockey/`, `Artifact/llm_scalability/` | the LLM interview outputs of RQ4 and RQ5 |
+| `Artifact/llm_hockey/`, `Artifact/llm_scalability/` | the LLM interview outputs of RQ4 and RQ5, the dualization-based family under `dualize/` |
 | `Artifact/Dataset.zip` | the data sets |
 | `Artifact/keyinterviewtool-0.0.1-SNAPSHOT.jar` | the interview tool, implementing all eight strategies |

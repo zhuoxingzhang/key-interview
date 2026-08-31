@@ -1,0 +1,165 @@
+####################
+Schema Name: hospital | Top-k Prime: 1
+Predicted prime attrs: ['provider_number']
+Reduced schema after prime pruning: ['provider_number']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.3729
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.3729
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.3728
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.3728
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Top-k Prime: 2
+Predicted prime attrs: ['provider_number', 'hospital_name']
+Reduced schema after prime pruning: ['provider_number', 'hospital_name']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.7820
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.7816
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.4704
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.4703
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Top-k Prime: 3
+Predicted prime attrs: ['provider_number', 'address', 'hospital_name']
+Reduced schema after prime pruning: ['provider_number', 'hospital_name', 'address']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.7834
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.7836
+Mined minimal keys: {Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 2.6559
+Mined minimal keys: {Key(['hospital_name']), Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 2.6560
+Mined minimal keys: {Key(['hospital_name']), Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Top-k Prime: 4
+Predicted prime attrs: ['provider_number', 'phone_number', 'address', 'hospital_name']
+Reduced schema after prime pruning: ['provider_number', 'hospital_name', 'address', 'phone_number']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 8.5335
+Mined minimal keys: {Key(['address']), Key(['phone_number']), Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 8.5331
+Mined minimal keys: {Key(['address']), Key(['phone_number']), Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 6, 5.6038
+Mined minimal keys: {Key(['address']), Key(['provider_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 6, 5.6046
+Mined minimal keys: {Key(['address']), Key(['provider_number'])}
+==========================
+
+####################
+Schema Name: hospital | Top-k Prime: 5
+Predicted prime attrs: ['provider_number', 'hospital_name', 'address', 'phone_number', 'zip_code']
+Reduced schema after prime pruning: ['provider_number', 'hospital_name', 'address', 'zip_code', 'phone_number']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 22, 20.3394
+Mined minimal keys: {Key(['hospital_name', 'phone_number']), Key(['address', 'zip_code']), Key(['phone_number', 'zip_code']), Key(['address', 'phone_number']), Key(['hospital_name', 'zip_code']), Key(['provider_number']), Key(['address', 'hospital_name'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 25, 22.6132
+Mined minimal keys: {Key(['hospital_name', 'phone_number']), Key(['address', 'zip_code']), Key(['phone_number', 'zip_code']), Key(['address', 'phone_number']), Key(['hospital_name', 'zip_code']), Key(['provider_number']), Key(['address', 'hospital_name'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 12, 12.3329
+Mined minimal keys: {Key(['hospital_name', 'phone_number']), Key(['address', 'zip_code']), Key(['phone_number', 'zip_code']), Key(['address', 'phone_number']), Key(['hospital_name', 'zip_code']), Key(['provider_number']), Key(['address', 'hospital_name'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 12, 12.3334
+Mined minimal keys: {Key(['hospital_name', 'phone_number']), Key(['address', 'zip_code']), Key(['phone_number', 'zip_code']), Key(['address', 'phone_number']), Key(['hospital_name', 'zip_code']), Key(['provider_number']), Key(['address', 'hospital_name'])}
+==========================
+

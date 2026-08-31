@@ -1,0 +1,165 @@
+####################
+Schema Name: adult | Top-k Prime: 1
+Predicted prime attrs: ['fnlwgt']
+Reduced schema after prime pruning: ['fnlwgt']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 1.5084
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 1.5288
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 2.7733
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 2.7762
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: adult | Top-k Prime: 2
+Predicted prime attrs: ['age', 'hours_per_week']
+Reduced schema after prime pruning: ['age', 'hours_per_week']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.5534
+Mined minimal keys: {Key(['age', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.5871
+Mined minimal keys: {Key(['age', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 3.1132
+Mined minimal keys: {Key(['age', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 3.0936
+Mined minimal keys: {Key(['age', 'hours_per_week'])}
+==========================
+
+####################
+Schema Name: adult | Top-k Prime: 3
+Predicted prime attrs: ['age', 'hours_per_week', 'native_country']
+Reduced schema after prime pruning: ['age', 'hours_per_week', 'native_country']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 2.3875
+Mined minimal keys: {Key(['age', 'hours_per_week', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 2.3664
+Mined minimal keys: {Key(['age', 'hours_per_week', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 4.0439
+Mined minimal keys: {Key(['age', 'hours_per_week', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 4.0261
+Mined minimal keys: {Key(['age', 'hours_per_week', 'native_country'])}
+==========================
+
+####################
+Schema Name: adult | Top-k Prime: 4
+Predicted prime attrs: ['age', 'hours_per_week', 'capital_gain', 'capital_loss']
+Reduced schema after prime pruning: ['age', 'capital_gain', 'capital_loss', 'hours_per_week']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 3.2458
+Mined minimal keys: {Key(['age', 'capital_gain', 'capital_loss', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 3.2615
+Mined minimal keys: {Key(['age', 'capital_gain', 'capital_loss', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 6.9903
+Mined minimal keys: {Key(['age', 'capital_gain', 'capital_loss', 'hours_per_week'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 7.0155
+Mined minimal keys: {Key(['age', 'capital_gain', 'capital_loss', 'hours_per_week'])}
+==========================
+
+####################
+Schema Name: adult | Top-k Prime: 5
+Predicted prime attrs: ['hours_per_week', 'age', 'native_country', 'education', 'occupation']
+Reduced schema after prime pruning: ['age', 'education', 'occupation', 'hours_per_week', 'native_country']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 4.5234
+Mined minimal keys: {Key(['age', 'education', 'hours_per_week', 'native_country', 'occupation'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 4.5528
+Mined minimal keys: {Key(['age', 'education', 'hours_per_week', 'native_country', 'occupation'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 16, 11.2466
+Mined minimal keys: {Key(['age', 'education', 'hours_per_week', 'native_country', 'occupation'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 16, 11.3583
+Mined minimal keys: {Key(['age', 'education', 'hours_per_week', 'native_country', 'occupation'])}
+==========================
+

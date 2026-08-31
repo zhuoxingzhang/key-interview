@@ -1,0 +1,62 @@
+####################
+Schema Name: goalies_shootout | Schema: ['playerID', 'year', 'stint', 'tmID', 'W', 'L', 'SA', 'GA'] | Ground Truth Minimal Keys: [Key(['playerID', 'stint', 'year'])]
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B | mode: prime
+Ground truth prime attrs: ['playerID', 'stint', 'year']
+Predicted prime attrs: ['playerID', 'year', 'stint']
+Prime Attr F1, recall, precision: 1.0000, 1.0000, 1.0000
+Reduced schema after prime pruning: ['playerID', 'year', 'stint']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 4.5155 minutes
+Mined minimal keys: {Key(['playerID', 'stint', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 4.5147 minutes
+Mined minimal keys: {Key(['playerID', 'stint', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 6.7935 minutes
+Mined minimal keys: {Key(['playerID', 'stint', 'year'])} | # Questions: 7
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 6.7912 minutes
+Mined minimal keys: {Key(['playerID', 'stint', 'year'])} | # Questions: 7
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+===== Evaluation after Aggregation =====
+Total time cost: 22.6148 minutes
+Total questions: 22
+Mined minimal keys with frequency: {Key(['playerID', 'stint', 'year']): 4}
+
+===== Metrics with Non-Minimal Keys after Aggregation =====
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+
+===== Metrics with Minimal Keys of Top-k Frequency after Aggregation =====
+Minimization of keys of freq >= 4, F1, recall, precision: 1.0000, 1.0000, 1.0000
+Minimization of keys of freq >= 4, Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+========================================
+
+####################
+

@@ -1,0 +1,62 @@
+####################
+Schema Name: teams_post | Schema: ['year', 'tmID', 'lgID', 'G', 'W', 'L', 'T', 'GF', 'GA', 'PIM', 'BenchMinor', 'PPG', 'PPC', 'SHA', 'PKG', 'PKC', 'SHF'] | Ground Truth Minimal Keys: [Key(['tmID', 'year'])]
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B | mode: prime
+Ground truth prime attrs: ['tmID', 'year']
+Predicted prime attrs: ['year', 'tmID', 'lgID']
+Prime Attr F1, recall, precision: 0.8000, 1.0000, 0.6667
+Reduced schema after prime pruning: ['year', 'tmID', 'lgID']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 3.3690 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 3.3634 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 5.1461 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 6
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 5.1491 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 6
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+===== Evaluation after Aggregation =====
+Total time cost: 17.0275 minutes
+Total questions: 20
+Mined minimal keys with frequency: {Key(['tmID', 'year']): 4}
+
+===== Metrics with Non-Minimal Keys after Aggregation =====
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+
+===== Metrics with Minimal Keys of Top-k Frequency after Aggregation =====
+Minimization of keys of freq >= 4, F1, recall, precision: 1.0000, 1.0000, 1.0000
+Minimization of keys of freq >= 4, Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+========================================
+
+####################
+

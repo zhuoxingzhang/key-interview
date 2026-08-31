@@ -1083,6 +1083,337 @@ class Interview:
         allMinedKeys = Interview.refineToMinimalKeys(allMinedKeys)  # refine interviewed keys to minimal
         return [allMinedKeys, num4NOAnswers, num4AllAnswers, round_num]
 
+    # ============== Dualize and Advance (DA) strategy family ==============
+    # Adapted from the Dualize and Advance algorithm (All_MSS/AMAK) of
+    # Gunopulos, Khardon, Mannila, Saluja, Toivonen, Sharma, TODS 28(2), 2003,
+    # instantiated over the same two dimensions as the level-based suite:
+    # traversalStart in {bottomup, topdown} and traversalDirection in {dfs, bfs}.
+    # bottomup: maintain maximal anti-keys; candidates are the minimal
+    #   transversals of their complements (candidate minimal keys); an anti-key
+    #   answer is a counterexample that is advanced upward to a maximal anti-key.
+    # topdown (dual): maintain minimal keys; candidates are the complements of
+    #   the minimal transversals of the key hypergraph (candidate maximal
+    #   anti-keys); a key answer is a counterexample that is shrunk downward to
+    #   a minimal key.
+    # dfs: handle the first counterexample immediately; bfs: interview the whole
+    #   candidate batch, then handle all counterexamples of the batch.
+
+    @staticmethod
+    def isProperSubsetOfSomeKeys(minimalKeys: Collection[Key], oneSet: Key) -> bool:
+        """a proper subset of a given minimal key is an anti-key by minimality"""
+        for key in minimalKeys:
+            if key.contains(oneSet) and key.size() > oneSet.size():
+                return True
+        return False
+
+    @staticmethod
+    def _isMinimalHittingSet(S: Set[str], hyperEdges: List[Set[str]]) -> bool:
+        for a in S:
+            reduced = S - {a}
+            if all(reduced & edge for edge in hyperEdges):
+                return False
+        return True
+
+    @staticmethod
+    def _mmcs(candidates: Set[str], hyperEdges: List[Set[str]], current: Set[str],
+              output: Set[frozenset]) -> None:
+        all_hit = True
+        for edge in hyperEdges:
+            if not (current & edge):
+                all_hit = False
+                break
+
+        if all_hit:
+            if Interview._isMinimalHittingSet(current, hyperEdges):
+                output.add(frozenset(current))
+            return
+
+        edgeToCover = None
+        for edge in hyperEdges:
+            if not (current & edge):
+                if edgeToCover is None or len(edge) < len(edgeToCover):
+                    edgeToCover = edge
+        if edgeToCover is None:
+            return
+
+        for attr in list(edgeToCover):
+            if attr not in candidates:
+                continue
+            Interview._mmcs(candidates - {attr}, hyperEdges, current | {attr}, output)
+
+    @staticmethod
+    def computeCandKeySet4Dualize(R: List[str], maxAntiKeys: Collection[Key]) -> List[Key]:
+        """
+        Dualization step (bottom-up flavor): the candidate minimal keys are the
+        minimal transversals of the hypergraph whose edges are the complements
+        of the maximal anti-keys found so far.
+        """
+        hyperEdges: List[Set[str]] = []
+        for antiKey in maxAntiKeys:
+            hyperEdges.append(set(R) - set(antiKey.getAttributes()))
+        minimalTransversals: Set[frozenset] = set()
+        Interview._mmcs(set(R), hyperEdges, set(), minimalTransversals)
+        candKeys = [Key(tr) for tr in minimalTransversals]
+        candKeys.sort(key=lambda k: (k.size(), ",".join(sorted(k.getAttributes()))))  # increasing, deterministic
+        return candKeys
+
+    @staticmethod
+    def computeCandKeySet4DualizeTopDown(R: List[str], minKeys: Collection[Key]) -> List[Key]:
+        """
+        Dual dualization step (top-down flavor): the candidate maximal anti-keys
+        are the complements of the minimal transversals of the hypergraph whose
+        edges are the minimal keys found so far.
+        """
+        hyperEdges: List[Set[str]] = [set(k.getAttributes()) for k in minKeys]
+        minimalTransversals: Set[frozenset] = set()
+        Interview._mmcs(set(R), hyperEdges, set(), minimalTransversals)
+        candAntiKeys = [Key(set(R) - set(tr)) for tr in minimalTransversals]
+        candAntiKeys.sort(key=lambda k: (-k.size(), ",".join(sorted(k.getAttributes()))))  # decreasing, deterministic
+        return candAntiKeys
+
+    @staticmethod
+    def _interview_dualize_core(
+            R: List[str],
+            answer_is_key,
+            print_output: bool,
+            preDeterminedKeys: List[Key],
+            traversalStart: str = "bottomup",
+            traversalDirection: str = "dfs",
+    ) -> List[object]:
+        if print_output:
+            print(f"Given schema: {R}")
+
+        topdown = traversalStart == "topdown"
+        if not topdown and traversalStart != "bottomup":
+            raise ValueError("Not supported dualize strategy! (topdown/bottomup only)")
+        bfs = traversalDirection == "bfs"
+
+        counters = [0, 0]  # [0]: "No" answers (keys), [1]: all questions
+        allMinedKeys: Set[Key] = set(preDeterminedKeys)  # known keys
+        allNonKeys: Set[Key] = set()  # known anti-keys
+        maxAntiKeys: Set[Key] = set()  # maximal anti-keys discovered so far
+        minKeysFound: Set[Key] = set(preDeterminedKeys)  # minimal keys discovered so far
+        round_num = 0
+
+        def ask(cand: Key, label: str) -> bool:
+            counters[1] += 1
+            if print_output:
+                print(f"\n***************Question {counters[1]}***************")
+                print(f'Interviewing "{cand}" if it is {label}...')
+            is_key = answer_is_key(cand)
+            if is_key:
+                counters[0] += 1
+                if print_output:
+                    print("Answer: No (it is a key)\n")
+            elif print_output:
+                print("Answer: Yes (it is an anti-key)\n")
+            return is_key
+
+        def advance(counterExample: Key) -> Key:
+            """advance an anti-key greedily to a maximal anti-key"""
+            antiKey = set(counterExample.getAttributes())
+            if print_output:
+                print(f"Advancing anti-key {counterExample} to a maximal anti-key...")
+            for e in R:
+                if e in antiKey:
+                    continue
+                EK = Key(antiKey | {e})
+                if Interview.isSuperkeyOfSomeKeys(allMinedKeys, EK):  # implied key
+                    continue
+                if Interview.isSubsetOfAnySupersets(allNonKeys, EK) \
+                        or Interview.isProperSubsetOfSomeKeys(preDeterminedKeys, EK):  # implied anti-key
+                    antiKey.add(e)
+                    allNonKeys.add(EK)
+                    continue
+                if ask(EK, "an anti-key"):
+                    allMinedKeys.add(EK)
+                else:
+                    antiKey.add(e)
+                    allNonKeys.add(EK)
+            return Key(antiKey)
+
+        def shrink(counterExample: Key) -> Key:
+            """shrink a key greedily to a minimal key"""
+            key = set(counterExample.getAttributes())
+            if print_output:
+                print(f"Shrinking key {counterExample} to a minimal key...")
+            for e in R:
+                if e not in key:
+                    continue
+                SK = Key(key - {e})
+                if Interview.isSubsetOfAnySupersets(allNonKeys, SK) \
+                        or Interview.isProperSubsetOfSomeKeys(preDeterminedKeys, SK):  # implied anti-key
+                    continue
+                if Interview.isSuperkeyOfSomeKeys(allMinedKeys, SK):  # implied key
+                    key.discard(e)
+                    continue
+                if ask(SK, "a key"):
+                    allMinedKeys.add(SK)
+                    key.discard(e)
+                else:
+                    allNonKeys.add(SK)
+            return Key(key)
+
+        while True:
+            round_num += 1
+            candKeySet = (Interview.computeCandKeySet4DualizeTopDown(R, minKeysFound) if topdown
+                          else Interview.computeCandKeySet4Dualize(R, maxAntiKeys))  # dualize
+
+            if print_output:
+                print(f"\n***************Round {round_num}***************")
+                print(f"current candidate sets num: {len(candKeySet)}")
+                print("current candidate maximal anti-keys:" if topdown
+                      else "current candidate minimal keys:")
+                for candKey in candKeySet:
+                    print(f"candidate: {candKey}")
+                print("-----------------------------\n")
+
+            counterExamples: List[Key] = []
+            for candKey in candKeySet:
+                if topdown:
+                    if Interview.isSubsetOfAnySupersets(allNonKeys, candKey):  # confirmed anti-key
+                        continue
+                    if Interview.isProperSubsetOfSomeKeys(preDeterminedKeys, candKey):  # implied anti-key
+                        maxAntiKeys.add(candKey)
+                        allNonKeys.add(candKey)
+                        continue
+                    if ask(candKey, "a maximal anti-key"):  # counterexample: an uncovered key
+                        allMinedKeys.add(candKey)
+                        counterExamples.append(candKey)
+                        if not bfs:
+                            break
+                    else:  # maximal anti-key by dualization
+                        allNonKeys.add(candKey)
+                        maxAntiKeys.add(candKey)
+                else:
+                    if Interview.isSuperkeyOfSomeKeys(allMinedKeys, candKey):  # confirmed key
+                        continue
+                    if Interview.isProperSubsetOfSomeKeys(preDeterminedKeys, candKey):  # implied anti-key
+                        allNonKeys.add(candKey)
+                        counterExamples.append(candKey)
+                        if not bfs:
+                            break
+                        continue
+                    if ask(candKey, "a minimal key"):  # minimal key by dualization
+                        allMinedKeys.add(candKey)
+                        minKeysFound.add(candKey)
+                    else:  # counterexample: an uncovered anti-key
+                        allNonKeys.add(candKey)
+                        counterExamples.append(candKey)
+                        if not bfs:
+                            break
+
+            if not counterExamples:  # every candidate is confirmed
+                if print_output:
+                    print("\n\nInterview is finished because every candidate is confirmed!\n\n")
+                break
+
+            for counterExample in counterExamples:
+                if topdown:
+                    if Interview.isSuperkeyOfSomeKeys(minKeysFound, counterExample):  # covered in this batch
+                        continue
+                    minKey = shrink(counterExample)
+                    minKeysFound.add(minKey)
+                    allMinedKeys.add(minKey)
+                    if print_output:
+                        print(f"New minimal key: {minKey}")
+                else:
+                    if Interview.isSubsetOfAnySupersets(maxAntiKeys, counterExample):  # covered in this batch
+                        continue
+                    antiKey = advance(counterExample)
+                    maxAntiKeys.add(antiKey)
+                    allNonKeys.add(antiKey)
+                    if print_output:
+                        print(f"New maximal anti-key: {antiKey}")
+
+        allMinedKeys = Interview.refineToMinimalKeys(allMinedKeys)  # refine interviewed keys to minimal
+        return [allMinedKeys, counters[0], counters[1], round_num]
+
+    @staticmethod
+    def interview_dualize_with_probability(
+            R: List[str],
+            p: float,
+            print_output: bool,
+            rng: Optional[Random] = None,
+            traversalStart: str = "bottomup",
+            traversalDirection: str = "dfs",
+    ) -> List[object]:
+        rng = rng or Random()
+        return Interview._interview_dualize_core(
+            R,
+            lambda candKey: rng.random() < p,
+            print_output,
+            [],
+            traversalStart,
+            traversalDirection,
+        )
+
+    @staticmethod
+    def interview_dualize_with_given_minimal_keys(
+            R: List[str],
+            print_output: bool,
+            givenMinimalKeys: List[Key],
+            traversalStart: str = "bottomup",
+            traversalDirection: str = "dfs",
+    ) -> List[object]:
+        return Interview._interview_dualize_core(
+            R,
+            lambda candKey: Interview.isSuperKey(candKey, minimalKeys=givenMinimalKeys),
+            print_output,
+            [],
+            traversalStart,
+            traversalDirection,
+        )
+
+    @staticmethod
+    def interview_dualize_with_predetermined_keys(
+            R: List[str],
+            print_output: bool,
+            givenMinimalKeys: List[Key],
+            preDeterminedKeys: List[Key],
+            traversalStart: str = "bottomup",
+            traversalDirection: str = "dfs",
+    ) -> List[object]:
+        return Interview._interview_dualize_core(
+            R,
+            lambda candKey: Interview.isSuperKey(candKey, minimalKeys=givenMinimalKeys),
+            print_output,
+            preDeterminedKeys,
+            traversalStart,
+            traversalDirection,
+        )
+
+    @staticmethod
+    def interview_dualize_with_llm_oracle(
+            R: List[str],
+            schema_name: str,
+            print_output: bool,
+            oracle: KeyOracle,
+            preDeterminedKeys: Optional[List[Key]] = None,
+            traversalStart: str = "bottomup",
+            traversalDirection: str = "dfs",
+    ) -> List[object]:
+        """
+        LLM oracle mode of the Dualize and Advance strategy family.
+        Returns [minimal keys, number of questions], mirroring interview_with_llm_oracle.
+        """
+        preDeterminedKeys = preDeterminedKeys or []
+        res = Interview._interview_dualize_core(
+            R,
+            lambda candKey: Interview.isSuperKey(
+                candKey,
+                oracle=oracle,
+                schema=R,
+                schema_name=schema_name,
+                print_output=print_output,
+            ),
+            print_output,
+            preDeterminedKeys,
+            traversalStart,
+            traversalDirection,
+        )
+        return [res[0], res[2]]
+
     @staticmethod
     def interview_with_llm_oracle(
             traversalStart: str,
@@ -1352,173 +1683,299 @@ def compute_topk_freq_minimal_keys(keys_frequency_dict):
 
 
 if __name__ == "__main__":
-    model_name_or_path = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
-    # model_name_or_path = "Qwen/Qwen3-30B-A3B-Thinking-2507"
+    import argparse
+    import csv
+    import os
+
+    # family x starting point x direction -> the eight strategies of the suite
+    STRATEGY_SPECS = {
+        "LW-TD": ("levelwise", "topdown", "dfs"),
+        "LW-TB": ("levelwise", "topdown", "bfs"),
+        "LW-BD": ("levelwise", "bottomup", "dfs"),
+        "LW-BB": ("levelwise", "bottomup", "bfs"),
+        "DA-TD": ("dualize", "topdown", "dfs"),
+        "DA-TB": ("dualize", "topdown", "bfs"),
+        "DA-BD": ("dualize", "bottomup", "dfs"),
+        "DA-BB": ("dualize", "bottomup", "bfs"),
+    }
+    DA_FAMILY = ["DA-TD", "DA-TB", "DA-BD", "DA-BB"]
+
+    # the Hockey tables of Tab. 5 (full schemata) and Tab. 6 (prime filtering)
+    TAB5_SCHEMAS = ["scoring_shootout", "goalies_shootout", "team_vs_team", "combined_shutouts"]
+    TAB6_SCHEMAS = TAB5_SCHEMAS + ["teams_half", "teams_post", "goalies", "team_splits"]
+
+    CSV_FIELDS = [
+        "schema", "model", "mode", "T", "P",
+        "prime_f1", "prime_recall", "prime_precision",
+        "strategy",
+        "exact_f1", "exact_recall", "exact_precision",
+        "relaxed_f1", "relaxed_recall", "relaxed_precision",
+        "questions", "minutes", "keys",
+    ]
+
+    ap = argparse.ArgumentParser(
+        description="LLM-oracle key interviews over the eight strategies of the suite.")
+    ap.add_argument("--model", default="deepseek-ai/DeepSeek-R1-Distill-Llama-70B")
+    ap.add_argument("--mode", choices=["full", "prime"], required=True,
+                    help="full = Tab. 5 (original schema); prime = Tab. 6 (prime filtering)")
+    ap.add_argument("--schemas", nargs="+", default=None)
+    ap.add_argument("--strategies", nargs="+", default=DA_FAMILY, choices=list(STRATEGY_SPECS))
+    ap.add_argument("--outdir", default="results_da")
+    ap.add_argument("--max-new-tokens", type=int, default=10000)
+    ap.add_argument("--device-map", default="auto")
+    ap.add_argument("--no-resume", action="store_true",
+                    help="recompute rows that the CSV already holds")
+    ap.add_argument("--quiet", action="store_true", help="suppress the per-question transcript")
+    args = ap.parse_args()
+
+    R_reduction = (args.mode == "prime")
+    schemas = args.schemas or (TAB6_SCHEMAS if R_reduction else TAB5_SCHEMAS)
+    model_short_name = args.model.split("/")[-1]
+    os.makedirs(args.outdir, exist_ok=True)
+    csv_path = os.path.join(args.outdir, args.mode + "_" + model_short_name + ".csv")
+    print_output = not args.quiet
+
+    # ---- resume: remember which (schema, strategy) rows are already on disk ----
+    done = set()
+    if os.path.exists(csv_path) and not args.no_resume:
+        with open(csv_path, newline="", encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                done.add((row["schema"], row["strategy"]))
+        print("[resume] " + csv_path + " already holds " + str(len(done)) + " rows")
+    if not os.path.exists(csv_path):
+        with open(csv_path, "w", newline="", encoding="utf-8") as fh:
+            csv.DictWriter(fh, fieldnames=CSV_FIELDS).writeheader()
+
+    def emit(row):
+        with open(csv_path, "a", newline="", encoding="utf-8") as fh:
+            csv.DictWriter(fh, fieldnames=CSV_FIELDS).writerow(row)
+
+    def keys_to_text(keys):
+        return " | ".join(sorted(",".join(sorted(k.getAttributes())) for k in keys))
+
+    def keys_from_text(text):
+        out = []
+        for part in (text or "").split(" | "):
+            part = part.strip()
+            if part:
+                out.append(Key([a for a in part.split(",") if a]))
+        return out
+
+    def write_aggregates():
+        """Derive Agg. and Mk from the recorded per-strategy rows.
+
+        The aggregates are a function of the strategy rows, never of what this
+        particular process happened to run: a resumed run skips the strategies
+        the CSV already holds, so accumulating them in the loop would silently
+        aggregate over fewer than the four members of the family. This pass
+        rewrites the aggregate file from scratch on every run, which also keeps
+        a resumed run from appending a second, stale set of aggregate rows.
+        """
+        if not os.path.exists(csv_path):
+            return
+        by_schema = {}
+        with open(csv_path, newline="", encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                if row["strategy"] in STRATEGY_SPECS:  # strategy rows only
+                    by_schema.setdefault(row["schema"], {})[row["strategy"]] = row
+        agg_path = os.path.join(
+            args.outdir, "agg_" + args.mode + "_" + model_short_name + ".csv")
+        fields = CSV_FIELDS + ["members"]
+        with open(agg_path, "w", newline="", encoding="utf-8") as fh:
+            writer = csv.DictWriter(fh, fieldnames=fields)
+            writer.writeheader()
+            for schema_name in schemas:
+                rows = by_schema.get(schema_name)
+                if not rows:
+                    continue
+                _, gt = schema_info_db(schema_name)
+                freq, tq, tm = {}, 0, 0.0
+                for strategy in sorted(rows):
+                    row = rows[strategy]
+                    for k in keys_from_text(row["keys"]):
+                        freq[k] = freq.get(k, 0) + 1
+                    tq += int(row["questions"] or 0)
+                    tm += float(row["minutes"] or 0.0)
+                any_row = rows[sorted(rows)[0]]
+                base = {f: any_row.get(f, "") for f in
+                        ("schema", "model", "mode", "T", "P",
+                         "prime_f1", "prime_recall", "prime_precision")}
+                base["members"] = len(rows)
+                if not freq:
+                    continue
+                ks = set(freq)
+                p, r, f1 = evaluate_keys(gt, ks)
+                pr, rr, f1r = evaluate_keys_relaxed(gt, ks)
+                writer.writerow(dict(base, strategy="Agg.",
+                                     exact_f1=f"{f1:.4f}", exact_recall=f"{r:.4f}",
+                                     exact_precision=f"{p:.4f}",
+                                     relaxed_f1=f"{f1r:.4f}", relaxed_recall=f"{rr:.4f}",
+                                     relaxed_precision=f"{pr:.4f}",
+                                     questions=tq, minutes=f"{tm:.4f}",
+                                     keys=keys_to_text(ks)))
+                for k_freq, min_keys in compute_topk_freq_minimal_keys(freq):
+                    p, r, f1 = evaluate_keys(gt, min_keys)
+                    pr, rr, f1r = evaluate_keys_relaxed(gt, min_keys)
+                    writer.writerow(dict(base, strategy="M" + str(k_freq),
+                                         exact_f1=f"{f1:.4f}", exact_recall=f"{r:.4f}",
+                                         exact_precision=f"{p:.4f}",
+                                         relaxed_f1=f"{f1r:.4f}", relaxed_recall=f"{rr:.4f}",
+                                         relaxed_precision=f"{pr:.4f}",
+                                         questions="", minutes="",
+                                         keys=keys_to_text(min_keys)))
+                print(f"[agg] {schema_name}: {len(rows)} strategies, "
+                      f"{tq} questions, {tm:.2f} min")
+        print("Aggregates rewritten in " + agg_path)
+
     oracle = KeyInterviewOracle(
-        model_name_or_path=model_name_or_path,
-        device_map="auto",
-        max_new_tokens=10000
+        model_name_or_path=args.model,
+        device_map=args.device_map,
+        max_new_tokens=args.max_new_tokens,
     )
-    R_reduction = True
-    for schema_name in ['team_splits']:
-        R, groundTruthMinimalKeys = schema_info_db(schema_name)
-        print(f"Schema Name: {schema_name} | Schema: {R} | Ground Truth Minimal Keys: {groundTruthMinimalKeys}")
+    print("Using LLM Model: " + args.model + " | mode: " + args.mode
+          + " | strategies: " + ",".join(args.strategies))
 
-        """
-        [Instruct]
-        Qwen/Qwen3-4B-Instruct-2507, Qwen/Qwen3-30B-A3B-Instruct-2507
-        meta-llama/Llama-3.2-3B-Instruct, meta-llama/Llama-3.3-70B-Instruct
-        Qwen/Qwen3-Next-80B-A3B-Instruct
-        """
-        """
-        [Thinking]
-        Qwen/Qwen3-30B-A3B-Thinking-2507, Qwen/Qwen3-4B-Thinking-2507, Qwen/Qwen3-Next-80B-A3B-Thinking(CUDA OOM)
-        deepseek-ai/DeepSeek-R1-Distill-Llama-70B, deepseek-ai/DeepSeek-R1-Distill-Qwen-7B, deepseek-ai/DeepSeek-R1-Distill-Llama-8B 
-        deepseek-ai/DeepSeek-R1-Distill-Qwen-32B, deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
-        """
-
-        print(f"Using LLM Model: {model_name_or_path} for interview...")
-        model_short_name = model_name_or_path.split("/")[-1]
-        res_path = f"./result_R_reduction={R_reduction}_{model_short_name}_{schema_name}.txt"
-        all_mined_min_keys_dict = {}
-        total_cost_min = 0
-
+    for schema_name in schemas:
+        R_full, groundTruthMinimalKeys = schema_info_db(schema_name)
+        R = list(R_full)
+        print("\n" + "#" * 70)
+        print(f"Schema Name: {schema_name} | Schema: {R} "
+              f"| Ground Truth Minimal Keys: {groundTruthMinimalKeys}")
+        res_path = os.path.join(
+            args.outdir, "result_" + args.mode + "_" + model_short_name
+            + "_" + schema_name + ".txt")
         with open(res_path, "a", encoding="utf-8") as f:
             f.write("#" * 20 + "\n")
-            f.write(
-                f"Schema Name: {schema_name} | Schema: {R} | Ground Truth Minimal Keys: {groundTruthMinimalKeys}\nUsing LLM Model: {model_name_or_path} for interview...\n")
+            f.write(f"Schema Name: {schema_name} | Schema: {R} "
+                    f"| Ground Truth Minimal Keys: {groundTruthMinimalKeys}\n"
+                    f"Using LLM Model: {args.model} | mode: {args.mode}\n")
 
-        direct_res = "\n===== Direct Evaluation =====\n"
-        direct_keys = oracle.ask_all_minimal_keys(
-            schema=R,
-            schema_name=schema_name,
-            print_output=True
-        )
-        direct_res += f"Direct LLM minimal keys: {direct_keys}\n"
-        precision, recall, f1 = evaluate_keys(
-            groundTruthMinimalKeys,
-            direct_keys
-        )
-        precision_rel, recall_rel, f1_rel = evaluate_keys_relaxed(
-            groundTruthMinimalKeys,
-            direct_keys
-        )
-        direct_res += f"F1, recall, precision: {f1:.4f}, {recall:.4f}, {precision:.4f}\n"
-        direct_res += f"Relaxed F1, recall, precision: {f1_rel:.4f}, {recall_rel:.4f}, {precision_rel:.4f}\n"
-        direct_res += "=============================\n\n"
-        with open(res_path, "a", encoding="utf-8") as f:
-            f.write(direct_res + "\n")
-
-        '''LLM for reducing schema'''
+        # ---- prime filtering: predict once per (schema, model) and pin it on disk,
+        # ---- so that every strategy and every resumed run interviews the same schema
+        prime_stats = {"P": "", "prime_f1": "", "prime_recall": "", "prime_precision": ""}
         if R_reduction:
-            prime_res = ""
+            pin_path = os.path.join(
+                args.outdir, "prime_" + model_short_name + "_" + schema_name + ".json")
+            if os.path.exists(pin_path):
+                with open(pin_path, encoding="utf-8") as fh:
+                    pinned = json.load(fh)
+                predicted_prime_attrs = pinned["predicted_prime_attrs"]
+                print(f"[pinned] prime attributes from {pin_path}: {predicted_prime_attrs}")
+            else:
+                # ask_prime_attributes raises when the answer does not parse, and
+                # greedy decoding would return the same answer on every retry, so a
+                # failure here is skipped rather than retried: the remaining schemas
+                # still run, and the CSV records which one was lost.
+                try:
+                    predicted_prime_attrs = oracle.ask_prime_attributes(
+                        schema=R, schema_name=schema_name, print_output=print_output)
+                except Exception as exc:
+                    print(f"[FAILED] prime attributes for {schema_name}: {exc!r}")
+                    emit(dict(schema=schema_name, model=model_short_name, mode=args.mode,
+                              T=len(R_full), P="", prime_f1="", prime_recall="",
+                              prime_precision="", strategy="PRIME-FAILED",
+                              exact_f1="", exact_recall="", exact_precision="",
+                              relaxed_f1="", relaxed_recall="", relaxed_precision="",
+                              questions="", minutes="", keys=repr(exc)[:300]))
+                    continue
+                with open(pin_path, "w", encoding="utf-8") as fh:
+                    json.dump({"predicted_prime_attrs": list(predicted_prime_attrs)}, fh)
             ground_truth_prime_attrs = compute_ground_truth_prime_attributes(
-                groundTruthMinimalKeys
-            )
-            predicted_prime_attrs = oracle.ask_prime_attributes(
-                schema=R,
-                schema_name=schema_name,
-                print_output=True
-            )
-            precision_prime, recall_prime, f1_prime = evaluate_prime_attributes(
-                ground_truth_prime_attrs,
-                predicted_prime_attrs
-            )
-            prime_res += f"Ground truth prime attrs: {ground_truth_prime_attrs}\n"
-            prime_res += f"Predicted prime attrs: {predicted_prime_attrs}\n"
-            prime_res += f"Prime Attr F1, recall, precision: {f1_prime:.4f}, {recall_prime:.4f}, {precision_prime:.4f}\n"
+                groundTruthMinimalKeys)
+            p_p, p_r, p_f1 = evaluate_prime_attributes(
+                ground_truth_prime_attrs, predicted_prime_attrs)
             R_prime = [a for a in R if a in predicted_prime_attrs]
-            prime_res += f"Reduced schema after prime pruning: {R_prime}\n"
-            prime_res += "=============================\n"
-            R = R_prime
+            prime_res = (f"Ground truth prime attrs: {ground_truth_prime_attrs}\n"
+                         f"Predicted prime attrs: {predicted_prime_attrs}\n"
+                         f"Prime Attr F1, recall, precision: "
+                         f"{p_f1:.4f}, {p_r:.4f}, {p_p:.4f}\n"
+                         f"Reduced schema after prime pruning: {R_prime}\n"
+                         "=============================\n")
+            print(prime_res)
             with open(res_path, "a", encoding="utf-8") as f:
                 f.write(prime_res + "\n")
+            prime_stats = {"P": len(R_prime), "prime_f1": f"{p_f1:.4f}",
+                           "prime_recall": f"{p_r:.4f}", "prime_precision": f"{p_p:.4f}"}
+            R = R_prime
 
-        for traversalStart in ["topdown", "bottomup"]:
-            for traversalDirection in ["dfs", "bfs"]:
-                start_time = time.perf_counter()
-                result = Interview.interview_with_llm_oracle(
-                    traversalStart=traversalStart,  # 或 "bottomup"
-                    traversalDirection=traversalDirection,  # 或 "dfs"
-                    R=R,
-                    schema_name=schema_name,
-                    print_output=True,
-                    oracle=oracle,
-                    preDeterminedKeys=[],  # 不用 predetermined keys 就传 []
-                )
-                end_time = time.perf_counter()
-                elapsed_min = (end_time - start_time) / 60.0
-                total_cost_min += elapsed_min
+        base_row = dict(schema=schema_name, model=model_short_name, mode=args.mode,
+                        T=len(R_full), **prime_stats)
 
-                interviewedMinimalKeys = result[0]
+        all_mined_min_keys_dict = {}
+        total_cost_min = 0.0
+        total_questions = 0
+        for strategy in args.strategies:
+            family, traversalStart, traversalDirection = STRATEGY_SPECS[strategy]
+            if (schema_name, strategy) in done:
+                print(f"[skip] {schema_name} {strategy} already recorded")
+                continue
 
-                for k in interviewedMinimalKeys:
-                    if k not in all_mined_min_keys_dict:
-                        all_mined_min_keys_dict[k] = 0
-                    all_mined_min_keys_dict[k] += 1
+            print(f"\n===== {schema_name} | {strategy} "
+                  f"({family}, {traversalStart}, {traversalDirection}) =====")
+            start_time = time.perf_counter()
+            # one strategy that fails must not cost the whole unattended run
+            try:
+                if family == "dualize":
+                    result = Interview.interview_dualize_with_llm_oracle(
+                        R=R, schema_name=schema_name, print_output=print_output,
+                        oracle=oracle, preDeterminedKeys=[], traversalStart=traversalStart,
+                        traversalDirection=traversalDirection)
+                else:
+                    result = Interview.interview_with_llm_oracle(
+                        traversalStart=traversalStart, traversalDirection=traversalDirection,
+                        R=R, schema_name=schema_name, print_output=print_output,
+                        oracle=oracle, preDeterminedKeys=[])
+            except Exception as exc:
+                import traceback
+                traceback.print_exc()
+                print(f"[FAILED] {schema_name} {strategy}: {exc!r}")
+                emit(dict(base_row, strategy=strategy + "-FAILED",
+                          exact_f1="", exact_recall="", exact_precision="",
+                          relaxed_f1="", relaxed_recall="", relaxed_precision="",
+                          questions="", minutes=f"{(time.perf_counter() - start_time) / 60.0:.4f}",
+                          keys=repr(exc)[:300]))
+                continue
+            elapsed_min = (time.perf_counter() - start_time) / 60.0
+            total_cost_min += elapsed_min
 
-                num_all_questions = result[1]
+            interviewedMinimalKeys, num_all_questions = result[0], result[1]
+            total_questions += num_all_questions
+            for k in interviewedMinimalKeys:
+                all_mined_min_keys_dict[k] = all_mined_min_keys_dict.get(k, 0) + 1
 
-                precision, recall, f1 = evaluate_keys(
-                    groundTruthMinimalKeys,
-                    interviewedMinimalKeys
-                )
+            precision, recall, f1 = evaluate_keys(
+                groundTruthMinimalKeys, interviewedMinimalKeys)
+            precision_rel, recall_rel, f1_rel = evaluate_keys_relaxed(
+                groundTruthMinimalKeys, interviewedMinimalKeys)
 
-                precision_rel, recall_rel, f1_rel = evaluate_keys_relaxed(
-                    groundTruthMinimalKeys,
-                    interviewedMinimalKeys
-                )
+            block = ("\n======= Evaluation =======\n"
+                     f"{strategy} ({family}, {traversalStart}, {traversalDirection})\n"
+                     f"Time cost: {elapsed_min:.4f} minutes\n"
+                     f"Mined minimal keys: {interviewedMinimalKeys} "
+                     f"| # Questions: {num_all_questions}\n"
+                     f"F1, recall, precision: {f1:.4f}, {recall:.4f}, {precision:.4f}\n"
+                     f"Relaxed F1, recall, precision: "
+                     f"{f1_rel:.4f}, {recall_rel:.4f}, {precision_rel:.4f}\n"
+                     "==========================\n\n")
+            print(block)
+            with open(res_path, "a", encoding="utf-8") as f:
+                f.write(block)
 
-                result = ""
-                result += "\n======= Evaluation =======\n"
-                result += f"{traversalStart} {traversalDirection}\n"
-                result += f"Time cost: {elapsed_min:.4f} minutes\n"
-                result += f"Mined minimal keys: {interviewedMinimalKeys} | # Questions: {num_all_questions}\n"
-                result += f"F1, recall, precision: {f1:.4f}, {recall:.4f}, {precision:.4f}\n"
-                result += f"Relaxed F1, recall, precision: {f1_rel:.4f}, {recall_rel:.4f}, {precision_rel:.4f}\n"
-                result += "==========================\n\n"
-                print(result)
-                with open(res_path, "a", encoding="utf-8") as f:
-                    f.write(result)
+            emit(dict(base_row, strategy=strategy,
+                      exact_f1=f"{f1:.4f}", exact_recall=f"{recall:.4f}",
+                      exact_precision=f"{precision:.4f}",
+                      relaxed_f1=f"{f1_rel:.4f}", relaxed_recall=f"{recall_rel:.4f}",
+                      relaxed_precision=f"{precision_rel:.4f}",
+                      questions=num_all_questions, minutes=f"{elapsed_min:.4f}",
+                      keys=keys_to_text(interviewedMinimalKeys)))
 
-        # metrics on aggregation
-        keys_set = set(all_mined_min_keys_dict.keys())
-        precision, recall, f1 = evaluate_keys(
-            groundTruthMinimalKeys,
-            keys_set
-        )
+        if not all_mined_min_keys_dict:
+            print(f"[note] {schema_name}: every strategy was already recorded")
+        else:
+            print(f"[run] {schema_name}: {total_questions} questions, "
+                  f"{total_cost_min:.2f} min in this process")
 
-        precision_rel, recall_rel, f1_rel = evaluate_keys_relaxed(
-            groundTruthMinimalKeys,
-            keys_set
-        )
-
-        # minimized keys in order of frequency
-        minimized_key_sets_with_freq = compute_topk_freq_minimal_keys(all_mined_min_keys_dict)
-        res_str = ""
-        for freq, min_keys in minimized_key_sets_with_freq:
-            precision_min, recall_min, f1_min = evaluate_keys(
-                groundTruthMinimalKeys,
-                min_keys
-            )
-            precision_min_rel, recall_min_rel, f1_min_rel = evaluate_keys_relaxed(
-                groundTruthMinimalKeys,
-                min_keys
-            )
-            res_str += f"Minimization of keys of freq >= {freq}, F1, recall, precision: {f1_min:.4f}, {recall_min:.4f}, {precision_min:.4f}\n"
-            res_str += f"Minimization of keys of freq >= {freq}, Relaxed F1, recall, precision: {f1_min_rel:.4f}, {recall_min_rel:.4f}, {precision_min_rel:.4f}\n"
-
-        result = ""
-        result += "\n===== Evaluation after Aggregation =====\n"
-        result += f"Total time cost: {total_cost_min:.4f} minutes\n"
-        result += f"Mined minimal keys with frequency: {all_mined_min_keys_dict}\n"
-        result += "\n===== Metrics with Non-Minimal Keys after Aggregation =====\n"
-        result += f"F1, recall, precision: {f1:.4f}, {recall:.4f}, {precision:.4f}\n"
-        result += f"Relaxed F1, recall, precision: {f1_rel:.4f}, {recall_rel:.4f}, {precision_rel:.4f}\n"
-        result += "\n===== Metrics with Minimal Keys of Top-k Frequency after Aggregation =====\n"
-        result += res_str
-        result += "========================================\n\n"
-        print(result)
-        with open(res_path, "a", encoding="utf-8") as f:
-            f.write(result)
-            f.write("#" * 20 + "\n\n")
+    # Agg. and Mk are a function of the recorded strategy rows, so they are
+    # derived once here rather than accumulated while the schemas run.
+    write_aggregates()
+    print("\nAll done. Strategy rows are in " + csv_path)

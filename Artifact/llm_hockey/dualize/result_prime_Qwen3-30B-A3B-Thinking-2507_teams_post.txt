@@ -1,0 +1,45 @@
+####################
+Schema Name: teams_post | Schema: ['year', 'tmID', 'lgID', 'G', 'W', 'L', 'T', 'GF', 'GA', 'PIM', 'BenchMinor', 'PPG', 'PPC', 'SHA', 'PKG', 'PKC', 'SHF'] | Ground Truth Minimal Keys: [Key(['tmID', 'year'])]
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | mode: prime
+Ground truth prime attrs: ['tmID', 'year']
+Predicted prime attrs: ['year', 'tmID']
+Prime Attr F1, recall, precision: 1.0000, 1.0000, 1.0000
+Reduced schema after prime pruning: ['year', 'tmID']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 5.7163 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 3
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 5.1688 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 3
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 8.1524 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 8.5372 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+

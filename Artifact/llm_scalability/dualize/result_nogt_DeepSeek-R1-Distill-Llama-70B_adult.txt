@@ -1,0 +1,165 @@
+####################
+Schema Name: adult | Top-k Prime: 1
+Predicted prime attrs: ['fnlwgt']
+Reduced schema after prime pruning: ['fnlwgt']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 0.8576
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 0.8579
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.4852
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.4853
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: adult | Top-k Prime: 2
+Predicted prime attrs: ['fnlwgt', 'age']
+Reduced schema after prime pruning: ['age', 'fnlwgt']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 1, 0.9664
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 1, 0.9663
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.2499
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.2505
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: adult | Top-k Prime: 3
+Predicted prime attrs: ['fnlwgt', 'education_num', 'native_country']
+Reduced schema after prime pruning: ['fnlwgt', 'education_num', 'native_country']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 5, 4.1009
+Mined minimal keys: {Key(['fnlwgt', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 5, 4.1003
+Mined minimal keys: {Key(['fnlwgt', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 5.3085
+Mined minimal keys: {Key(['fnlwgt', 'native_country'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 5.3100
+Mined minimal keys: {Key(['fnlwgt', 'native_country'])}
+==========================
+
+####################
+Schema Name: adult | Top-k Prime: 4
+Predicted prime attrs: ['fnlwgt', 'education_num', 'capital_gain', 'capital_loss']
+Reduced schema after prime pruning: ['fnlwgt', 'education_num', 'capital_gain', 'capital_loss']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.7936
+Mined minimal keys: {Key(['capital_gain', 'capital_loss', 'education_num', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.7928
+Mined minimal keys: {Key(['capital_gain', 'capital_loss', 'education_num', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 9, 8.7175
+Mined minimal keys: {Key(['capital_loss', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 9, 8.7183
+Mined minimal keys: {Key(['capital_loss', 'fnlwgt'])}
+==========================
+
+####################
+Schema Name: adult | Top-k Prime: 5
+Predicted prime attrs: ['fnlwgt', 'education_num', 'capital_gain', 'capital_loss/native_country']
+Reduced schema after prime pruning: ['fnlwgt', 'education_num', 'capital_gain']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 4, 3.8313
+Mined minimal keys: {Key(['capital_gain', 'education_num', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 4, 3.8316
+Mined minimal keys: {Key(['capital_gain', 'education_num', 'fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 4, 3.0104
+Mined minimal keys: {Key(['fnlwgt'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 4, 3.0110
+Mined minimal keys: {Key(['fnlwgt'])}
+==========================
+

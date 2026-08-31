@@ -1,0 +1,11 @@
+schema,model,mode,T,P,prime_f1,prime_recall,prime_precision,strategy,exact_f1,exact_recall,exact_precision,relaxed_f1,relaxed_recall,relaxed_precision,questions,minutes,keys,members
+scoring_shootout,Qwen3-30B-A3B-Thinking-2507,full,7,,,,,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,54,96.0899,"playerID,stint,year",4
+scoring_shootout,Qwen3-30B-A3B-Thinking-2507,full,7,,,,,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"playerID,stint,year",4
+goalies_shootout,Qwen3-30B-A3B-Thinking-2507,full,8,,,,,Agg.,0.4000,1.0000,0.2500,0.6667,1.0000,0.5000,99,285.8933,"GA,L,W,stint,tmID,year | GA,L,stint,tmID,year | L,playerID,stint,year | playerID,stint,year",4
+goalies_shootout,Qwen3-30B-A3B-Thinking-2507,full,8,,,,,M3,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"playerID,stint,year",4
+goalies_shootout,Qwen3-30B-A3B-Thinking-2507,full,8,,,,,M2,0.6667,1.0000,0.5000,0.6667,1.0000,0.5000,,,"GA,L,stint,tmID,year | playerID,stint,year",4
+team_vs_team,Qwen3-30B-A3B-Thinking-2507,full,8,,,,,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,62,116.0756,"oppID,tmID,year",4
+team_vs_team,Qwen3-30B-A3B-Thinking-2507,full,8,,,,,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"oppID,tmID,year",4
+combined_shutouts,Qwen3-30B-A3B-Thinking-2507,full,8,,,,,Agg.,0.5000,1.0000,0.3333,0.8000,1.0000,0.6667,119,301.1505,"IDgoalie1,IDgoalie2,date,month,year | IDgoalie1,R/P,date,month,year | IDgoalie1,date,month,oppID,year | IDgoalie2,R/P,date,month,oppID,year | date,month,oppID,year | date,month,tmID,year",4
+combined_shutouts,Qwen3-30B-A3B-Thinking-2507,full,8,,,,,M4,0.4000,0.5000,0.3333,0.4000,0.5000,0.3333,,,"IDgoalie1,IDgoalie2,date,month,year | IDgoalie1,R/P,date,month,year | date,month,tmID,year",4
+combined_shutouts,Qwen3-30B-A3B-Thinking-2507,full,8,,,,,M2,0.6667,1.0000,0.5000,0.6667,1.0000,0.5000,,,"IDgoalie1,IDgoalie2,date,month,year | IDgoalie1,R/P,date,month,year | date,month,oppID,year | date,month,tmID,year",4

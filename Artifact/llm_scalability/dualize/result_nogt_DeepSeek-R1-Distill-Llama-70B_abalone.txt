@@ -1,0 +1,165 @@
+####################
+Schema Name: abalone | Top-k Prime: 1
+Predicted prime attrs: ['rings']
+Reduced schema after prime pruning: ['rings']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 0.9135
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 0.9134
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.4817
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.4814
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: abalone | Top-k Prime: 2
+Predicted prime attrs: ['rings', 'length']
+Reduced schema after prime pruning: ['length', 'rings']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 1, 0.8761
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 1, 0.8763
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.0530
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.0529
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: abalone | Top-k Prime: 3
+Predicted prime attrs: ['rings', 'length', 'diameter']
+Reduced schema after prime pruning: ['length', 'diameter', 'rings']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.1653
+Mined minimal keys: {Key(['diameter', 'length'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.1654
+Mined minimal keys: {Key(['diameter', 'length'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 6, 4.4589
+Mined minimal keys: {Key(['diameter', 'length'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 6, 4.4586
+Mined minimal keys: {Key(['diameter', 'length'])}
+==========================
+
+####################
+Schema Name: abalone | Top-k Prime: 4
+Predicted prime attrs: ['length', 'diameter', 'height', 'rings']
+Reduced schema after prime pruning: ['length', 'diameter', 'height', 'rings']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 4.5614
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 4.5610
+Mined minimal keys: {Key(['diameter', 'height', 'length', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 10.3031
+Mined minimal keys: {Key(['diameter', 'height', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 10.3035
+Mined minimal keys: {Key(['diameter', 'height', 'rings'])}
+==========================
+
+####################
+Schema Name: abalone | Top-k Prime: 5
+Predicted prime attrs: ['rings', 'length', 'diameter', 'height', 'whole_weight']
+Reduced schema after prime pruning: ['length', 'diameter', 'height', 'whole_weight', 'rings']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 9, 11.0952
+Mined minimal keys: {Key(['diameter', 'height', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 9, 11.0915
+Mined minimal keys: {Key(['diameter', 'height', 'rings'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 14, 12.1678
+Mined minimal keys: {Key(['height', 'rings', 'whole_weight'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 14, 12.1684
+Mined minimal keys: {Key(['height', 'rings', 'whole_weight'])}
+==========================
+

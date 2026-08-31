@@ -1,0 +1,165 @@
+####################
+Schema Name: lineitem | Top-k Prime: 1
+Predicted prime attrs: ['l_orderkey']
+Reduced schema after prime pruning: ['l_orderkey']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 1.0090
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 1.0399
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 2.2978
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 2.2548
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: lineitem | Top-k Prime: 2
+Predicted prime attrs: ['l_orderkey', 'l_linenumber']
+Reduced schema after prime pruning: ['l_orderkey', 'l_linenumber']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.8705
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.8588
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 4.6926
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 4.7936
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Top-k Prime: 3
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_linenumber']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 5, 6.5110
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 5, 6.4575
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 9.2547
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 9.2745
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Top-k Prime: 4
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey', 'l_suppkey']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 6, 7.6368
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 6, 7.6171
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 9, 10.3118
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 9, 10.2348
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+####################
+Schema Name: lineitem | Top-k Prime: 5
+Predicted prime attrs: ['l_orderkey', 'l_linenumber', 'l_partkey', 'l_suppkey', 'l_shipmode']
+Reduced schema after prime pruning: ['l_orderkey', 'l_partkey', 'l_suppkey', 'l_linenumber', 'l_shipmode']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 7, 9.4724
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 7, 9.3925
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 11, 14.9874
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 11, 14.8370
+Mined minimal keys: {Key(['l_linenumber', 'l_orderkey'])}
+==========================
+

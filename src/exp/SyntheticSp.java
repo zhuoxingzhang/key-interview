@@ -44,6 +44,8 @@ public class SyntheticSp {
 				res = Interview.interview("bottomup", "dfs",R, false, minimalKeys);
 			else if(strategy.equals("bottomup bfs"))
 				res = Interview.interview("bottomup", "bfs", R, false, minimalKeys);
+			else if(strategy.startsWith("dualize"))
+				res = Interview.interviewByStrategy(strategy, R, false, minimalKeys);
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("strategy: "+strategy + " | avg cost: " + (end - start)/(double)repeat);
@@ -65,10 +67,11 @@ public class SyntheticSp {
 	
 	
 	public static void main(String[] args) {
-		int repeat=0;//196830
+		int repeat=0;
 //		String strategy = "bottomup bfs";
 //		String strategy = "bottomup dfs";
 //		String strategy = "topdown dfs";
+//		String strategy = "dualize";
 		String strategy = "topdown bfs";
 
 		String root = "";

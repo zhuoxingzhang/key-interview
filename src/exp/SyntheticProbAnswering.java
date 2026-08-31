@@ -69,6 +69,13 @@ public class SyntheticProbAnswering {
 						res = Interview.interview("bottomup", "dfs",R, p, false);
 					else if(strategy.equals("bottomup bfs"))
 						res = Interview.interview("bottomup", "bfs", R, p, false);
+					else if(strategy.startsWith("dualize")) {
+						String[] parts = strategy.split(" ");
+						if(parts.length >= 3)
+							res = Interview.interviewDualize(parts[1], parts[2], R, p, false);
+						else
+							res = Interview.interviewDualize(R, p, false);
+					}
 					long end = System.currentTimeMillis();
 					//collect the results
 					Set<Key> minedKeys = (Set<Key>) res.get(0);
@@ -160,13 +167,20 @@ public class SyntheticProbAnswering {
     }
     
 	public static void main(String[] args) {
-//		String strategy = "bottomup dfs";
-//		String strategy = "bottomup bfs";
-//		String strategy = "topdown dfs";
-		String strategy = "topdown bfs";
+		//usage: [strategy] [outputPath] [schemaSize ...]
+		//strategy is one of "topdown dfs", "topdown bfs", "bottomup dfs", "bottomup bfs",
+		//"dualize" (= "dualize bottomup dfs"), "dualize bottomup bfs", "dualize topdown dfs",
+		//"dualize topdown bfs"
+		String strategy = args.length >= 1 ? args[0].replace('_', ' ') : "topdown bfs";
 		String root = "";
-		String outputPath = root + "\\Exp Results New\\syn_prob_answering_"+strategy+".csv";
-		runExp(Arrays.asList(11,13,15), outputPath, strategy);
+		String outputPath = args.length >= 2 ? args[1]
+				: root + "\\Exp Results New\\syn_prob_answering_" + strategy + ".csv";
+		List<Integer> sizes = new ArrayList<>();
+		for(int i = 2; i < args.length; i ++)
+			sizes.add(Integer.parseInt(args[i]));
+		if(sizes.isEmpty())
+			sizes = Arrays.asList(11,13,15);
+		runExp(sizes, outputPath, strategy);
 	}
 
 }

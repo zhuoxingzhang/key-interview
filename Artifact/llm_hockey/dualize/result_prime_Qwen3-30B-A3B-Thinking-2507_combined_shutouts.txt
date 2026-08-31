@@ -1,0 +1,45 @@
+####################
+Schema Name: combined_shutouts | Schema: ['year', 'month', 'date', 'tmID', 'oppID', 'R/P', 'IDgoalie1', 'IDgoalie2'] | Ground Truth Minimal Keys: [Key(['date', 'month', 'tmID', 'year']), Key(['date', 'month', 'oppID', 'year'])]
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | mode: prime
+Ground truth prime attrs: ['date', 'month', 'oppID', 'tmID', 'year']
+Predicted prime attrs: ['year', 'month', 'date', 'tmID', 'oppID']
+Prime Attr F1, recall, precision: 1.0000, 1.0000, 1.0000
+Reduced schema after prime pruning: ['year', 'month', 'date', 'tmID', 'oppID']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 11.0412 minutes
+Mined minimal keys: {Key(['date', 'month', 'oppID', 'tmID', 'year'])} | # Questions: 6
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 0.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 12.4319 minutes
+Mined minimal keys: {Key(['date', 'month', 'oppID', 'tmID', 'year'])} | # Questions: 6
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 0.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 24.0948 minutes
+Mined minimal keys: {Key(['date', 'month', 'tmID', 'year'])} | # Questions: 15
+F1, recall, precision: 0.6667, 0.5000, 1.0000
+Relaxed F1, recall, precision: 0.6667, 0.5000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 25.6683 minutes
+Mined minimal keys: {Key(['date', 'month', 'tmID', 'year'])} | # Questions: 15
+F1, recall, precision: 0.6667, 0.5000, 1.0000
+Relaxed F1, recall, precision: 0.6667, 0.5000, 1.0000
+==========================
+

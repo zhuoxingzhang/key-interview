@@ -1,0 +1,165 @@
+####################
+Schema Name: pdbx | Top-k Prime: 1
+Predicted prime attrs: ['pdb_id', 'chain_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 3, 2.3013
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 3, 2.3013
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 4, 3.3311
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 4, 3.3311
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Top-k Prime: 2
+Predicted prime attrs: ['pdb_id', 'chain_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.3018
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.3018
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 3.3306
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 3.3315
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Top-k Prime: 3
+Predicted prime attrs: ['pdb_id', 'chain_id', 'taxonomy_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'taxonomy_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 4.0104
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 4.0106
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 6, 5.8310
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 6, 5.8321
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Top-k Prime: 4
+Predicted prime attrs: ['pdb_id', 'chain_id', 'molecule_name', 'taxonomy_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'molecule_name', 'taxonomy_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.3166
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.3171
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 8, 8.5412
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 8, 8.5409
+Mined minimal keys: {Key(['chain_id', 'pdb_id'])}
+==========================
+
+####################
+Schema Name: pdbx | Top-k Prime: 5
+Predicted prime attrs: ['pdb_id', 'chain_id', 'molecule_name', 'structure_title', 'taxonomy_id']
+Reduced schema after prime pruning: ['pdb_id', 'chain_id', 'molecule_name', 'taxonomy_id', 'structure_title']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 11, 13.9297
+Mined minimal keys: {Key(['chain_id', 'pdb_id']), Key(['chain_id', 'molecule_name', 'structure_title', 'taxonomy_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 12, 14.2285
+Mined minimal keys: {Key(['chain_id', 'pdb_id']), Key(['chain_id', 'molecule_name', 'structure_title', 'taxonomy_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 16, 19.6644
+Mined minimal keys: {Key(['chain_id', 'pdb_id']), Key(['chain_id', 'molecule_name', 'structure_title', 'taxonomy_id']), Key(['molecule_name', 'pdb_id', 'taxonomy_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 18, 21.6955
+Mined minimal keys: {Key(['chain_id', 'pdb_id']), Key(['chain_id', 'molecule_name', 'structure_title', 'taxonomy_id']), Key(['molecule_name', 'pdb_id', 'taxonomy_id'])}
+==========================
+

@@ -1,0 +1,62 @@
+####################
+Schema Name: team_splits | Schema: ['year', 'tmID', 'lgID', 'hW', 'hL', 'hT', 'hOTL', 'rW', 'rL', 'rT', 'rOTL', 'SepW', 'SepL', 'SepT', 'SepOL', 'OctW', 'OctL', 'OctT', 'OctOL', 'NovW', 'NovL', 'NovT', 'NovOL', 'DecW', 'DecL', 'DecT', 'DecOL', 'JanW', 'JanL', 'JanT', 'JanOL', 'FebW', 'FebL', 'FebT', 'FebOL', 'MarW', 'MarL', 'MarT', 'MarOL', 'AprW', 'AprL', 'AprT', 'AprOL'] | Ground Truth Minimal Keys: [Key(['tmID', 'year'])]
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B | mode: prime
+Ground truth prime attrs: ['tmID', 'year']
+Predicted prime attrs: ['year', 'tmID', 'lgID']
+Prime Attr F1, recall, precision: 0.8000, 1.0000, 0.6667
+Reduced schema after prime pruning: ['year', 'tmID', 'lgID']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 2.9186 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 2.9167 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 4.7776 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 6
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 4.7800 minutes
+Mined minimal keys: {Key(['tmID', 'year'])} | # Questions: 6
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+===== Evaluation after Aggregation =====
+Total time cost: 15.3928 minutes
+Total questions: 20
+Mined minimal keys with frequency: {Key(['tmID', 'year']): 4}
+
+===== Metrics with Non-Minimal Keys after Aggregation =====
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+
+===== Metrics with Minimal Keys of Top-k Frequency after Aggregation =====
+Minimization of keys of freq >= 4, F1, recall, precision: 1.0000, 1.0000, 1.0000
+Minimization of keys of freq >= 4, Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+========================================
+
+####################
+

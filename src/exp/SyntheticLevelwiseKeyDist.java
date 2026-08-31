@@ -111,13 +111,15 @@ public class SyntheticLevelwiseKeyDist {
 			List<Double> TIME_TD_LIST = new ArrayList<>();
 			List<Double> TIME_TB_LIST = new ArrayList<>();
 			List<Double> TIME_BD_LIST = new ArrayList<>();
-			List<Double> TIME_BB_LIST = new ArrayList<>();	
+			List<Double> TIME_BB_LIST = new ArrayList<>();
+			List<Double> TIME_DA_LIST = new ArrayList<>();
 			List<Double> AVG_LP_LIST = new ArrayList<>();//AVG LATTICE POSITION
 			List<Double> DENSITY_LIST = new ArrayList<>();//MINIMAL KEYS DENSITY IN LATTICE
 			List<Integer> NUM_QUESTION_TD = new ArrayList<>();
 			List<Integer> NUM_QUESTION_TB = new ArrayList<>();
 			List<Integer> NUM_QUESTION_BD = new ArrayList<>();
 			List<Integer> NUM_QUESTION_BB = new ArrayList<>();
+			List<Integer> NUM_QUESTION_DA = new ArrayList<>();
 			
 			long maxNumMinKey = maxNumMinimalKeys(schemaSize);
 			
@@ -168,7 +170,17 @@ public class SyntheticLevelwiseKeyDist {
 				double costBB = (endBB - startBB)/(double)repeatBB;
 				TIME_BB_LIST.add(costBB);
 				NUM_QUESTION_BB.add((int) res.get(2));//number of questions
-				
+
+				long startDA = System.currentTimeMillis();
+				int repeatDA = baseRepeat;
+				for(int i = 0;i < repeatDA; i ++) {
+					res = Interview.interviewDualize(R, false, minimalKeys);
+				}
+				long endDA = System.currentTimeMillis();
+				double costDA = (endDA - startDA)/(double)repeatDA;
+				TIME_DA_LIST.add(costDA);
+				NUM_QUESTION_DA.add((int) res.get(2));//number of questions
+
 				AVG_LP_LIST.add(avgLP);
 				DENSITY_LIST.add(density);
 			}
@@ -183,10 +195,12 @@ public class SyntheticLevelwiseKeyDist {
 				line += TIME_TB_LIST.get(i) + ",";
 				line += TIME_BD_LIST.get(i) + ",";
 				line += TIME_BB_LIST.get(i) + ",";
+				line += TIME_DA_LIST.get(i) + ",";
 				line += NUM_QUESTION_TD.get(i) + ",";
 				line += NUM_QUESTION_TB.get(i) + ",";
 				line += NUM_QUESTION_BD.get(i) + ",";
-				line += NUM_QUESTION_BB.get(i);
+				line += NUM_QUESTION_BB.get(i) + ",";
+				line += NUM_QUESTION_DA.get(i);
 				result.add(line);
 			}
 			

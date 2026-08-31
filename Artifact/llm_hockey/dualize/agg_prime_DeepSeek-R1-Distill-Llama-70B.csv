@@ -1,0 +1,18 @@
+schema,model,mode,T,P,prime_f1,prime_recall,prime_precision,strategy,exact_f1,exact_recall,exact_precision,relaxed_f1,relaxed_recall,relaxed_precision,questions,minutes,keys,members
+scoring_shootout,DeepSeek-R1-Distill-Llama-70B,prime,7,3,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,22,25.5739,"playerID,stint,year",4
+scoring_shootout,DeepSeek-R1-Distill-Llama-70B,prime,7,3,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"playerID,stint,year",4
+goalies_shootout,DeepSeek-R1-Distill-Llama-70B,prime,8,3,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,22,22.6149,"playerID,stint,year",4
+goalies_shootout,DeepSeek-R1-Distill-Llama-70B,prime,8,3,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"playerID,stint,year",4
+team_vs_team,DeepSeek-R1-Distill-Llama-70B,prime,8,4,0.8571,1.0000,0.7500,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,30,29.6357,"oppID,tmID,year",4
+team_vs_team,DeepSeek-R1-Distill-Llama-70B,prime,8,4,0.8571,1.0000,0.7500,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"oppID,tmID,year",4
+combined_shutouts,DeepSeek-R1-Distill-Llama-70B,prime,8,5,1.0000,1.0000,1.0000,Agg.,0.0000,0.0000,0.0000,0.0000,1.0000,0.0000,49,60.4876,"date,oppID | date,oppID,year | date,tmID,year",4
+combined_shutouts,DeepSeek-R1-Distill-Llama-70B,prime,8,5,1.0000,1.0000,1.0000,M4,0.0000,0.0000,0.0000,0.0000,0.5000,0.0000,,,"date,tmID,year",4
+combined_shutouts,DeepSeek-R1-Distill-Llama-70B,prime,8,5,1.0000,1.0000,1.0000,M2,0.0000,0.0000,0.0000,0.0000,1.0000,0.0000,,,"date,oppID | date,tmID,year",4
+teams_half,DeepSeek-R1-Distill-Llama-70B,prime,11,3,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,22,23.4327,"half,tmID,year",4
+teams_half,DeepSeek-R1-Distill-Llama-70B,prime,11,3,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"half,tmID,year",4
+teams_post,DeepSeek-R1-Distill-Llama-70B,prime,17,3,0.8000,1.0000,0.6667,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,20,17.0276,"tmID,year",4
+teams_post,DeepSeek-R1-Distill-Llama-70B,prime,17,3,0.8000,1.0000,0.6667,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"tmID,year",4
+goalies,DeepSeek-R1-Distill-Llama-70B,prime,23,4,0.8571,1.0000,0.7500,Agg.,0.6667,1.0000,0.5000,0.6667,1.0000,0.5000,37,43.9525,"playerID,stint,year | stint,tmID,year",4
+goalies,DeepSeek-R1-Distill-Llama-70B,prime,23,4,0.8571,1.0000,0.7500,M4,0.6667,1.0000,0.5000,0.6667,1.0000,0.5000,,,"playerID,stint,year | stint,tmID,year",4
+team_splits,DeepSeek-R1-Distill-Llama-70B,prime,43,3,0.8000,1.0000,0.6667,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,20,15.3929,"tmID,year",4
+team_splits,DeepSeek-R1-Distill-Llama-70B,prime,43,3,0.8000,1.0000,0.6667,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"tmID,year",4

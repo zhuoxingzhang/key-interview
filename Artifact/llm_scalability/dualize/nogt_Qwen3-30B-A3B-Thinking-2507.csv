@@ -1,0 +1,241 @@
+schema,model,T,topk,P,strategy,questions,minutes,keys
+abalone,Qwen3-30B-A3B-Thinking-2507,9,1,1,DA-TD,1,0.5093,
+abalone,Qwen3-30B-A3B-Thinking-2507,9,1,1,DA-TB,1,0.5098,
+abalone,Qwen3-30B-A3B-Thinking-2507,9,1,1,DA-BD,2,1.9284,
+abalone,Qwen3-30B-A3B-Thinking-2507,9,1,1,DA-BB,2,1.8792,
+abalone,Qwen3-30B-A3B-Thinking-2507,9,2,2,DA-TD,3,4.1644,"rings,sex"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,2,2,DA-TB,3,4.2357,"rings,sex"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,2,2,DA-BD,4,6.0194,"rings,sex"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,2,2,DA-BB,4,5.8967,"rings,sex"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,3,3,DA-TD,4,5.9141,"diameter,height,length"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,3,3,DA-TB,4,5.8459,"diameter,height,length"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,3,3,DA-BD,7,7.6606,"diameter,height,length"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,3,3,DA-BB,7,7.6507,"diameter,height,length"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,4,4,DA-TD,5,6.0131,"diameter,height,length,whole_weight"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,4,4,DA-TB,5,5.9426,"diameter,height,length,whole_weight"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,4,4,DA-BD,11,10.2490,"diameter,height,length,whole_weight"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,4,4,DA-BB,11,10.3240,"diameter,height,length,whole_weight"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,5,5,DA-TD,6,5.4264,"diameter,height,length,shucked_weight,whole_weight"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,5,5,DA-TB,6,5.4201,"diameter,height,length,shucked_weight,whole_weight"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,5,5,DA-BD,16,14.0926,"diameter,height,length,shucked_weight,whole_weight"
+abalone,Qwen3-30B-A3B-Thinking-2507,9,5,5,DA-BB,16,14.1120,"diameter,height,length,shucked_weight,whole_weight"
+routes,Qwen3-30B-A3B-Thinking-2507,9,1,1,DA-TD,1,2.2578,
+routes,Qwen3-30B-A3B-Thinking-2507,9,1,1,DA-TB,1,2.2350,
+routes,Qwen3-30B-A3B-Thinking-2507,9,1,1,DA-BD,2,3.9701,
+routes,Qwen3-30B-A3B-Thinking-2507,9,1,1,DA-BB,2,3.9619,
+routes,Qwen3-30B-A3B-Thinking-2507,9,2,2,DA-TD,3,1.8441,"airline_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,2,2,DA-TB,3,1.8365,"airline_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,2,2,DA-BD,4,2.7393,"airline_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,2,2,DA-BB,4,2.7082,"airline_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,3,3,DA-TD,4,1.9743,"airline_id,destination_airport_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,3,3,DA-TB,4,1.9898,"airline_id,destination_airport_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,3,3,DA-BD,7,4.3226,"airline_id,destination_airport_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,3,3,DA-BB,7,4.3176,"airline_id,destination_airport_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,4,4,DA-TD,5,3.7888,"airline,destination_airport,source_airport,stops"
+routes,Qwen3-30B-A3B-Thinking-2507,9,4,4,DA-TB,5,3.7610,"airline,destination_airport,source_airport,stops"
+routes,Qwen3-30B-A3B-Thinking-2507,9,4,4,DA-BD,11,8.9523,"airline,destination_airport,source_airport,stops"
+routes,Qwen3-30B-A3B-Thinking-2507,9,4,4,DA-BB,11,8.9310,"airline,destination_airport,source_airport,stops"
+routes,Qwen3-30B-A3B-Thinking-2507,9,5,5,DA-TD,11,21.2592,"airline_id,destination_airport,source_airport | airline_id,destination_airport,source_airport_id | airline_id,destination_airport_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,5,5,DA-TB,12,22.9849,"airline_id,destination_airport,source_airport | airline_id,destination_airport,source_airport_id | airline_id,destination_airport_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,5,5,DA-BD,16,26.1941,"airline_id,destination_airport,source_airport | airline_id,destination_airport,source_airport_id | airline_id,destination_airport_id,source_airport_id"
+routes,Qwen3-30B-A3B-Thinking-2507,9,5,5,DA-BB,20,31.3552,"airline_id,destination_airport,source_airport | airline_id,destination_airport,source_airport_id | airline_id,destination_airport_id,source_airport_id"
+breast,Qwen3-30B-A3B-Thinking-2507,11,1,1,DA-TD,2,0.7892,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,1,1,DA-TB,2,0.7885,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,1,1,DA-BD,2,0.8270,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,1,1,DA-BB,2,0.8388,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,2,2,DA-TD,3,3.1929,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,2,2,DA-TB,3,3.1372,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,2,2,DA-BD,3,3.3189,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,2,2,DA-BB,3,3.2780,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,3,3,DA-TD,4,4.1681,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,3,3,DA-TB,4,4.1214,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,3,3,DA-BD,4,3.0837,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,3,3,DA-BB,4,3.0996,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,4,4,DA-TD,5,5.1093,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,4,4,DA-TB,5,5.0816,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,4,4,DA-BD,5,4.3698,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,4,4,DA-BB,5,4.3620,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,5,5,DA-TD,6,7.7830,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,5,5,DA-TB,6,7.7920,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,5,5,DA-BD,6,5.5466,sample_code_number
+breast,Qwen3-30B-A3B-Thinking-2507,11,5,5,DA-BB,6,5.5493,sample_code_number
+echo,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-TD,1,0.9957,
+echo,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-TB,1,0.9811,
+echo,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-BD,2,2.3063,
+echo,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-BB,2,2.2850,
+echo,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-TD,3,3.5647,"group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-TB,3,3.5678,"group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-BD,4,4.5768,"group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-BB,4,4.4693,"group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-TD,4,8.8987,"group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-TB,4,9.0129,"group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-BD,6,10.8206,"group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-BB,6,10.8248,"group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-TD,8,15.1584,"alive_at_1,group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-TB,8,15.2817,"alive_at_1,group,name"
+echo,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-BD,11,17.1034,"alive_at_1,group,name,still_alive"
+echo,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-BB,11,17.1599,"alive_at_1,group,name,still_alive"
+echo,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-TD,7,11.7935,"age_at_heart_attack,alive_at_1,name,survival | age_at_heart_attack,group,name,survival"
+echo,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-TB,7,11.7873,"age_at_heart_attack,alive_at_1,name,survival | age_at_heart_attack,group,name,survival"
+echo,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-BD,15,25.0116,"age_at_heart_attack,alive_at_1,name,survival | age_at_heart_attack,group,name,survival"
+echo,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-BB,18,29.0950,"age_at_heart_attack,alive_at_1,name,survival | age_at_heart_attack,group,name,survival"
+bridges,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-TD,2,2.2368,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-TB,2,2.2413,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-BD,2,2.2479,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-BB,2,2.2506,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-TD,3,4.5056,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-TB,3,4.4049,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-BD,3,3.4596,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-BB,3,3.4949,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-TD,4,6.7457,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-TB,4,6.7784,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-BD,4,4.1667,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-BB,4,4.0990,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-TD,5,8.5239,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-TB,5,8.4771,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-BD,5,6.1628,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-BB,5,6.2227,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-TD,6,6.4486,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-TB,6,6.5024,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-BD,6,7.6908,identif
+bridges,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-BB,6,7.7891,identif
+claims,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-TD,2,1.9457,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-TB,2,1.9411,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-BD,2,1.8858,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-BB,2,1.8885,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-TD,3,4.3652,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-TB,3,4.3640,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-BD,3,2.9701,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-BB,3,2.9423,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-TD,4,5.1494,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-TB,4,5.0713,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-BD,4,2.7182,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-BB,4,2.7100,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-TD,5,5.0601,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-TB,5,5.0501,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-BD,5,4.1171,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-BB,5,4.1635,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-TD,6,6.4105,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-TB,6,6.3998,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-BD,6,5.7328,claim_id
+claims,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-BB,6,5.7112,claim_id
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-TD,2,2.3430,pdb_id
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-TB,2,2.3196,pdb_id
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-BD,2,2.3280,pdb_id
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,1,1,DA-BB,2,2.3265,pdb_id
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-TD,3,1.5783,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-TB,3,1.6167,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-BD,4,2.3621,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,2,2,DA-BB,4,2.3249,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-TD,4,3.1798,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-TB,4,3.2064,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-BD,6,4.6386,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,3,3,DA-BB,6,4.7027,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-TD,5,6.0180,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-TB,5,6.0081,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-BD,8,8.5583,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,4,4,DA-BB,8,8.5324,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-TD,6,7.4215,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-TB,6,7.4416,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-BD,10,10.7092,"chain_id,pdb_id"
+pdbx,Qwen3-30B-A3B-Thinking-2507,13,5,5,DA-BB,10,10.7997,"chain_id,pdb_id"
+adult,Qwen3-30B-A3B-Thinking-2507,15,1,1,DA-TD,1,1.5084,
+adult,Qwen3-30B-A3B-Thinking-2507,15,1,1,DA-TB,1,1.5288,
+adult,Qwen3-30B-A3B-Thinking-2507,15,1,1,DA-BD,2,2.7733,
+adult,Qwen3-30B-A3B-Thinking-2507,15,1,1,DA-BB,2,2.7762,
+adult,Qwen3-30B-A3B-Thinking-2507,15,2,2,DA-TD,3,2.5534,"age,hours_per_week"
+adult,Qwen3-30B-A3B-Thinking-2507,15,2,2,DA-TB,3,2.5871,"age,hours_per_week"
+adult,Qwen3-30B-A3B-Thinking-2507,15,2,2,DA-BD,4,3.1132,"age,hours_per_week"
+adult,Qwen3-30B-A3B-Thinking-2507,15,2,2,DA-BB,4,3.0936,"age,hours_per_week"
+adult,Qwen3-30B-A3B-Thinking-2507,15,3,3,DA-TD,4,2.3875,"age,hours_per_week,native_country"
+adult,Qwen3-30B-A3B-Thinking-2507,15,3,3,DA-TB,4,2.3664,"age,hours_per_week,native_country"
+adult,Qwen3-30B-A3B-Thinking-2507,15,3,3,DA-BD,7,4.0439,"age,hours_per_week,native_country"
+adult,Qwen3-30B-A3B-Thinking-2507,15,3,3,DA-BB,7,4.0261,"age,hours_per_week,native_country"
+adult,Qwen3-30B-A3B-Thinking-2507,15,4,4,DA-TD,5,3.2458,"age,capital_gain,capital_loss,hours_per_week"
+adult,Qwen3-30B-A3B-Thinking-2507,15,4,4,DA-TB,5,3.2615,"age,capital_gain,capital_loss,hours_per_week"
+adult,Qwen3-30B-A3B-Thinking-2507,15,4,4,DA-BD,11,6.9903,"age,capital_gain,capital_loss,hours_per_week"
+adult,Qwen3-30B-A3B-Thinking-2507,15,4,4,DA-BB,11,7.0155,"age,capital_gain,capital_loss,hours_per_week"
+adult,Qwen3-30B-A3B-Thinking-2507,15,5,5,DA-TD,6,4.5234,"age,education,hours_per_week,native_country,occupation"
+adult,Qwen3-30B-A3B-Thinking-2507,15,5,5,DA-TB,6,4.5528,"age,education,hours_per_week,native_country,occupation"
+adult,Qwen3-30B-A3B-Thinking-2507,15,5,5,DA-BD,16,11.2466,"age,education,hours_per_week,native_country,occupation"
+adult,Qwen3-30B-A3B-Thinking-2507,15,5,5,DA-BB,16,11.3583,"age,education,hours_per_week,native_country,occupation"
+hospital,Qwen3-30B-A3B-Thinking-2507,11,1,1,DA-TD,2,2.2403,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,1,1,DA-TB,2,2.2601,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,1,1,DA-BD,2,2.2405,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,1,1,DA-BB,2,2.2455,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,2,2,DA-TD,3,2.6856,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,2,2,DA-TB,3,2.7116,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,2,2,DA-BD,3,1.8247,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,2,2,DA-BB,3,1.7978,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,3,3,DA-TD,4,5.4334,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,3,3,DA-TB,4,5.4052,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,3,3,DA-BD,4,4.8230,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,3,3,DA-BB,4,4.9408,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,4,4,DA-TD,5,6.7139,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,4,4,DA-TB,5,6.7007,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,4,4,DA-BD,5,6.0900,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,4,4,DA-BB,5,6.0356,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,5,5,DA-TD,6,7.7201,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,5,5,DA-TB,6,7.7555,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,5,5,DA-BD,6,7.3273,provider_number
+hospital,Qwen3-30B-A3B-Thinking-2507,11,5,5,DA-BB,6,7.3183,provider_number
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,1,1,DA-TD,1,1.0090,
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,1,1,DA-TB,1,1.0399,
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,1,1,DA-BD,2,2.2978,
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,1,1,DA-BB,2,2.2548,
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,2,2,DA-TD,3,3.8705,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,2,2,DA-TB,3,3.8588,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,2,2,DA-BD,4,4.6926,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,2,2,DA-BB,4,4.7936,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,3,3,DA-TD,5,6.5110,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,3,3,DA-TB,5,6.4575,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,3,3,DA-BD,7,9.2547,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,3,3,DA-BB,7,9.2745,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,4,4,DA-TD,6,7.6368,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,4,4,DA-TB,6,7.6171,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,4,4,DA-BD,9,10.3118,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,4,4,DA-BB,9,10.2348,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,5,5,DA-TD,7,9.4724,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,5,5,DA-TB,7,9.3925,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,5,5,DA-BD,11,14.9874,"l_linenumber,l_orderkey"
+lineitem,Qwen3-30B-A3B-Thinking-2507,16,5,5,DA-BB,11,14.8370,"l_linenumber,l_orderkey"
+weather,Qwen3-30B-A3B-Thinking-2507,18,1,1,DA-TD,1,0.9138,
+weather,Qwen3-30B-A3B-Thinking-2507,18,1,1,DA-TB,1,0.9100,
+weather,Qwen3-30B-A3B-Thinking-2507,18,1,1,DA-BD,2,1.8627,
+weather,Qwen3-30B-A3B-Thinking-2507,18,1,1,DA-BB,2,1.9791,
+weather,Qwen3-30B-A3B-Thinking-2507,18,2,2,DA-TD,3,5.5331,"station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,2,2,DA-TB,3,5.5412,"station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,2,2,DA-BD,4,6.7714,"station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,2,2,DA-BB,4,6.8030,"station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,3,3,DA-TD,4,5.1169,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,3,3,DA-TB,4,5.0557,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,3,3,DA-BD,7,9.6279,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,3,3,DA-BB,7,9.6156,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,4,4,DA-TD,5,5.0186,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,4,4,DA-TB,5,5.0514,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,4,4,DA-BD,10,12.2522,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,4,4,DA-BB,10,12.2026,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,5,5,DA-TD,11,18.8424,"date,latitude,longitude,time | date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,5,5,DA-TB,11,18.6743,"date,latitude,longitude,time | date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,5,5,DA-BD,13,17.2808,"date,station_id,time"
+weather,Qwen3-30B-A3B-Thinking-2507,18,5,5,DA-BB,13,17.2691,"date,station_id,time"
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,1,1,DA-TD,2,1.2743,voter_id
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,1,1,DA-TB,2,1.2823,voter_id
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,1,1,DA-BD,2,1.2738,voter_id
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,1,1,DA-BB,2,1.2718,voter_id
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,2,2,DA-TD,4,4.3648,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,2,2,DA-TB,4,4.4140,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,2,2,DA-BD,3,3.7374,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,2,2,DA-BB,3,3.6883,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,3,3,DA-TD,7,8.8529,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,3,3,DA-TB,7,8.8813,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,3,3,DA-BD,5,6.1351,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,3,3,DA-BB,5,6.1484,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,4,4,DA-TD,9,14.1320,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,4,4,DA-TB,9,14.2235,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,4,4,DA-BD,6,10.2347,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,4,4,DA-BB,6,10.1776,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,5,5,DA-TD,11,14.7838,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,5,5,DA-TB,11,14.9521,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,5,5,DA-BD,7,8.1166,voter_id | voter_reg_num
+ncvoter,Qwen3-30B-A3B-Thinking-2507,19,5,5,DA-BB,7,8.0299,voter_id | voter_reg_num

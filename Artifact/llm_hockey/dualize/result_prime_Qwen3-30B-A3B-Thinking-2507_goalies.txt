@@ -1,0 +1,45 @@
+####################
+Schema Name: goalies | Schema: ['playerID', 'year', 'stint', 'tmID', 'lgID', 'GP', 'Min', 'W', 'L', 'T/OL', 'ENG', 'SHO', 'GA', 'SA', 'PostGP', 'PostMin', 'PostW', 'PostL', 'PostT', 'PostENG', 'PostSHO', 'PostGA', 'PostSA'] | Ground Truth Minimal Keys: [Key(['playerID', 'stint', 'year'])]
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | mode: prime
+Ground truth prime attrs: ['playerID', 'stint', 'year']
+Predicted prime attrs: ['playerID', 'year', 'stint']
+Prime Attr F1, recall, precision: 1.0000, 1.0000, 1.0000
+Reduced schema after prime pruning: ['playerID', 'year', 'stint']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 7.0950 minutes
+Mined minimal keys: {Key(['playerID', 'stint', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 7.1113 minutes
+Mined minimal keys: {Key(['playerID', 'stint', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 9.7451 minutes
+Mined minimal keys: {Key(['playerID', 'stint', 'year'])} | # Questions: 7
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 11.1184 minutes
+Mined minimal keys: {Key(['playerID', 'stint', 'year'])} | # Questions: 7
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+

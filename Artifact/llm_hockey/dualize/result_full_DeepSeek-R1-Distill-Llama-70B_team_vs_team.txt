@@ -1,0 +1,39 @@
+####################
+Schema Name: team_vs_team | Schema: ['year', 'tmID', 'oppID', 'lgID', 'W', 'L', 'T', 'OTL'] | Ground Truth Minimal Keys: [Key(['oppID', 'tmID', 'year'])]
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B | mode: full
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 32.0171 minutes
+Mined minimal keys: {Key(['L', 'T', 'W', 'lgID', 'oppID', 'year']), Key(['L', 'OTL', 'T', 'W', 'lgID', 'oppID']), Key(['oppID', 'tmID', 'year'])} | # Questions: 26
+F1, recall, precision: 0.5000, 1.0000, 0.3333
+Relaxed F1, recall, precision: 0.5000, 1.0000, 0.3333
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 31.1728 minutes
+Mined minimal keys: {Key(['OTL', 'oppID', 'tmID', 'year']), Key(['L', 'OTL', 'T', 'W', 'lgID', 'oppID'])} | # Questions: 26
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 0.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 51.5922 minutes
+Mined minimal keys: {Key(['L', 'T', 'W', 'lgID', 'oppID', 'year']), Key(['L', 'OTL', 'T', 'W', 'lgID', 'oppID']), Key(['oppID', 'tmID', 'year'])} | # Questions: 43
+F1, recall, precision: 0.5000, 1.0000, 0.3333
+Relaxed F1, recall, precision: 0.5000, 1.0000, 0.3333
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 54.0245 minutes
+Mined minimal keys: {Key(['L', 'T', 'W', 'lgID', 'oppID', 'year']), Key(['L', 'OTL', 'T', 'W', 'lgID', 'oppID']), Key(['oppID', 'tmID', 'year'])} | # Questions: 45
+F1, recall, precision: 0.5000, 1.0000, 0.3333
+Relaxed F1, recall, precision: 0.5000, 1.0000, 0.3333
+==========================
+

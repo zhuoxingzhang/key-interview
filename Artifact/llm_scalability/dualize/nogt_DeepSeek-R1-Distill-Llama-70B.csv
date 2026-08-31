@@ -1,0 +1,241 @@
+schema,model,T,topk,P,strategy,questions,minutes,keys
+abalone,DeepSeek-R1-Distill-Llama-70B,9,1,1,DA-TD,1,0.9135,
+abalone,DeepSeek-R1-Distill-Llama-70B,9,1,1,DA-TB,1,0.9134,
+abalone,DeepSeek-R1-Distill-Llama-70B,9,1,1,DA-BD,2,1.4817,
+abalone,DeepSeek-R1-Distill-Llama-70B,9,1,1,DA-BB,2,1.4814,
+abalone,DeepSeek-R1-Distill-Llama-70B,9,2,2,DA-TD,1,0.8761,
+abalone,DeepSeek-R1-Distill-Llama-70B,9,2,2,DA-TB,1,0.8763,
+abalone,DeepSeek-R1-Distill-Llama-70B,9,2,2,DA-BD,3,2.0530,
+abalone,DeepSeek-R1-Distill-Llama-70B,9,2,2,DA-BB,3,2.0529,
+abalone,DeepSeek-R1-Distill-Llama-70B,9,3,3,DA-TD,4,3.1653,"diameter,length"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,3,3,DA-TB,4,3.1654,"diameter,length"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,3,3,DA-BD,6,4.4589,"diameter,length"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,3,3,DA-BB,6,4.4586,"diameter,length"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,4,4,DA-TD,5,4.5614,"diameter,height,length,rings"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,4,4,DA-TB,5,4.5610,"diameter,height,length,rings"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,4,4,DA-BD,11,10.3031,"diameter,height,rings"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,4,4,DA-BB,11,10.3035,"diameter,height,rings"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,5,5,DA-TD,9,11.0952,"diameter,height,rings"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,5,5,DA-TB,9,11.0915,"diameter,height,rings"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,5,5,DA-BD,14,12.1678,"height,rings,whole_weight"
+abalone,DeepSeek-R1-Distill-Llama-70B,9,5,5,DA-BB,14,12.1684,"height,rings,whole_weight"
+routes,DeepSeek-R1-Distill-Llama-70B,9,1,3,DA-TD,4,2.5299,"airline_id,destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,1,3,DA-TB,4,2.5296,"airline_id,destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,1,3,DA-BD,7,4.8398,"airline_id,destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,1,3,DA-BB,7,4.8402,"airline_id,destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,2,2,DA-TD,3,2.1575,"destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,2,2,DA-TB,3,2.1576,"destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,2,2,DA-BD,4,2.9358,"destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,2,2,DA-BB,4,2.9355,"destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,3,3,DA-TD,4,2.5297,"airline_id,destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,3,3,DA-TB,4,2.5298,"airline_id,destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,3,3,DA-BD,7,4.8408,"airline_id,destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,3,3,DA-BB,7,4.8401,"airline_id,destination_airport_id,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,4,4,DA-TD,5,4.3923,"airline_id,destination_airport_id,equipment,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,4,4,DA-TB,5,4.3921,"airline_id,destination_airport_id,equipment,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,4,4,DA-BD,11,9.6240,"airline_id,destination_airport_id,equipment,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,4,4,DA-BB,11,9.6249,"airline_id,destination_airport_id,equipment,source_airport_id"
+routes,DeepSeek-R1-Distill-Llama-70B,9,5,5,DA-TD,13,15.6318,"airline,airline_id,destination_airport_id,source_airport_id | airline,destination_airport_id,source_airport | airline_id,destination_airport_id,source_airport"
+routes,DeepSeek-R1-Distill-Llama-70B,9,5,5,DA-TB,12,14.2745,"airline,airline_id,destination_airport_id,source_airport_id | airline,destination_airport_id,source_airport | airline_id,destination_airport_id,source_airport"
+routes,DeepSeek-R1-Distill-Llama-70B,9,5,5,DA-BD,17,19.6354,"airline,airline_id,destination_airport_id,source_airport_id | airline,destination_airport_id,source_airport | airline_id,destination_airport_id,source_airport"
+routes,DeepSeek-R1-Distill-Llama-70B,9,5,5,DA-BB,18,20.7026,"airline,airline_id,destination_airport_id,source_airport_id | airline,destination_airport_id,source_airport | airline_id,destination_airport_id,source_airport"
+breast,DeepSeek-R1-Distill-Llama-70B,11,1,1,DA-TD,2,2.0948,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,1,1,DA-TB,2,2.0951,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,1,1,DA-BD,2,2.0950,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,1,1,DA-BB,2,2.0953,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,2,2,DA-TD,3,2.5508,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,2,2,DA-TB,3,2.5512,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,2,2,DA-BD,3,2.2452,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,2,2,DA-BB,3,2.2452,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,3,3,DA-TD,4,3.2035,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,3,3,DA-TB,4,3.2029,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,3,3,DA-BD,4,3.2311,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,3,3,DA-BB,4,3.2314,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,4,4,DA-TD,5,3.4592,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,4,4,DA-TB,5,3.4591,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,4,4,DA-BD,5,3.9545,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,4,4,DA-BB,5,3.9539,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,5,5,DA-TD,6,4.9111,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,5,5,DA-TB,6,4.9105,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,5,5,DA-BD,6,4.5759,sample_code_number
+breast,DeepSeek-R1-Distill-Llama-70B,11,5,5,DA-BB,6,4.5763,sample_code_number
+echo,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-TD,2,1.8376,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-TB,2,1.8372,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-BD,2,1.8374,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-BB,2,1.8383,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-TD,3,2.6904,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-TB,3,2.6912,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-BD,3,2.0386,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-BB,3,2.0383,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-TD,6,6.4358,"group,mult | name"
+echo,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-TB,6,6.4357,"group,mult | name"
+echo,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-BD,7,7.1298,"group,mult | name"
+echo,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-BB,6,5.8929,"group,mult | name"
+echo,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-TD,6,5.9448,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-TB,6,5.9443,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-BD,10,12.4087,"group,name | mult,wall_motion_index | name,wall_motion_index"
+echo,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-BB,8,8.4963,"mult,wall_motion_index | name"
+echo,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-TD,8,7.8624,"mult,name"
+echo,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-TB,8,7.8633,"mult,name"
+echo,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-BD,7,7.9082,name
+echo,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-BB,7,7.9075,name
+bridges,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-TD,2,1.7230,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-TB,2,1.7230,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-BD,2,1.7228,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-BB,2,1.7229,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-TD,3,2.7607,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-TB,3,2.7610,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-BD,3,2.4542,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-BB,3,2.4542,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-TD,4,3.4926,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-TB,4,3.4925,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-BD,4,3.4603,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-BB,4,3.4605,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-TD,12,9.6859,"identif | location,river | location,type"
+bridges,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-TB,12,9.6852,"identif | location,river | location,type"
+bridges,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-BD,7,5.5473,"identif | location,river | location,type"
+bridges,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-BB,7,5.5475,"identif | location,river | location,type"
+bridges,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-TD,6,4.7358,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-TB,6,4.7363,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-BD,6,4.9347,identif
+bridges,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-BB,6,4.9349,identif
+claims,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-TD,2,1.2941,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-TB,2,1.2941,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-BD,2,1.2940,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,1,1,DA-BB,2,1.2942,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-TD,3,2.3606,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-TB,3,2.3605,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-BD,3,1.9079,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-BB,3,1.9081,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-TD,4,3.0524,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-TB,4,3.0523,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-BD,4,3.0287,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-BB,4,3.0287,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-TD,5,4.0429,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-TB,5,4.0428,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-BD,5,3.5240,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-BB,5,3.5240,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-TD,6,5.1853,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-TB,6,5.1851,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-BD,6,5.2143,claim_id
+claims,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-BB,6,5.2142,claim_id
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,1,2,DA-TD,3,2.3013,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,1,2,DA-TB,3,2.3013,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,1,2,DA-BD,4,3.3311,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,1,2,DA-BB,4,3.3311,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-TD,3,2.3018,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-TB,3,2.3018,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-BD,4,3.3306,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,2,2,DA-BB,4,3.3315,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-TD,4,4.0104,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-TB,4,4.0106,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-BD,6,5.8310,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,3,3,DA-BB,6,5.8321,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-TD,5,5.3166,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-TB,5,5.3171,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-BD,8,8.5412,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,4,4,DA-BB,8,8.5409,"chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-TD,11,13.9297,"chain_id,molecule_name,structure_title,taxonomy_id | chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-TB,12,14.2285,"chain_id,molecule_name,structure_title,taxonomy_id | chain_id,pdb_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-BD,16,19.6644,"chain_id,molecule_name,structure_title,taxonomy_id | chain_id,pdb_id | molecule_name,pdb_id,taxonomy_id"
+pdbx,DeepSeek-R1-Distill-Llama-70B,13,5,5,DA-BB,18,21.6955,"chain_id,molecule_name,structure_title,taxonomy_id | chain_id,pdb_id | molecule_name,pdb_id,taxonomy_id"
+adult,DeepSeek-R1-Distill-Llama-70B,15,1,1,DA-TD,1,0.8576,
+adult,DeepSeek-R1-Distill-Llama-70B,15,1,1,DA-TB,1,0.8579,
+adult,DeepSeek-R1-Distill-Llama-70B,15,1,1,DA-BD,2,1.4852,
+adult,DeepSeek-R1-Distill-Llama-70B,15,1,1,DA-BB,2,1.4853,
+adult,DeepSeek-R1-Distill-Llama-70B,15,2,2,DA-TD,1,0.9664,
+adult,DeepSeek-R1-Distill-Llama-70B,15,2,2,DA-TB,1,0.9663,
+adult,DeepSeek-R1-Distill-Llama-70B,15,2,2,DA-BD,3,2.2499,
+adult,DeepSeek-R1-Distill-Llama-70B,15,2,2,DA-BB,3,2.2505,
+adult,DeepSeek-R1-Distill-Llama-70B,15,3,3,DA-TD,5,4.1009,"fnlwgt,native_country"
+adult,DeepSeek-R1-Distill-Llama-70B,15,3,3,DA-TB,5,4.1003,"fnlwgt,native_country"
+adult,DeepSeek-R1-Distill-Llama-70B,15,3,3,DA-BD,7,5.3085,"fnlwgt,native_country"
+adult,DeepSeek-R1-Distill-Llama-70B,15,3,3,DA-BB,7,5.3100,"fnlwgt,native_country"
+adult,DeepSeek-R1-Distill-Llama-70B,15,4,4,DA-TD,5,5.7936,"capital_gain,capital_loss,education_num,fnlwgt"
+adult,DeepSeek-R1-Distill-Llama-70B,15,4,4,DA-TB,5,5.7928,"capital_gain,capital_loss,education_num,fnlwgt"
+adult,DeepSeek-R1-Distill-Llama-70B,15,4,4,DA-BD,9,8.7175,"capital_loss,fnlwgt"
+adult,DeepSeek-R1-Distill-Llama-70B,15,4,4,DA-BB,9,8.7183,"capital_loss,fnlwgt"
+adult,DeepSeek-R1-Distill-Llama-70B,15,5,3,DA-TD,4,3.8313,"capital_gain,education_num,fnlwgt"
+adult,DeepSeek-R1-Distill-Llama-70B,15,5,3,DA-TB,4,3.8316,"capital_gain,education_num,fnlwgt"
+adult,DeepSeek-R1-Distill-Llama-70B,15,5,3,DA-BD,4,3.0104,fnlwgt
+adult,DeepSeek-R1-Distill-Llama-70B,15,5,3,DA-BB,4,3.0110,fnlwgt
+hospital,DeepSeek-R1-Distill-Llama-70B,11,1,1,DA-TD,2,1.3729,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,1,1,DA-TB,2,1.3729,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,1,1,DA-BD,2,1.3728,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,1,1,DA-BB,2,1.3728,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,2,2,DA-TD,3,2.7820,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,2,2,DA-TB,3,2.7816,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,2,2,DA-BD,3,2.4704,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,2,2,DA-BB,3,2.4703,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,3,3,DA-TD,4,3.7834,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,3,3,DA-TB,4,3.7836,provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,3,3,DA-BD,4,2.6559,hospital_name | provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,3,3,DA-BB,4,2.6560,hospital_name | provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,4,4,DA-TD,11,8.5335,address | phone_number | provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,4,4,DA-TB,11,8.5331,address | phone_number | provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,4,4,DA-BD,6,5.6038,address | provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,4,4,DA-BB,6,5.6046,address | provider_number
+hospital,DeepSeek-R1-Distill-Llama-70B,11,5,5,DA-TD,22,20.3394,"address,hospital_name | address,phone_number | address,zip_code | hospital_name,phone_number | hospital_name,zip_code | phone_number,zip_code | provider_number"
+hospital,DeepSeek-R1-Distill-Llama-70B,11,5,5,DA-TB,25,22.6132,"address,hospital_name | address,phone_number | address,zip_code | hospital_name,phone_number | hospital_name,zip_code | phone_number,zip_code | provider_number"
+hospital,DeepSeek-R1-Distill-Llama-70B,11,5,5,DA-BD,12,12.3329,"address,hospital_name | address,phone_number | address,zip_code | hospital_name,phone_number | hospital_name,zip_code | phone_number,zip_code | provider_number"
+hospital,DeepSeek-R1-Distill-Llama-70B,11,5,5,DA-BB,12,12.3334,"address,hospital_name | address,phone_number | address,zip_code | hospital_name,phone_number | hospital_name,zip_code | phone_number,zip_code | provider_number"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,1,2,DA-TD,3,2.2808,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,1,2,DA-TB,3,2.2810,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,1,2,DA-BD,4,2.9467,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,1,2,DA-BB,4,2.9477,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,2,2,DA-TD,3,2.2813,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,2,2,DA-TB,3,2.2815,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,2,2,DA-BD,4,2.9473,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,2,2,DA-BB,4,2.9475,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,3,3,DA-TD,5,4.6366,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,3,3,DA-TB,5,4.6366,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,3,3,DA-BD,7,6.7439,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,3,3,DA-BB,7,6.7435,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,4,4,DA-TD,8,8.7037,"l_linenumber,l_orderkey | l_orderkey,l_partkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,4,4,DA-TB,8,8.7034,"l_linenumber,l_orderkey | l_orderkey,l_partkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,4,4,DA-BD,9,9.2426,"l_linenumber,l_orderkey | l_orderkey,l_partkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,4,4,DA-BB,10,10.1544,"l_linenumber,l_orderkey | l_orderkey,l_partkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,5,5,DA-TD,7,7.6677,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,5,5,DA-TB,7,7.6670,"l_linenumber,l_orderkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,5,5,DA-BD,11,11.3424,"l_linenumber,l_orderkey | l_orderkey,l_partkey"
+lineitem,DeepSeek-R1-Distill-Llama-70B,16,5,5,DA-BB,12,12.4442,"l_linenumber,l_orderkey | l_orderkey,l_partkey"
+weather,DeepSeek-R1-Distill-Llama-70B,18,1,3,DA-TD,4,2.6283,"date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,1,3,DA-TB,4,2.6277,"date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,1,3,DA-BD,7,5.2208,"date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,1,3,DA-BB,7,5.2209,"date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,2,2,DA-TD,3,2.3237,"date,station_id"
+weather,DeepSeek-R1-Distill-Llama-70B,18,2,2,DA-TB,3,2.3240,"date,station_id"
+weather,DeepSeek-R1-Distill-Llama-70B,18,2,2,DA-BD,4,2.8129,"date,station_id"
+weather,DeepSeek-R1-Distill-Llama-70B,18,2,2,DA-BB,4,2.8126,"date,station_id"
+weather,DeepSeek-R1-Distill-Llama-70B,18,3,3,DA-TD,4,2.6286,"date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,3,3,DA-TB,4,2.6279,"date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,3,3,DA-BD,7,5.2227,"date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,3,3,DA-BB,7,5.2223,"date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,4,4,DA-TD,7,8.7648,"date,station_id,time | latitude,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,4,4,DA-TB,7,8.7652,"date,station_id,time | latitude,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,4,4,DA-BD,10,9.4660,"date,station_id,time | latitude,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,4,4,DA-BB,11,11.1899,"date,station_id,time | latitude,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,5,5,DA-TD,12,13.2146,"date,longitude,time | date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,5,5,DA-TB,11,12.0131,"date,longitude,time | date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,5,5,DA-BD,14,15.1909,"date,latitude,longitude,time | date,station_id,time"
+weather,DeepSeek-R1-Distill-Llama-70B,18,5,5,DA-BB,14,15.1905,"date,latitude,longitude,time | date,station_id,time"
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,1,2,DA-TD,4,3.0456,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,1,2,DA-TB,4,3.0457,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,1,2,DA-BD,3,2.1655,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,1,2,DA-BB,3,2.1652,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,2,2,DA-TD,4,3.0456,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,2,2,DA-TB,4,3.0455,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,2,2,DA-BD,3,2.1666,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,2,2,DA-BB,3,2.1661,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,3,3,DA-TD,7,5.1160,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,3,3,DA-TB,7,5.1161,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,3,3,DA-BD,5,3.6605,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,3,3,DA-BB,5,3.6613,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,4,4,DA-TD,9,8.3854,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,4,4,DA-TB,9,8.3872,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,4,4,DA-BD,6,4.7000,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,4,4,DA-BB,6,4.6999,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,5,5,DA-TD,11,8.9287,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,5,5,DA-TB,11,8.9280,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,5,5,DA-BD,7,6.4837,voter_id | voter_reg_num
+ncvoter,DeepSeek-R1-Distill-Llama-70B,19,5,5,DA-BB,7,6.4845,voter_id | voter_reg_num

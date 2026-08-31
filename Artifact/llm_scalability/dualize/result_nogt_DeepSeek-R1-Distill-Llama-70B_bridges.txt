@@ -1,0 +1,165 @@
+####################
+Schema Name: bridges | Top-k Prime: 1
+Predicted prime attrs: ['identif']
+Reduced schema after prime pruning: ['identif']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.7230
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.7230
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.7228
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.7229
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+####################
+Schema Name: bridges | Top-k Prime: 2
+Predicted prime attrs: ['identif', 'river']
+Reduced schema after prime pruning: ['identif', 'river']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.7607
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.7610
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.4542
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.4542
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+####################
+Schema Name: bridges | Top-k Prime: 3
+Predicted prime attrs: ['identif', 'location', 'river']
+Reduced schema after prime pruning: ['identif', 'river', 'location']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.4926
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.4925
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.4603
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.4605
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+####################
+Schema Name: bridges | Top-k Prime: 4
+Predicted prime attrs: ['identif', 'location', 'river', 'type']
+Reduced schema after prime pruning: ['identif', 'river', 'location', 'type']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 12, 9.6859
+Mined minimal keys: {Key(['location', 'river']), Key(['location', 'type']), Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 12, 9.6852
+Mined minimal keys: {Key(['location', 'river']), Key(['location', 'type']), Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 7, 5.5473
+Mined minimal keys: {Key(['location', 'river']), Key(['location', 'type']), Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 7, 5.5475
+Mined minimal keys: {Key(['location', 'river']), Key(['location', 'type']), Key(['identif'])}
+==========================
+
+####################
+Schema Name: bridges | Top-k Prime: 5
+Predicted prime attrs: ['identif', 'river', 'location', 'erected', 'type']
+Reduced schema after prime pruning: ['identif', 'river', 'location', 'erected', 'type']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 4.7358
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 4.7363
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 4.9347
+Mined minimal keys: {Key(['identif'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 4.9349
+Mined minimal keys: {Key(['identif'])}
+==========================
+

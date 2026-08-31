@@ -1,6 +1,6 @@
 """Bar chart of the probabilistic-answering experiment for all eight strategies.
 
-Same style as combined_bar_chart.py (grouped bars, logarithmic y axis, bold labels),
+Grouped bars on a logarithmic y axis with bold labels,
 laid out as two rows -- the level-wise family on top, the dualize-and-advance family
 below -- and one column per schema size. All panels share the y axis, so the height
 of a bar can be compared across the two families.
@@ -11,8 +11,10 @@ stay in the CSV; pass them on the command line to draw the wide version again:
 
     python prob_answering_all_strategies.py --sizes 11 13 15 [outfile.png]
 
-Input:  Exp Results New/syn_prob_answering_all_strategies.csv
-Output: paper figure  figures/probability exp/alg question/all-strategies,q.png
+Every number is read from the recorded sweep; nothing is stated in this file.
+
+Input:  ../Artifact/results/syn_prob_answering_all_strategies.csv
+Output: all-strategies,q.png next to that CSV, or the path given on the command line
 """
 import argparse
 import csv
@@ -23,10 +25,10 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
-SRC = os.path.join(ROOT, "Exp Results New", "syn_prob_answering_all_strategies.csv")
-DEFAULT_DST = os.path.join(
-    ROOT, "overleaf", "figures", "probability exp", "alg question", "all-strategies,q.png")
+RESULTS = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "..", "Artifact", "results")
+SRC = os.path.join(RESULTS, "syn_prob_answering_all_strategies.csv")
+DEFAULT_DST = os.path.join(RESULTS, "all-strategies,q.png")
 
 FAMILIES = [("LW", "level-wise"), ("DA", "dualize-and-advance")]
 SUFFIX = ["TD", "TB", "BD", "BB"]

@@ -1,0 +1,165 @@
+####################
+Schema Name: claims | Top-k Prime: 1
+Predicted prime attrs: ['claim_id']
+Reduced schema after prime pruning: ['claim_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.9457
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.9411
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.8858
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.8885
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Top-k Prime: 2
+Predicted prime attrs: ['claim_id', 'member_id']
+Reduced schema after prime pruning: ['claim_id', 'member_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 4.3652
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 4.3640
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.9701
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 2.9423
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Top-k Prime: 3
+Predicted prime attrs: ['claim_id', 'member_id', 'procedure_code']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'procedure_code']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 5.1494
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 5.0713
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 2.7182
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 2.7100
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Top-k Prime: 4
+Predicted prime attrs: ['claim_id', 'member_id', 'service_date', 'procedure_code']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'procedure_code', 'service_date']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.0601
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.0501
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 4.1171
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 4.1635
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+####################
+Schema Name: claims | Top-k Prime: 5
+Predicted prime attrs: ['claim_id', 'member_id', 'provider_id', 'service_date', 'procedure_code']
+Reduced schema after prime pruning: ['claim_id', 'member_id', 'provider_id', 'procedure_code', 'service_date']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 6.4105
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 6.3998
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 5.7328
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 5.7112
+Mined minimal keys: {Key(['claim_id'])}
+==========================
+

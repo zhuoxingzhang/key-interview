@@ -1,0 +1,64 @@
+####################
+Schema Name: combined_shutouts | Schema: ['year', 'month', 'date', 'tmID', 'oppID', 'R/P', 'IDgoalie1', 'IDgoalie2'] | Ground Truth Minimal Keys: [Key(['date', 'month', 'tmID', 'year']), Key(['date', 'month', 'oppID', 'year'])]
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B | mode: prime
+Ground truth prime attrs: ['date', 'month', 'oppID', 'tmID', 'year']
+Predicted prime attrs: ['year', 'month', 'date', 'tmID', 'oppID']
+Prime Attr F1, recall, precision: 1.0000, 1.0000, 1.0000
+Reduced schema after prime pruning: ['year', 'month', 'date', 'tmID', 'oppID']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 13.6820 minutes
+Mined minimal keys: {Key(['date', 'oppID', 'year']), Key(['date', 'tmID', 'year'])} | # Questions: 10
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 1.0000, 0.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 15.2237 minutes
+Mined minimal keys: {Key(['date', 'oppID', 'year']), Key(['date', 'tmID', 'year'])} | # Questions: 10
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 1.0000, 0.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 15.6268 minutes
+Mined minimal keys: {Key(['date', 'tmID', 'year']), Key(['date', 'oppID'])} | # Questions: 14
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 1.0000, 0.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 15.9551 minutes
+Mined minimal keys: {Key(['date', 'tmID', 'year']), Key(['date', 'oppID'])} | # Questions: 15
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 1.0000, 0.0000
+==========================
+
+
+===== Evaluation after Aggregation =====
+Total time cost: 60.4876 minutes
+Total questions: 49
+Mined minimal keys with frequency: {Key(['date', 'oppID', 'year']): 2, Key(['date', 'tmID', 'year']): 4, Key(['date', 'oppID']): 2}
+
+===== Metrics with Non-Minimal Keys after Aggregation =====
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 1.0000, 0.0000
+
+===== Metrics with Minimal Keys of Top-k Frequency after Aggregation =====
+Minimization of keys of freq >= 4, F1, recall, precision: 0.0000, 0.0000, 0.0000
+Minimization of keys of freq >= 4, Relaxed F1, recall, precision: 0.0000, 0.5000, 0.0000
+Minimization of keys of freq >= 2, F1, recall, precision: 0.0000, 0.0000, 0.0000
+Minimization of keys of freq >= 2, Relaxed F1, recall, precision: 0.0000, 1.0000, 0.0000
+========================================
+
+####################
+

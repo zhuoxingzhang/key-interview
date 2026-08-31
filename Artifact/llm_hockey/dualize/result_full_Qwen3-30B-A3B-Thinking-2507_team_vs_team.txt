@@ -1,0 +1,39 @@
+####################
+Schema Name: team_vs_team | Schema: ['year', 'tmID', 'oppID', 'lgID', 'W', 'L', 'T', 'OTL'] | Ground Truth Minimal Keys: [Key(['oppID', 'tmID', 'year'])]
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | mode: full
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 24.9085 minutes
+Mined minimal keys: {Key(['oppID', 'tmID', 'year'])} | # Questions: 9
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 25.8400 minutes
+Mined minimal keys: {Key(['oppID', 'tmID', 'year'])} | # Questions: 9
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 32.2628 minutes
+Mined minimal keys: {Key(['oppID', 'tmID', 'year'])} | # Questions: 22
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 33.0643 minutes
+Mined minimal keys: {Key(['oppID', 'tmID', 'year'])} | # Questions: 22
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+

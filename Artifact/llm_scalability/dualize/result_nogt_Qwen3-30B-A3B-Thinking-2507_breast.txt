@@ -1,0 +1,165 @@
+####################
+Schema Name: breast | Top-k Prime: 1
+Predicted prime attrs: ['sample_code_number']
+Reduced schema after prime pruning: ['sample_code_number']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 0.7892
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 0.7885
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 0.8270
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 0.8388
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+####################
+Schema Name: breast | Top-k Prime: 2
+Predicted prime attrs: ['sample_code_number', 'class']
+Reduced schema after prime pruning: ['sample_code_number', 'class']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.1929
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.1372
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.3189
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.2780
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+####################
+Schema Name: breast | Top-k Prime: 3
+Predicted prime attrs: ['sample_code_number', 'bare_nuclei', 'class']
+Reduced schema after prime pruning: ['sample_code_number', 'bare_nuclei', 'class']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 4.1681
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 4.1214
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.0837
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 3.0996
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+####################
+Schema Name: breast | Top-k Prime: 4
+Predicted prime attrs: ['sample_code_number', 'bare_nuclei', 'class', 'clump_thickness']
+Reduced schema after prime pruning: ['sample_code_number', 'clump_thickness', 'bare_nuclei', 'class']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.1093
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.0816
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 4.3698
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 4.3620
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+####################
+Schema Name: breast | Top-k Prime: 5
+Predicted prime attrs: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion']
+Reduced schema after prime pruning: ['sample_code_number', 'clump_thickness', 'uniformity_of_cell_size', 'uniformity_of_cell_shape', 'marginal_adhesion']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 7.7830
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 7.7920
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 5.5466
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 6, 5.5493
+Mined minimal keys: {Key(['sample_code_number'])}
+==========================
+

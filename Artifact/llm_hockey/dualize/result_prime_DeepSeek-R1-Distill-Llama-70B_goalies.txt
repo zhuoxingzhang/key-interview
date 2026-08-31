@@ -1,0 +1,62 @@
+####################
+Schema Name: goalies | Schema: ['playerID', 'year', 'stint', 'tmID', 'lgID', 'GP', 'Min', 'W', 'L', 'T/OL', 'ENG', 'SHO', 'GA', 'SA', 'PostGP', 'PostMin', 'PostW', 'PostL', 'PostT', 'PostENG', 'PostSHO', 'PostGA', 'PostSA'] | Ground Truth Minimal Keys: [Key(['playerID', 'stint', 'year'])]
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B | mode: prime
+Ground truth prime attrs: ['playerID', 'stint', 'year']
+Predicted prime attrs: ['playerID', 'year', 'stint', 'tmID']
+Prime Attr F1, recall, precision: 0.8571, 1.0000, 0.7500
+Reduced schema after prime pruning: ['playerID', 'year', 'stint', 'tmID']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 10.8961 minutes
+Mined minimal keys: {Key(['stint', 'tmID', 'year']), Key(['playerID', 'stint', 'year'])} | # Questions: 9
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 9.7511 minutes
+Mined minimal keys: {Key(['stint', 'tmID', 'year']), Key(['playerID', 'stint', 'year'])} | # Questions: 8
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 11.6560 minutes
+Mined minimal keys: {Key(['stint', 'tmID', 'year']), Key(['playerID', 'stint', 'year'])} | # Questions: 10
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 11.6493 minutes
+Mined minimal keys: {Key(['stint', 'tmID', 'year']), Key(['playerID', 'stint', 'year'])} | # Questions: 10
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+
+
+===== Evaluation after Aggregation =====
+Total time cost: 43.9525 minutes
+Total questions: 37
+Mined minimal keys with frequency: {Key(['stint', 'tmID', 'year']): 4, Key(['playerID', 'stint', 'year']): 4}
+
+===== Metrics with Non-Minimal Keys after Aggregation =====
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+
+===== Metrics with Minimal Keys of Top-k Frequency after Aggregation =====
+Minimization of keys of freq >= 4, F1, recall, precision: 0.6667, 1.0000, 0.5000
+Minimization of keys of freq >= 4, Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+========================================
+
+####################
+

@@ -1,0 +1,39 @@
+####################
+Schema Name: goalies_shootout | Schema: ['playerID', 'year', 'stint', 'tmID', 'W', 'L', 'SA', 'GA'] | Ground Truth Minimal Keys: [Key(['playerID', 'stint', 'year'])]
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B | mode: full
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 13.1856 minutes
+Mined minimal keys: {Key(['SA', 'playerID', 'stint', 'year'])} | # Questions: 10
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 0.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 13.1747 minutes
+Mined minimal keys: {Key(['SA', 'playerID', 'stint', 'year'])} | # Questions: 10
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 0.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 82.5059 minutes
+Mined minimal keys: {Key(['W', 'playerID', 'stint', 'tmID']), Key(['playerID', 'tmID', 'year']), Key(['L', 'SA', 'W', 'playerID', 'tmID']), Key(['SA', 'playerID', 'stint']), Key(['GA', 'L', 'W', 'playerID', 'stint']), Key(['playerID', 'stint', 'year']), Key(['L', 'W', 'playerID', 'year']), Key(['stint', 'tmID', 'year'])} | # Questions: 55
+F1, recall, precision: 0.2222, 1.0000, 0.1250
+Relaxed F1, recall, precision: 0.2222, 1.0000, 0.1250
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 79.5795 minutes
+Mined minimal keys: {Key(['playerID', 'tmID', 'year']), Key(['W', 'playerID', 'stint', 'tmID']), Key(['L', 'SA', 'W', 'playerID', 'tmID']), Key(['SA', 'playerID', 'stint']), Key(['GA', 'L', 'W', 'playerID', 'stint']), Key(['stint', 'year']), Key(['L', 'W', 'playerID', 'year'])} | # Questions: 54
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 1.0000, 0.0000
+==========================
+

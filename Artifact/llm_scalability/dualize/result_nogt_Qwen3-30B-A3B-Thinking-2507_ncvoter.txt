@@ -1,0 +1,165 @@
+####################
+Schema Name: ncvoter | Top-k Prime: 1
+Predicted prime attrs: ['voter_id']
+Reduced schema after prime pruning: ['voter_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.2743
+Mined minimal keys: {Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.2823
+Mined minimal keys: {Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.2738
+Mined minimal keys: {Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.2718
+Mined minimal keys: {Key(['voter_id'])}
+==========================
+
+####################
+Schema Name: ncvoter | Top-k Prime: 2
+Predicted prime attrs: ['voter_id', 'voter_reg_num']
+Reduced schema after prime pruning: ['voter_id', 'voter_reg_num']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 4.3648
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 4.4140
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.7374
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.6883
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+####################
+Schema Name: ncvoter | Top-k Prime: 3
+Predicted prime attrs: ['county_id', 'voter_id', 'voter_reg_num']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 8.8529
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 8.8813
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 5, 6.1351
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 5, 6.1484
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+####################
+Schema Name: ncvoter | Top-k Prime: 4
+Predicted prime attrs: ['voter_id', 'res_state', 'county_id', 'voter_reg_num']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num', 'res_state']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 9, 14.1320
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 9, 14.2235
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 6, 10.2347
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 6, 10.1776
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+####################
+Schema Name: ncvoter | Top-k Prime: 5
+Predicted prime attrs: ['voter_id', 'voter_reg_num', 'county_id', 'res_zip_code', 'mail_zip_code']
+Reduced schema after prime pruning: ['voter_id', 'county_id', 'voter_reg_num', 'res_zip_code', 'mail_zip_code']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 11, 14.7838
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 11, 14.9521
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 7, 8.1166
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 7, 8.0299
+Mined minimal keys: {Key(['voter_reg_num']), Key(['voter_id'])}
+==========================
+

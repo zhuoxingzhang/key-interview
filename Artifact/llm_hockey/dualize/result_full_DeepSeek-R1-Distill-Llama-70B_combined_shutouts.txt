@@ -1,0 +1,39 @@
+####################
+Schema Name: combined_shutouts | Schema: ['year', 'month', 'date', 'tmID', 'oppID', 'R/P', 'IDgoalie1', 'IDgoalie2'] | Ground Truth Minimal Keys: [Key(['date', 'month', 'tmID', 'year']), Key(['date', 'month', 'oppID', 'year'])]
+Using LLM Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B | mode: full
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 26.5257 minutes
+Mined minimal keys: {Key(['R/P', 'date', 'month', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'month', 'year']), Key(['date', 'month', 'oppID', 'year']), Key(['date', 'month', 'tmID', 'year'])} | # Questions: 18
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 28.6552 minutes
+Mined minimal keys: {Key(['R/P', 'date', 'month', 'year']), Key(['IDgoalie1', 'date', 'month', 'tmID', 'year']), Key(['IDgoalie1', 'date', 'month', 'oppID', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'month', 'year'])} | # Questions: 18
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 0.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 108.8595 minutes
+Mined minimal keys: {Key(['date', 'oppID', 'tmID', 'year']), Key(['IDgoalie2', 'R/P', 'date', 'month']), Key(['R/P', 'date', 'year']), Key(['IDgoalie2', 'date', 'tmID', 'year']), Key(['date', 'month', 'oppID', 'year']), Key(['IDgoalie1', 'R/P', 'date']), Key(['date', 'month', 'tmID']), Key(['IDgoalie1', 'IDgoalie2', 'month', 'tmID', 'year']), Key(['IDgoalie1', 'R/P', 'month', 'tmID', 'year']), Key(['IDgoalie1', 'month', 'oppID', 'tmID', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'month', 'oppID', 'tmID']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'month', 'year']), Key(['IDgoalie2', 'R/P', 'month', 'oppID', 'tmID', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'oppID', 'tmID'])} | # Questions: 73
+F1, recall, precision: 0.1250, 0.5000, 0.0714
+Relaxed F1, recall, precision: 0.1333, 1.0000, 0.0714
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 103.4633 minutes
+Mined minimal keys: {Key(['IDgoalie1', 'R/P', 'date', 'tmID']), Key(['R/P', 'date', 'year']), Key(['IDgoalie2', 'date', 'tmID']), Key(['date', 'month', 'tmID']), Key(['IDgoalie1', 'IDgoalie2', 'month', 'tmID', 'year']), Key(['IDgoalie1', 'R/P', 'month', 'tmID', 'year']), Key(['IDgoalie1', 'month', 'oppID', 'tmID', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'month', 'oppID', 'tmID']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'month', 'year']), Key(['IDgoalie2', 'R/P', 'month', 'oppID', 'tmID', 'year']), Key(['date', 'oppID'])} | # Questions: 73
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 1.0000, 0.0000
+==========================
+

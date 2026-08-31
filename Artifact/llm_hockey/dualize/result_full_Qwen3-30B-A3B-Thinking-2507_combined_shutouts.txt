@@ -1,0 +1,39 @@
+####################
+Schema Name: combined_shutouts | Schema: ['year', 'month', 'date', 'tmID', 'oppID', 'R/P', 'IDgoalie1', 'IDgoalie2'] | Ground Truth Minimal Keys: [Key(['date', 'month', 'tmID', 'year']), Key(['date', 'month', 'oppID', 'year'])]
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | mode: full
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 75.2528 minutes
+Mined minimal keys: {Key(['IDgoalie1', 'date', 'month', 'oppID', 'year']), Key(['IDgoalie1', 'R/P', 'date', 'month', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'month', 'year']), Key(['date', 'month', 'tmID', 'year']), Key(['IDgoalie2', 'R/P', 'date', 'month', 'oppID', 'year'])} | # Questions: 23
+F1, recall, precision: 0.2857, 0.5000, 0.2000
+Relaxed F1, recall, precision: 0.5455, 0.5000, 0.6000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 79.1568 minutes
+Mined minimal keys: {Key(['IDgoalie1', 'date', 'month', 'oppID', 'year']), Key(['IDgoalie1', 'R/P', 'date', 'month', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'month', 'year']), Key(['date', 'month', 'tmID', 'year']), Key(['IDgoalie2', 'R/P', 'date', 'month', 'oppID', 'year'])} | # Questions: 25
+F1, recall, precision: 0.2857, 0.5000, 0.2000
+Relaxed F1, recall, precision: 0.5455, 0.5000, 0.6000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 67.4363 minutes
+Mined minimal keys: {Key(['IDgoalie1', 'R/P', 'date', 'month', 'year']), Key(['date', 'month', 'tmID', 'year']), Key(['date', 'month', 'oppID', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'month', 'year'])} | # Questions: 32
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 79.3046 minutes
+Mined minimal keys: {Key(['IDgoalie1', 'R/P', 'date', 'month', 'year']), Key(['date', 'month', 'tmID', 'year']), Key(['date', 'month', 'oppID', 'year']), Key(['IDgoalie1', 'IDgoalie2', 'date', 'month', 'year'])} | # Questions: 39
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+

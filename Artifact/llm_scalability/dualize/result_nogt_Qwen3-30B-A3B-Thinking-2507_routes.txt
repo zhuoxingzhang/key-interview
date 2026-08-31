@@ -1,0 +1,165 @@
+####################
+Schema Name: routes | Top-k Prime: 1
+Predicted prime attrs: ['airline_id']
+Reduced schema after prime pruning: ['airline_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 2.2578
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 2.2350
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 3.9701
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 3.9619
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: routes | Top-k Prime: 2
+Predicted prime attrs: ['airline_id', 'source_airport_id']
+Reduced schema after prime pruning: ['airline_id', 'source_airport_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 1.8441
+Mined minimal keys: {Key(['airline_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 1.8365
+Mined minimal keys: {Key(['airline_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 2.7393
+Mined minimal keys: {Key(['airline_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 2.7082
+Mined minimal keys: {Key(['airline_id', 'source_airport_id'])}
+==========================
+
+####################
+Schema Name: routes | Top-k Prime: 3
+Predicted prime attrs: ['airline_id', 'source_airport_id', 'destination_airport_id']
+Reduced schema after prime pruning: ['airline_id', 'source_airport_id', 'destination_airport_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 1.9743
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 1.9898
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 4.3226
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 4.3176
+Mined minimal keys: {Key(['airline_id', 'destination_airport_id', 'source_airport_id'])}
+==========================
+
+####################
+Schema Name: routes | Top-k Prime: 4
+Predicted prime attrs: ['source_airport', 'destination_airport', 'airline', 'stops']
+Reduced schema after prime pruning: ['airline', 'source_airport', 'destination_airport', 'stops']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 3.7888
+Mined minimal keys: {Key(['airline', 'destination_airport', 'source_airport', 'stops'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 3.7610
+Mined minimal keys: {Key(['airline', 'destination_airport', 'source_airport', 'stops'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 8.9523
+Mined minimal keys: {Key(['airline', 'destination_airport', 'source_airport', 'stops'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 8.9310
+Mined minimal keys: {Key(['airline', 'destination_airport', 'source_airport', 'stops'])}
+==========================
+
+####################
+Schema Name: routes | Top-k Prime: 5
+Predicted prime attrs: ['source_airport_id', 'destination_airport_id', 'airline_id', 'source_airport', 'destination_airport']
+Reduced schema after prime pruning: ['airline_id', 'source_airport', 'source_airport_id', 'destination_airport', 'destination_airport_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 11, 21.2592
+Mined minimal keys: {Key(['airline_id', 'destination_airport', 'source_airport_id']), Key(['airline_id', 'destination_airport_id', 'source_airport_id']), Key(['airline_id', 'destination_airport', 'source_airport'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 12, 22.9849
+Mined minimal keys: {Key(['airline_id', 'destination_airport', 'source_airport_id']), Key(['airline_id', 'destination_airport_id', 'source_airport_id']), Key(['airline_id', 'destination_airport', 'source_airport'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 16, 26.1941
+Mined minimal keys: {Key(['airline_id', 'destination_airport', 'source_airport_id']), Key(['airline_id', 'destination_airport_id', 'source_airport_id']), Key(['airline_id', 'destination_airport', 'source_airport'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 20, 31.3552
+Mined minimal keys: {Key(['airline_id', 'destination_airport', 'source_airport_id']), Key(['airline_id', 'destination_airport_id', 'source_airport_id']), Key(['airline_id', 'destination_airport', 'source_airport'])}
+==========================
+

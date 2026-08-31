@@ -1,0 +1,39 @@
+####################
+Schema Name: goalies_shootout | Schema: ['playerID', 'year', 'stint', 'tmID', 'W', 'L', 'SA', 'GA'] | Ground Truth Minimal Keys: [Key(['playerID', 'stint', 'year'])]
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | mode: full
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 53.5658 minutes
+Mined minimal keys: {Key(['GA', 'L', 'W', 'stint', 'tmID', 'year']), Key(['playerID', 'stint', 'year'])} | # Questions: 18
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 57.9095 minutes
+Mined minimal keys: {Key(['GA', 'L', 'W', 'stint', 'tmID', 'year']), Key(['L', 'playerID', 'stint', 'year'])} | # Questions: 19
+F1, recall, precision: 0.0000, 0.0000, 0.0000
+Relaxed F1, recall, precision: 0.0000, 0.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 87.3149 minutes
+Mined minimal keys: {Key(['GA', 'L', 'stint', 'tmID', 'year']), Key(['playerID', 'stint', 'year'])} | # Questions: 31
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 87.1031 minutes
+Mined minimal keys: {Key(['GA', 'L', 'stint', 'tmID', 'year']), Key(['playerID', 'stint', 'year'])} | # Questions: 31
+F1, recall, precision: 0.6667, 1.0000, 0.5000
+Relaxed F1, recall, precision: 0.6667, 1.0000, 0.5000
+==========================
+

@@ -1,0 +1,165 @@
+####################
+Schema Name: echo | Top-k Prime: 1
+Predicted prime attrs: ['name']
+Reduced schema after prime pruning: ['name']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 0.9957
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 0.9811
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 2.3063
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 2.2850
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: echo | Top-k Prime: 2
+Predicted prime attrs: ['name', 'group']
+Reduced schema after prime pruning: ['name', 'group']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.5647
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 3.5678
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 4.5768
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 4.4693
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+####################
+Schema Name: echo | Top-k Prime: 3
+Predicted prime attrs: ['name', 'group', 'alive_at_1']
+Reduced schema after prime pruning: ['name', 'group', 'alive_at_1']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 8.8987
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 9.0129
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 6, 10.8206
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 6, 10.8248
+Mined minimal keys: {Key(['group', 'name'])}
+==========================
+
+####################
+Schema Name: echo | Top-k Prime: 4
+Predicted prime attrs: ['name', 'group', 'alive_at_1', 'still_alive']
+Reduced schema after prime pruning: ['still_alive', 'name', 'group', 'alive_at_1']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 8, 15.1584
+Mined minimal keys: {Key(['alive_at_1', 'group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 8, 15.2817
+Mined minimal keys: {Key(['alive_at_1', 'group', 'name'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 17.1034
+Mined minimal keys: {Key(['alive_at_1', 'group', 'name', 'still_alive'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 11, 17.1599
+Mined minimal keys: {Key(['alive_at_1', 'group', 'name', 'still_alive'])}
+==========================
+
+####################
+Schema Name: echo | Top-k Prime: 5
+Predicted prime attrs: ['name', 'group', 'age_at_heart_attack', 'survival', 'alive_at_1']
+Reduced schema after prime pruning: ['survival', 'age_at_heart_attack', 'name', 'group', 'alive_at_1']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 7, 11.7935
+Mined minimal keys: {Key(['age_at_heart_attack', 'group', 'name', 'survival']), Key(['age_at_heart_attack', 'alive_at_1', 'name', 'survival'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 7, 11.7873
+Mined minimal keys: {Key(['age_at_heart_attack', 'group', 'name', 'survival']), Key(['age_at_heart_attack', 'alive_at_1', 'name', 'survival'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 15, 25.0116
+Mined minimal keys: {Key(['age_at_heart_attack', 'group', 'name', 'survival']), Key(['age_at_heart_attack', 'alive_at_1', 'name', 'survival'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 18, 29.0950
+Mined minimal keys: {Key(['age_at_heart_attack', 'group', 'name', 'survival']), Key(['age_at_heart_attack', 'alive_at_1', 'name', 'survival'])}
+==========================
+

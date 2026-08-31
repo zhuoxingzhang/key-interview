@@ -1,0 +1,45 @@
+####################
+Schema Name: teams_half | Schema: ['year', 'tmID', 'half', 'lgID', 'rank', 'G', 'W', 'L', 'T', 'GF', 'GA'] | Ground Truth Minimal Keys: [Key(['half', 'tmID', 'year'])]
+Using LLM Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | mode: prime
+Ground truth prime attrs: ['half', 'tmID', 'year']
+Predicted prime attrs: ['year', 'tmID', 'half']
+Prime Attr F1, recall, precision: 1.0000, 1.0000, 1.0000
+Reduced schema after prime pruning: ['year', 'tmID', 'half']
+=============================
+
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs)
+Time cost: 7.3369 minutes
+Mined minimal keys: {Key(['half', 'tmID', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs)
+Time cost: 7.1738 minutes
+Mined minimal keys: {Key(['half', 'tmID', 'year'])} | # Questions: 4
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs)
+Time cost: 11.7748 minutes
+Mined minimal keys: {Key(['half', 'tmID', 'year'])} | # Questions: 7
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs)
+Time cost: 10.1309 minutes
+Mined minimal keys: {Key(['half', 'tmID', 'year'])} | # Questions: 7
+F1, recall, precision: 1.0000, 1.0000, 1.0000
+Relaxed F1, recall, precision: 1.0000, 1.0000, 1.0000
+==========================
+

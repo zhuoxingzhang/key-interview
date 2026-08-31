@@ -1,0 +1,17 @@
+schema,model,mode,T,P,prime_f1,prime_recall,prime_precision,strategy,exact_f1,exact_recall,exact_precision,relaxed_f1,relaxed_recall,relaxed_precision,questions,minutes,keys,members
+scoring_shootout,Qwen3-30B-A3B-Thinking-2507,prime,7,3,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,22,30.5580,"playerID,stint,year",4
+scoring_shootout,Qwen3-30B-A3B-Thinking-2507,prime,7,3,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"playerID,stint,year",4
+goalies_shootout,Qwen3-30B-A3B-Thinking-2507,prime,8,3,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,22,36.2645,"playerID,stint,year",4
+goalies_shootout,Qwen3-30B-A3B-Thinking-2507,prime,8,3,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"playerID,stint,year",4
+team_vs_team,Qwen3-30B-A3B-Thinking-2507,prime,8,4,0.8571,1.0000,0.7500,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,30,48.8204,"oppID,tmID,year",4
+team_vs_team,Qwen3-30B-A3B-Thinking-2507,prime,8,4,0.8571,1.0000,0.7500,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"oppID,tmID,year",4
+combined_shutouts,Qwen3-30B-A3B-Thinking-2507,prime,8,5,1.0000,1.0000,1.0000,Agg.,0.5000,0.5000,0.5000,0.6667,0.5000,1.0000,42,73.2362,"date,month,oppID,tmID,year | date,month,tmID,year",4
+combined_shutouts,Qwen3-30B-A3B-Thinking-2507,prime,8,5,1.0000,1.0000,1.0000,M2,0.6667,0.5000,1.0000,0.6667,0.5000,1.0000,,,"date,month,tmID,year",4
+teams_half,Qwen3-30B-A3B-Thinking-2507,prime,11,3,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,22,36.4164,"half,tmID,year",4
+teams_half,Qwen3-30B-A3B-Thinking-2507,prime,11,3,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"half,tmID,year",4
+teams_post,Qwen3-30B-A3B-Thinking-2507,prime,17,2,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,14,27.5747,"tmID,year",4
+teams_post,Qwen3-30B-A3B-Thinking-2507,prime,17,2,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"tmID,year",4
+goalies,Qwen3-30B-A3B-Thinking-2507,prime,23,3,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,22,35.0698,"playerID,stint,year",4
+goalies,Qwen3-30B-A3B-Thinking-2507,prime,23,3,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"playerID,stint,year",4
+team_splits,Qwen3-30B-A3B-Thinking-2507,prime,43,2,1.0000,1.0000,1.0000,Agg.,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,14,31.4128,"tmID,year",4
+team_splits,Qwen3-30B-A3B-Thinking-2507,prime,43,2,1.0000,1.0000,1.0000,M4,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,,,"tmID,year",4

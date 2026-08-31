@@ -1,0 +1,165 @@
+####################
+Schema Name: weather | Top-k Prime: 1
+Predicted prime attrs: ['station_id']
+Reduced schema after prime pruning: ['station_id']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 0.9138
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 1, 0.9100
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.8627
+Mined minimal keys: set()
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 1
+#Q, Time cost(min): 2, 1.9791
+Mined minimal keys: set()
+==========================
+
+####################
+Schema Name: weather | Top-k Prime: 2
+Predicted prime attrs: ['station_id', 'time']
+Reduced schema after prime pruning: ['station_id', 'time']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 5.5331
+Mined minimal keys: {Key(['station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 3, 5.5412
+Mined minimal keys: {Key(['station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 6.7714
+Mined minimal keys: {Key(['station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 2
+#Q, Time cost(min): 4, 6.8030
+Mined minimal keys: {Key(['station_id', 'time'])}
+==========================
+
+####################
+Schema Name: weather | Top-k Prime: 3
+Predicted prime attrs: ['station_id', 'date', 'time']
+Reduced schema after prime pruning: ['station_id', 'date', 'time']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 5.1169
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 4, 5.0557
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 9.6279
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 3
+#Q, Time cost(min): 7, 9.6156
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+####################
+Schema Name: weather | Top-k Prime: 4
+Predicted prime attrs: ['station_id', 'date', 'time', 'latitude']
+Reduced schema after prime pruning: ['station_id', 'date', 'time', 'latitude']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.0186
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 5, 5.0514
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 4
+#Q, Time cost(min): 10, 12.2522
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 4
+#Q, Time cost(min): 10, 12.2026
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+####################
+Schema Name: weather | Top-k Prime: 5
+Predicted prime attrs: ['station_id', 'date', 'time', 'latitude', 'longitude']
+Reduced schema after prime pruning: ['station_id', 'date', 'time', 'latitude', 'longitude']
+=============================
+
+======= Evaluation =======
+DA-TD (dualize, topdown, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 11, 18.8424
+Mined minimal keys: {Key(['date', 'station_id', 'time']), Key(['date', 'latitude', 'longitude', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-TB (dualize, topdown, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 11, 18.6743
+Mined minimal keys: {Key(['date', 'station_id', 'time']), Key(['date', 'latitude', 'longitude', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-BD (dualize, bottomup, dfs) | Top-k Prime: 5
+#Q, Time cost(min): 13, 17.2808
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
+
+======= Evaluation =======
+DA-BB (dualize, bottomup, bfs) | Top-k Prime: 5
+#Q, Time cost(min): 13, 17.2691
+Mined minimal keys: {Key(['date', 'station_id', 'time'])}
+==========================
+
