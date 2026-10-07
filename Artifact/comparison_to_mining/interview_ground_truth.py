@@ -214,97 +214,97 @@ TeamVsTeam & year, tmID, oppID & 1.00 & 1.00\\
 
     # ---- clean data ----
     TASKS_CERTAIN_CLEAN = [
-        ("certain-L0-D0", "mining-D0(exact)/certain-L0-D0.txt",
-         "ground_truth(interview_results)/certain-L0-D0_labeled.txt"),
-        ("certain-L1-D0", "mining-D0(exact)/certain-L1-D0.txt",
-         "ground_truth(interview_results)/certain-L1-D0_labeled.txt"),
-        ("certain-L5-D0", "mining-D0(exact)/certain-L5-D0.txt",
-         "ground_truth(interview_results)/certain-L5-D0_labeled.txt"),
-        ("certain-L9-D0", "mining-D0(exact)/certain-L9-D0.txt",
-         "ground_truth(interview_results)/certain-L9-D0_labeled.txt"),
+        ("certain-O0-clean", "dataviadotto_data/certain-O0.txt",
+         "results/certain-O0-clean_labeled.txt"),
+        ("certain-O1-clean", "dataviadotto_data/certain-O1.txt",
+         "results/certain-O1-clean_labeled.txt"),
+        ("certain-O5-clean", "dataviadotto_data/certain-O5.txt",
+         "results/certain-O5-clean_labeled.txt"),
+        ("certain-O9-clean", "dataviadotto_data/certain-O9.txt",
+         "results/certain-O9-clean_labeled.txt"),
     ]
 
     TASKS_POSSIBLE_CLEAN = [
-        ("possible-L0-D0", "mining-D0(exact)/possible-L0-D0.txt",
-         "ground_truth(interview_results)/possible-L0-D0_labeled.txt"),
-        ("possible-L1-D0", "mining-D0(exact)/possible-L1-DO.txt",
-         "ground_truth(interview_results)/possible-L1-D0_labeled.txt"),
-        ("possible-L5-D0", "mining-D0(exact)/possible-L5-D0.txt",
-         "ground_truth(interview_results)/possible-L5-D0_labeled.txt"),
-        ("possible-L9-D0", "mining-D0(exact)/possible-L9-D0.txt",
-         "ground_truth(interview_results)/possible-L9-D0_labeled.txt"),
+        ("possible-O0-clean", "dataviadotto_data/possible-O0.txt",
+         "results/possible-O0-clean_labeled.txt"),
+        ("possible-O1-clean", "dataviadotto_data/possible-O1.txt",
+         "results/possible-O1-clean_labeled.txt"),
+        ("possible-O5-clean", "dataviadotto_data/possible-O5.txt",
+         "results/possible-O5-clean_labeled.txt"),
+        ("possible-O9-clean", "dataviadotto_data/possible-O9.txt",
+         "results/possible-O9-clean_labeled.txt"),
     ]
     
 
     # ---- dirty = 1% ----
     TASKS_CERTAIN_DIRT_1 = [
-        ("certain-L0-D1", "mining-D1/certain-L0-D1.txt",
-         "ground_truth(interview_results)/certain-L0-D1_labeled.txt"),
-        ("certain-L1-D1", "mining-D1/certain-L1-D1.txt",
-         "ground_truth(interview_results)/certain-L1-D1_labeled.txt"),
-        ("certain-L5-D1", "mining-D1/certain-L5-D1.txt",
-         "ground_truth(interview_results)/certain-L5-D1_labeled.txt"),
-        ("certain-L9-D1", "mining-D1/certain-L9-D1.txt",
-         "ground_truth(interview_results)/certain-L9-D1_labeled.txt"),
+        ("certain-O0-1dirt", "dataviadotto_data_1/certain-O0-1%.txt",
+         "results/certain-O0-1dirt_labeled.txt"),
+        ("certain-O1-1dirt", "dataviadotto_data_1/certain-O1-1%.txt",
+         "results/certain-O1-1dirt_labeled.txt"),
+        ("certain-O5-1dirt", "dataviadotto_data_1/certain-O5-1%.txt",
+         "results/certain-O5-1dirt_labeled.txt"),
+        ("certain-O9-1dirt", "dataviadotto_data_1/certain-O9-1%.txt",
+         "results/certain-O9-1dirt_labeled.txt"),
     ]
 
     TASKS_POSSIBLE_DIRT_1 = [
-       ("possible-L0-D1", "mining-D1/possible-L0-D1.txt",
-         "ground_truth(interview_results)/possible-L0-D1_labeled.txt"),
-        ("possible-L1-D1", "mining-D1/possible-L1-D1.txt",
-         "ground_truth(interview_results)/possible-L1-D1_labeled.txt"),
-        ("possible-L5-D1", "mining-D1/possible-L5-D1.txt",
-         "ground_truth(interview_results)/possible-L5-D1_labeled.txt"),
-        ("possible-L9-D1", "mining-D1/possible-L9-D1.txt",
-         "ground_truth(interview_results)/possible-L9-D1_labeled.txt"),
+        ("possible-O0-1dirt", "dataviadotto_data_1/possible-O0-1%.txt",
+         "results/possible-O0-1dirt_labeled.txt"),
+        ("possible-O1-1dirt", "dataviadotto_data_1/possible-O1-1%.txt",
+         "results/possible-O1-1dirt_labeled.txt"),
+        ("possible-O5-1dirt", "dataviadotto_data_1/possible-O5-1%.txt",
+         "results/possible-O5-1dirt_labeled.txt"),
+        ("possible-O9-1dirt", "dataviadotto_data_1/possible-O9-1%.txt",
+         "results/possible-O9-1dirt_labeled.txt"),
     ]
     
     # ---- dirty = 5% ----
     
     TASKS_CERTAIN_DIRT_5 = [
-       ("certain-L0-D5", "mining-D5/certain-L0-D5.txt",
-         "ground_truth(interview_results)/certain-L0-D5_labeled.txt"),
-        ("certain-L1-D5", "mining-D5/certain-L1-D5.txt",
-         "ground_truth(interview_results)/certain-L1-D5_labeled.txt"),
-        ("certain-L5-D5", "mining-D5/certain-L5-D5.txt",
-         "ground_truth(interview_results)/certain-L5-D5_labeled.txt"),
-        ("certain-L9-D5", "mining-D1/certain-L9-D5.txt",
-         "ground_truth(interview_results)/certain-L9-D5_labeled.txt"),
+        ("certain-O0-5dirt", "dataviadotto_data_5/certain-O0-5%dirt.txt",
+         "results/certain-O0-5dirt_labeled.txt"),
+        ("certain-O1-5dirt", "dataviadotto_data_5/certain-O1-5%dirt.txt",
+         "results/certain-O1-5dirt_labeled.txt"),
+        ("certain-O5-5dirt", "dataviadotto_data_5/certain-O5-5%dirt.txt",
+         "results/certain-O5-5dirt_labeled.txt"),
+        ("certain-O9-5dirt", "dataviadotto_data_5/certain-O9-5%dirt.txt",
+         "results/certain-O9-5dirt_labeled.txt"),
     ]
 
     TASKS_POSSIBLE_DIRT_5 = [
-       ("possible-L0-D5", "mining-D5/possible-L0-D5.txt",
-         "ground_truth(interview_results)/possible-L0-D5_labeled.txt"),
-        ("possible-L1-D5", "mining-D5/possible-L1-D5.txt",
-         "ground_truth(interview_results)/possible-L1-D5_labeled.txt"),
-        ("possible-L5-D5", "mining-D5/possible-L5-D5.txt",
-         "ground_truth(interview_results)/possible-L5-D5_labeled.txt"),
-        ("possible-L9-D5", "mining-D5/possible-L9-D5.txt",
-         "ground_truth(interview_results)/possible-L9-D5_labeled.txt"),
+        ("possible-O0-5dirt", "dataviadotto_data_5/possible-O0-5%dirt.txt",
+         "results/possible-O0-5dirt_labeled.txt"),
+        ("possible-O1-5dirt", "dataviadotto_data_5/possible-O1-5%dirt.txt",
+         "results/possible-O1-5dirt_labeled.txt"),
+        ("possible-O5-5dirt", "dataviadotto_data_5/possible-O5-5%dirt.txt",
+         "results/possible-O5-5dirt_labeled.txt"),
+        ("possible-O9-5dirt", "dataviadotto_data_5/possible-O9-5%dirt.txt",
+         "results/possible-O9-5dirt_labeled.txt"),
     ]
     
     
     # ---- dirty = 10% ----
     TASKS_CERTAIN_DIRT_10 = [
-       ("certain-L0-D10", "mining-D10/certain-L0-D10.txt",
-         "ground_truth(interview_results)/certain-L0-D10_labeled.txt"),
-        ("certain-L1-D10", "mining-D10/certain-L1-D10.txt",
-         "ground_truth(interview_results)/certain-L1-D10_labeled.txt"),
-        ("certain-L5-D10", "mining-D10/certain-L5-D10.txt",
-         "ground_truth(interview_results)/certain-L5-D10_labeled.txt"),
-        ("certain-L9-D10", "mining-D10/certain-L9-D10.txt",
-         "ground_truth(interview_results)/certain-L9-D10_labeled.txt"),
+        ("certain-O0-10dirt", "dataviadotto_data_10/certain-O0-10%.txt",
+         "results/certain-O0-10dirt_labeled.txt"),
+        ("certain-O1-10dirt", "dataviadotto_data_10/certain-O1-10%.txt",
+         "results/certain-O1-10dirt_labeled.txt"),
+        ("certain-O5-10dirt", "dataviadotto_data_10/certain-O5-10%.txt",
+         "results/certain-O5-10dirt_labeled.txt"),
+        ("certain-O9-10dirt", "dataviadotto_data_10/certain-O9-10%.txt",
+         "results/certain-O9-10dirt_labeled.txt"),
     ]
 
     TASKS_POSSIBLE_DIRT_10 = [
-       ("possible-L0-D10", "mining-D10/possible-L0-D10.txt",
-         "ground_truth(interview_results)/possible-L0-D10_labeled.txt"),
-        ("possible-L1-D10", "mining-D10/possible-L1-D10.txt",
-         "ground_truth(interview_results)/possible-L1-D10_labeled.txt"),
-        ("possible-L5-D10", "mining-D10/possible-L5-D10.txt",
-         "ground_truth(interview_results)/possible-L5-D10_labeled.txt"),
-        ("possible-L9-D10", "mining-D10/possible-L9-D10.txt",
-         "ground_truth(interview_results)/possible-L9-D10_labeled.txt"),
+        ("possible-O0-10dirt", "dataviadotto_data_10/possible-O0-10%.txt",
+         "results/possible-O0-10dirt_labeled.txt"),
+        ("possible-O1-10dirt", "dataviadotto_data_10/possible-O1-10%.txt",
+         "results/possible-O1-10dirt_labeled.txt"),
+        ("possible-O5-10dirt", "dataviadotto_data_10/possible-O5-10%.txt",
+         "results/possible-O5-10dirt_labeled.txt"),
+        ("possible-O9-10dirt", "dataviadotto_data_10/possible-O9-10%.txt",
+         "results/possible-O9-10dirt_labeled.txt"),
     ]
     
 

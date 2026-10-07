@@ -212,8 +212,8 @@ TeamVsTeam & year, tmID, oppID & 1.00 & 1.00\\
     # Batch tasks (exactly matching your directory)
     # --------------------------------------------------------
     TASKS_PRIMARYKEY = [
-        ("primary key", "mining-D0(exact)/schema_primary_key.txt",
-         "ground_truth(interview_results)/schema_primary_key_labeled.txt")
+        ("primary key", "dataviadotto_data/schema_primary_key.txt",
+         "results/schema_primary_key_labeled.txt")
     ]
 
     TASKS = (
