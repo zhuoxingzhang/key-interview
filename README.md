@@ -1,8 +1,8 @@
 # Introduction
 
-This repository contains the artifacts, source code and experimental materials that supplement our work on **Computational Support towards a Human-Centered Methodology that Acquires Database Keys with Perfect Precision and Recall**.
+This repository contains the artifacts, source code and experimental materials that supplement our work on **Computational Support for a Human-Centered Methodology that Aims to Acquire Database Keys with Perfect Precision and Recall**.
 
-The interview generates Boolean questions of the form "is this column set a key?" and prunes the search space from the answers received, so that a team of domain experts identifies the set of meaningful minimal keys of a schema with perfect precision and recall. The sections below describe how each experiment of the paper can be reproduced.
+The interview generates Boolean questions of the form "is this column set a key?" and prunes the search space from the answers received, so that a team of domain experts identifies the set of meaningful minimal keys of a schema with perfect precision and recall. The sections below describe how each experiment of the paper can be reproduced. The extended version of the paper, which adds the proofs and further experiments in its appendices, is [`extended-version.pdf`](extended-version.pdf).
 
 # The Eight Strategies
 
@@ -44,9 +44,13 @@ Visit the [website](https://whole-peer-michelle-containing.trycloudflare.com/) t
 
 # How to Reproduce the Experiments
 
-## RQ1 — Distribution of Minimal Keys (Synthetic)
+The experiments follow the four research questions of the paper. Figure and table numbers refer to the paper; numbers of the appendices refer to the extended version.
 
-How well do our algorithms perform under different distributions of minimal keys? Every question is answered `No` independently with probability *p*, for *p* = 0, 0.1, ..., 1 and schema sizes |T| = 11, 13, 15.
+## RQ1 — Distributions of Minimal Keys
+
+How do the two families and their strategies perform under different distributions of minimal keys, and how many questions does the dualization-based family save on real-world data?
+
+**Synthetic distributions (Fig. 5).** Every question is answered `No` independently with probability *p*, for *p* = 0, 0.1, ..., 1.
 
 ```bash
 # one strategy per run; underscores stand for the spaces in the strategy string
@@ -54,11 +58,9 @@ java exp.SyntheticProbAnswering topdown_bfs out.csv 11 13 15
 java exp.SyntheticProbAnswering dualize_topdown_bfs out.csv 11 13 15
 ```
 
-The driver accepts all eight strategy strings and appends one row per strategy, schema size and *p*. The recorded sweep is `Artifact/results/syn_prob_answering_all_strategies.csv`; it covers |T| = 11, 13 and 15, of which the figure of the paper shows the two extremes.
+The driver accepts all eight strategy strings and appends one row per strategy, schema size and *p*. The recorded sweep is `Artifact/results/syn_prob_answering_all_strategies.csv`; it covers |T| = 11, 13 and 15, of which Fig. 5 shows the two extremes.
 
-## RQ2 — Level-wise versus Dualization-based Traversal (Real-World Distributions)
-
-On which distributions does each family win, and how much does the dualization-based family reduce the number of questions on real-world data sets? The minimal keys derived from FDs mined from twelve real-world data sets serve as the answering oracle, which makes it feasible to run all eight strategies to completion on schemata where an interview requires tens of thousands of questions.
+**Real-world distributions (Tab. 2).** The minimal keys derived from FDs mined from twelve real-world data sets serve as the answering oracle, which makes it feasible to run all eight strategies to completion on schemata where an interview requires tens of thousands of questions.
 
 ```bash
 # one strategy on one data set
@@ -71,36 +73,47 @@ java exp.RWMinedFDKeys
 - `Artifact/results/rw_mined_fd_5strategies_summary.csv` reports, per data set, the numbers of minimal keys and maximal anti-keys, both question bounds, and for every strategy the number of `No` answers (`_keyQ`), the total number of questions (`_totalQ`) and the computation time in milliseconds (`_ms`).
 - `Artifact/results/rw_mined_fd_5strategies_raw.csv` holds the per-run records behind that summary.
 
-## RQ3 — Comparison to Key Mining (Hockey Database)
+## RQ2 — Comparison to Key Mining (Tab. 3)
 
-How much do we improve precision and recall for minimal keys mined from real-world data sets? The comparison is against the state-of-the-art key mining tool *DataViadotto* and against the primary keys declared on the schema, using the ground truth established by key interviews on all 22 tables of the Hockey database. The folder `Artifact/comparison_to_mining` holds the two comparison scripts:
+How large is the gap between keys mined from data, or declared on a schema, and the meaningful keys? The comparison covers the state-of-the-art key mining tool *DataViadotto* and the primary keys declared on the schema, on all 22 tables of the Hockey database. The ground truth of meaningful keys is taken from a profiling study of the Hockey database by DataViadotto, in which every key was validated against the rules of ice hockey and against the documentation of the tables and their columns.
 
-1. **`interview_ground_truth.py`** — compares mining results against the ground truth (precision, recall, F1).
-2. **`interview_primary_keys.py`** — compares the declared primary keys against the ground truth (baseline).
+```bash
+cd Artifact/comparison_to_mining
+rm results/precision_recall_summary.csv   # the scripts append to it
+python interview_ground_truth.py          # mined keys against the ground truth
+python interview_primary_keys.py          # declared primary keys against the ground truth
+```
 
-The ground truth is carried inside both scripts as the gold standard each of them parses: the meaningful minimal keys that the key interviews established on the Hockey tables, with the support of each key.
+The folder `Artifact/comparison_to_mining` contains:
 
-**The mining outputs themselves are not part of this repository.** They are produced by running *DataViadotto* over the Hockey database, once for exact possible and certain keys and once per dirtiness level, and each script reads them from the paths its `TASKS` list names — `mining-D0(exact)/` for the exact run and `mining-D1/`, `mining-D5/` and `mining-D10/` for the approximate ones. Until those files are placed there, this experiment is the one experiment of the paper that cannot be re-run from this repository alone; no other experiment depends on them.
+- **`dataviadotto_data/`** — the keys mined exactly, and `schema_primary_key.txt`, the primary keys declared on the schema.
+- **`dataviadotto_data_1/`, `dataviadotto_data_5/`, `dataviadotto_data_10/`** — the keys mined approximately, with up to 1, 5 and 10% dirtiness.
+- **`interview_ground_truth.py`, `interview_primary_keys.py`** — carry the ground truth as their gold standard, label every mined key as a true or false positive and every missed key as a false negative, and compute precision, recall and F1.
+- **`results/`** — what the two scripts write: one labeled key list per run and `precision_recall_summary.csv` with one row per run.
 
-## RQ4 — LLMs as Domain Experts: Quality and Efficiency (Hockey Database)
+The mining outputs are the files DataViadotto wrote, one mined key per line, as `Hockey.<table>[<columns>]`. There is one file per semantics for null markers (`possible`, `certain`) and level of orthogonality (`O0`, `O1`, `O5`, `O9`, the levels L0 to L9 of Tab. 3), and the runs in the summary are named accordingly, from `possible-O0-clean` for exact mining to `certain-O9-10dirt`. Every cell of Tab. 3 is a row of the summary, and the averages in the text are means over its rows; for example, the F1 of 0.513 for exact mining of possible keys with orthogonality is the mean of `possible-O1-clean`, `possible-O5-clean` and `possible-O9-clean`.
 
-How well do LLMs perform as domain experts in our interview process? Two settings are assessed on the Hockey tables for which the ground truth is available:
+## RQ3 — Human Interviewees of Different Expertise (Tabs. 4 and 5)
 
-- **Direct LLM interviews**: the LLM answers questions generated over the original table schema.
-- **Prime filtering**: the LLM first predicts the set of prime attributes, that is, the attributes that occur in some meaningful minimal key, and the interview is restricted to that reduced schema, which shrinks the search space from 2^|T| to 2^|P|.
+How much of that gap do human interviewees of different job expertise and experience close with our interviews, individually and as a team? Ten participants in three groups, domain experts, data practitioners and non-specialists, acquired the minimal keys of nine Hockey tables under all eight strategies, using the online interview tool of this repository. The interviews ran on the prime attributes of each table as defined by the ground truth; on the four tables with fewer than 11 columns, every strategy was also run on the full schema with a budget of half an hour of participant time.
+
+Participants took part voluntarily and gave informed consent. They were told in advance what the tool records, that they could stop at any point and decline any individual question, and that their records would be reported only in aggregated and pseudonymized form. **In keeping with that undertaking, this repository publishes no per-participant records.** The aggregated results are Tabs. 4 and 5 of the paper.
+
+## RQ4 — Focusing on Prime Attributes (Tab. 6)
+
+How much does focusing interviews on prime attributes, the attributes that occur in some meaningful minimal key, reduce the effort of an interview, and what does it do to quality? Two LLMs, DS and Qwen, predict the prime attributes of a table and then act as interviewees on the reduced schema, which shrinks the search space from 2^|T| to 2^|P|.
+
+**Hockey tables with ground truth (Tab. 6).** The same script runs the interviews on the full schema and on the predicted prime attributes:
 
 ```bash
 # --strategies takes any subset of LW-TD LW-TB LW-BD LW-BB DA-TD DA-TB DA-BD DA-BB
 python "LLM Oracle Python Script/Interview_with_LLM_Oracle.py" \
     --model deepseek-ai/DeepSeek-R1-Distill-Llama-70B --mode prime \
     --strategies DA-TD DA-TB DA-BD DA-BB --outdir results_da
+# --mode full interviews on the full schema
 ```
 
-The folder `Artifact/llm_hockey` contains the LLM interview outputs for this experiment. `Artifact/llm_hockey/dualize/` holds the runs of the dualization-based family: one CSV row per table and strategy, the aggregates derived from those rows by `aggregate_da.py`, the predicted prime attributes as JSON, and the raw model transcript of every run.
-
-## RQ5 — Scalability with Prime Filtering (Real-World Data Sets without Ground Truth)
-
-How well does the restriction to prime attributes scale our interview process to real-world data sets? For each data set and model the experiment reports the number of generated questions and the runtime for **all prime-attribute budgets |P| = 1, ..., 5**, and every reported entry is the average over those five budgets. Since no ground truth is available for these tables, precision and recall are not reported.
+**Large schemata without ground truth.** On the twelve real-world data sets of Tab. 2, the interview runs on the predicted prime attributes for every budget |P| = 1, ..., 5. Since no ground truth is available, the experiment reports the number of questions and the runtime only.
 
 ```bash
 python "LLM Oracle Python Script/Interview_with_LLM_Oracle_No_GT.py" \
@@ -108,34 +121,35 @@ python "LLM Oracle Python Script/Interview_with_LLM_Oracle_No_GT.py" \
     --strategies DA-TD DA-TB DA-BD DA-BB --outdir results_da
 ```
 
-The folder `Artifact/llm_scalability` contains the raw LLM interview outputs for all data sets, all budgets and all strategies, across both models. `Artifact/llm_scalability/dualize/` holds the runs of the dualization-based family, with one CSV row per data set, budget and strategy, the predicted prime attributes of every budget as JSON, and the raw model transcript of every run.
+**Human interviewees.** The prime-filtered and full-schema columns of Tab. 4 come from the study of RQ3.
 
-## RQ6 — Human Interviewees of Varying Expertise
+The folders `Artifact/llm_hockey` and `Artifact/llm_scalability` contain the LLM interview outputs of the two settings, across both models and all strategies; the runs of the dualization-based family are under `dualize/`, with one CSV row per table (or data set and budget) and strategy, the predicted prime attributes as JSON, and the raw model transcript of every run.
 
-How much of the acquired quality comes from the expertise of a human interviewee, and how much from the interview itself? Ten participants at three levels of domain expertise answered nine Hockey tables under all eight strategies, using the online interview tool of this repository, together with a direct-naming ablation that replaces the traversal by the single open question "name the minimal keys of this table".
+## Extended Version — LLMs as Domain Experts (App. B.2)
 
-Participants took part voluntarily and gave informed consent. They were told in advance what the tool records, that they could stop at any point and decline any individual question, and that their records would be reported only in aggregated and pseudonymised form. **In keeping with that undertaking, this repository publishes no per-participant records.** The aggregated results are the two human-study tables of the paper.
+The extended version reports the LLM interviews in full: Tab. 7 on the full schemata of the Hockey tables, Tab. 8 with prime filtering on the Hockey tables, and Tab. 9 on the twelve data sets without ground truth, for both models and both families. These tables are read from the same outputs as RQ4. Their aggregates (`Agg.` and M*k*) are recomputed by `LLM Oracle Python Script/aggregate_da.py` from the recorded per-strategy rows.
 
 # Where the Reported Numbers Come From
 
-Every number in the paper is read out of a file written by a program, and both the file and the program are in this repository. Two experiments are the exception, and each says so in its own section: the human study of RQ6, whose per-participant records are withheld for the reason given above, and RQ3, whose mining outputs are produced by a third-party tool and are not included here.
+Every number in the paper is read out of a file written by a program, and both the file and the program are in this repository. The one exception is the human study of RQ3, whose per-participant records are withheld for the reason given in its section.
 
 - The **Java drivers** in `src/exp/` run the interview and append one CSV row per run to `Artifact/results/`. A driver either takes the strategy as a command-line argument or iterates over the strategies itself, so in both cases the columns of a table come from one code path, run once per strategy.
 - The **LLM scripts** in `LLM Oracle Python Script/` load the model with `transformers` and obtain each answer from `model.generate`; decoding is greedy (`do_sample=False`), so a run is reproducible given the same model and schema. The scripts write one CSV row per table and strategy and, alongside it, the raw transcript of the run, which records the schema, the predicted prime attributes, and the questions, timings and scores of each strategy. The aggregates (`Agg.` and M*k*) are not accumulated during a run; `aggregate_da.py` recomputes them from the recorded per-strategy rows, so they can be checked against those rows.
-- The **comparison scripts** in `Artifact/comparison_to_mining/` compute precision, recall and F1 by set arithmetic over the mining output files and the interview ground truth, which each script carries as its gold standard. The mining outputs they read are the ones RQ3 names as not included.
+- The **comparison scripts** in `Artifact/comparison_to_mining/` compute precision, recall and F1 by set arithmetic over the mining outputs in the same folder and the ground truth, which each script carries as its gold standard.
 
-No script states a result as a literal. Anything that looks like a measurement in this repository is either a CSV written by a run, a raw transcript of a run, or an input to a run, such as the mined FDs and the interview ground truth.
+No script states a result as a literal. Anything that looks like a measurement in this repository is either a CSV written by a run, a raw transcript of a run, or an input to a run, such as the mined FDs, the mined keys and the ground truth of meaningful keys.
 
 # Repository Layout
 
 | Path | Contents |
 | ---- | -------- |
+| `extended-version.pdf` | the extended version of the paper, with the proofs and the additional experiments of its appendices |
 | `src/entity/` | schema, key and FD data types |
 | `src/exp/` | the experiment drivers; `Interview.java` holds the interview loop and the candidate generation of both families |
 | `LLM Oracle Python Script/` | the LLM-oracle interview scripts, mirroring the Java strategies |
 | `Artifact/results/` | the experiment result CSV files |
-| `Artifact/fd/` | FDs mined from the twelve real-world data sets, used as the answering oracle of RQ2 |
-| `Artifact/comparison_to_mining/` | the two comparison scripts of RQ3, each carrying the interview ground truth; the mining outputs they read are not included |
-| `Artifact/llm_hockey/`, `Artifact/llm_scalability/` | the LLM interview outputs of RQ4 and RQ5, the dualization-based family under `dualize/` |
+| `Artifact/fd/` | FDs mined from the twelve real-world data sets, used as the answering oracle of RQ1 |
+| `Artifact/comparison_to_mining/` | the keys mined by DataViadotto, the two comparison scripts of RQ2 with the ground truth, and the results they write |
+| `Artifact/llm_hockey/`, `Artifact/llm_scalability/` | the LLM interview outputs of RQ4 and of App. B.2, the dualization-based family under `dualize/` |
 | `Artifact/Dataset.zip` | the data sets |
 | `Artifact/keyinterviewtool-0.0.1-SNAPSHOT.jar` | the interview tool, implementing all eight strategies |
