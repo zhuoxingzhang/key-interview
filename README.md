@@ -2,7 +2,7 @@
 
 This repository contains the artifacts, source code and experimental materials that supplement our work on **Computational Support for a Human-Centered Methodology that Aims to Acquire Database Keys with Perfect Precision and Recall**.
 
-The interview generates Boolean questions of the form "is this column set a key?" and prunes the search space from the answers received, so that a team of domain experts identifies the set of meaningful minimal keys of a schema with perfect precision and recall. The sections below describe how each experiment of the paper can be reproduced. The extended version of the paper, which adds the proofs and further experiments in its appendices, is [`extended-version.pdf`](extended-version.pdf).
+The interview generates Boolean questions of the form "is this column set a key?" and prunes the search space from the answers received, so that a team of domain experts identifies the set of meaningful minimal keys of a schema with perfect precision and recall. The sections below describe how each experiment of the paper can be reproduced.
 
 # The Eight Strategies
 
@@ -44,7 +44,7 @@ Visit the [website](https://whole-peer-michelle-containing.trycloudflare.com/) t
 
 # How to Reproduce the Experiments
 
-The experiments follow the four research questions of the paper. Figure and table numbers refer to the paper; numbers of the appendices refer to the extended version.
+The experiments follow the four research questions of the paper. Figure, table and appendix numbers refer to the paper.
 
 ## RQ1 — Distributions of Minimal Keys
 
@@ -125,9 +125,9 @@ python "LLM Oracle Python Script/Interview_with_LLM_Oracle_No_GT.py" \
 
 The folders `Artifact/llm_hockey` and `Artifact/llm_scalability` contain the LLM interview outputs of the two settings, across both models and all strategies; the runs of the dualization-based family are under `dualize/`, with one CSV row per table (or data set and budget) and strategy, the predicted prime attributes as JSON, and the raw model transcript of every run.
 
-## Extended Version — LLMs as Domain Experts (App. B.2)
+## Appendix — LLMs as Domain Experts (App. B.2)
 
-The extended version reports the LLM interviews in full: Tab. 7 on the full schemata of the Hockey tables, Tab. 8 with prime filtering on the Hockey tables, and Tab. 9 on the twelve data sets without ground truth, for both models and both families. These tables are read from the same outputs as RQ4. Their aggregates (`Agg.` and M*k*) are recomputed by `LLM Oracle Python Script/aggregate_da.py` from the recorded per-strategy rows.
+The appendix of the paper reports the LLM interviews in full: Tab. 7 on the full schemata of the Hockey tables, Tab. 8 with prime filtering on the Hockey tables, and Tab. 9 on the twelve data sets without ground truth, for both models and both families. These tables are read from the same outputs as RQ4. Their aggregates (`Agg.` and M*k*) are recomputed by `LLM Oracle Python Script/aggregate_da.py` from the recorded per-strategy rows.
 
 # Where the Reported Numbers Come From
 
@@ -143,7 +143,6 @@ No script states a result as a literal. Anything that looks like a measurement i
 
 | Path | Contents |
 | ---- | -------- |
-| `extended-version.pdf` | the extended version of the paper, with the proofs and the additional experiments of its appendices |
 | `src/entity/` | schema, key and FD data types |
 | `src/exp/` | the experiment drivers; `Interview.java` holds the interview loop and the candidate generation of both families |
 | `LLM Oracle Python Script/` | the LLM-oracle interview scripts, mirroring the Java strategies |
