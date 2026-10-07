@@ -30,7 +30,7 @@ The source code uses the strings `"topdown bfs"`, `"topdown dfs"`, `"bottomup bf
 
 # Online Demo
 
-Visit the [website](https://key-interview-demo.onrender.com/) to interview for keys online! The start page asks for a family, a starting point and a direction, and runs the interview under the resulting strategy. The demo runs on a free hosting plan: if it has been idle for a while, the first page load can take up to a minute while the server wakes up. If the link is not accessible, please report an issue.
+Visit the [website](https://key-interview-demo.onrender.com/) to interview for keys online! The start page asks for a family, a starting point and a direction, and runs the interview under the resulting strategy. The demo runs on a free hosting plan: if it has been idle for a while, the first page load can take up to a minute while the server wakes up. Since the cost of the level-wise family grows exponentially with the number of attributes, the online demo runs it on schemas of at most 12 attributes; the dualize-and-advance family has no such limit. If the link is not accessible, please report an issue.
 
 # Deploy the Demo on Your PC
 
@@ -41,6 +41,8 @@ Visit the [website](https://key-interview-demo.onrender.com/) to interview for k
    java -jar keyinterviewtool-0.0.1-SNAPSHOT.jar
    ```
 4. Visit `http://localhost:8080` to start the interview on your PC.
+
+The jar keeps the 12-attribute limit of the level-wise family; start it with `java -jar keyinterviewtool-0.0.1-SNAPSHOT.jar --interview.levelwise.max-attributes=0` to lift the limit.
 
 Alternatively, build and run the container that serves the online demo:
 ```bash
